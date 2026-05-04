@@ -1,192 +1,199 @@
-# HAFH Intake Content — Work in Progress
+# Kingdom Canine Intake Content
 
-> Source: Embark Location Website Intake Form — Home Away From Home
+> Source: Brian Remo's pricing doc (emailed May 2026) + current kingdomcanine.com site content
 
 ---
 
 ## 1. Basic Location Information
 
-- **Facility Name:** Home Away From Home
-- **Address:** 5390 51st Ave S Suite A, Fargo, ND 58104
-- **Phone:** 701-532-1618
-- **Email:** contactus@hafhfacility.com
-- **Year Established:** 2017
-- **Service Area:** Proudly serving pet families in Fargo, Moorhead, West Fargo, Dilworth, and surrounding communities throughout the Fargo–Moorhead area.
+- **Facility Name:** Kingdom Canine
+- **Address:** 2549 Hogan Rd, Pacific, MO 63069
+- **Phone:** (314) 631-6738
+- **Email:** TBD — confirm M365 mailboxes under Peter's GoDaddy account
+- **Service Area:** St. Louis area and Franklin County, MO
+- **Play Areas:** 11,000 sqft turfed outdoor yards, 4,200 sqft indoor play space
+- **Water system:** 15 indoor water fountains with fresh flowing water (drain system skims surface)
 
 ---
 
-## 2. Homepage Hero Section
+## 2. Hours of Operation
 
-**Headline:** You can take your pet anywhere. But not everywhere feels like home.
-
-**Description:** At Home Away From Home, we treat your pets like family. Our full-service facility offers dog daycare, overnight boarding, grooming, and cat lodging with spacious play areas and caring staff who ensure every pet receives plenty of attention, exercise, and love while you're away.
+- **Monday–Friday:** 6:00 AM – 11:00 AM & 1:00 PM – 7:00 PM
+- **Saturday–Sunday:** 11:00 AM – 4:00 PM
 
 ---
 
-## 3. Services Overview
+## 3. Homepage Content (from current site)
 
-### Dog Daycare
+**Tagline:** "fido can play while you're away"
+**Headline:** Boarding, daycare, and grooming!
+**Brand line:** "Enjoy your vacay while your dog has a staycay"
 
-Our daycare program is designed to give dogs the perfect balance of fun, exercise, and socialization in a safe, supervised setting. With multiple indoor and outdoor play areas, dogs enjoy structured group play, plenty of activity, and the companionship of other friendly pups throughout the day.
+**Stats to display:**
+- 11,000 sqft of Turfed Play Yards
+- 4,200 sqft of Safe Indoor Play Space
+- Customer Portal for Reservations
+- Transport Services Available
 
-**Facility Highlights:**
-- 4 indoor play areas for all-weather play
-- 3 outdoor yards for fresh air and exercise
-- Carefully supervised play groups
+---
 
-### Dog Boarding
+## 4. Services & Pricing
 
-When your dog stays overnight at Home Away From Home, they spend the day enjoying supervised play and exercise before settling in for a comfortable night of rest. Our kennel runs are clean, secure, and equipped with Kuranda beds to ensure every guest has a cozy place to relax. Owners are welcome to bring bedding from home for extra comfort.
+### Daycare
 
-**Items to Bring:**
-- Collar and leash
-- Pre-portioned meals
-- Medications with instructions
-- Optional bedding or favorite blanket
+**Description (from current site):**
+Similar to "Pack Mentality" Boarding — dogs decide who they like, who they play with, and who they stay with. Groups based on size, energy, temperament, and friendships.
 
-### Cat Boarding
+**New pricing (from Brian's doc):**
 
-Cats stay in a separate quiet room away from dogs with condos and rotating playtime.
+| Service | Price |
+|---------|-------|
+| Full Day | $36 |
+| Half Day | $24 |
 
-**Owners should bring:**
-- Food portioned in bags
-- Carrier
-- Medications
-- Specialty litter if needed
+**Packages:**
+
+| Package | Price | Per-visit | Expires |
+|---------|-------|-----------|---------|
+| 10-Day | $325 | $32.50 (Save 10%) | 2 months |
+| 20-Day | $615 | $30.75 (Save 15%) | 4 months |
+| 30-Day | $865 | $28.83 (Save 20%) | 6 months |
+
+**Old pricing (for reference — DO NOT USE):**
+- Full day: $30 (1 dog), $25 (2+ dogs)
+- Half day: $15 (1 dog), $13.50 (2+ dogs)
+- No packages
+
+---
+
+### Boarding
+
+**Description (from current site — "Pack Mentality" Boarding):**
+Group boarding, cage-free and all-inclusive. During the day, everyone participates in daycare at no additional charge. Dogs run and play in groups or relax — their choice. At night, animals share rooms with friends based on size, energy, and temperament. Crates available on limited basis for dogs who prefer them.
+
+**Detailed narrative (preserve this — it's strong brand copy):**
+"When you think about a typical boarding facility, you probably imagine crates, cages, and runs. Or perhaps dogs sitting isolated and either cowering in a corner, or barking their heads off for some attention. How can you enjoy your vacation while your loved one is miserable? Well, we have the solution for you."
+
+**New pricing (from Brian's doc):**
+
+| Room Type | Price | Notes |
+|-----------|-------|-------|
+| Standard Room | $64/night | — |
+| VIP Luxury Suite | $150/night | 1–4 dogs, all-inclusive |
+| Additional Dog | $55/dog/night | — |
+
+**VIP Luxury Suite** is a new tier — needs a real visual moment on the boarding page. This is an upsell product, not just another line item.
+
+**Included with all boarding:**
+- Daycare participation
+- Meal administration
+- Medicine administration
+
+**Old pricing (for reference — DO NOT USE):**
+- 1 dog: $58.50/night
+- 2+ dogs: $51/dog/night
+
+---
 
 ### Grooming
 
-Home Away From Home offers professional grooming including bath services and full cuts. Your dog can enjoy a full day of play and go home fresh, clean, and looking their best.
+**Current site approach:** Four named packages ("Just a Bath," "The Works," "The Neaten," "The Whole Thing") with no visible pricing — "Contact us for pricing."
 
-**Grooming Manager:** Sheryl Wagner
+**Decision: REPLACE entirely** with Brian's new pricing matrix. The new structure is cleaner and transparent.
 
-**Credentials:**
-- NDSU Veterinary Technology graduate
-- Certified canine esthetician
-- National Dog Groomers Association member
-- AKC Salon SAFE certified
-- Pet CPR / First Aid certified
+**New pricing (from Brian's doc):**
 
----
+#### Bath (by size × hair length)
 
-## 4. Pricing Information
+Includes two premium shampoos (show quality results) and high quality conditioner (soft coat, healthy skin).
 
-### Dog Daycare
+| Size | Short Hair | Long Hair |
+|------|-----------|-----------|
+| Small (under 25 lbs) | starts at $39 | starts at $55 |
+| Medium (26–40 lbs) | starts at $49 | starts at $65 |
+| Large (41–80 lbs) | starts at $59 | starts at $75 |
+| X-Large (81+ lbs) | starts at $69 | starts at $85 |
 
-#### Single Visits
-- Half Day Daycare: $29
-- Full Day Daycare: $39
+#### Full Groom
 
-#### New Dog Starter Pack (First-Time Guests Only)
-A perfect introduction to daycare for new guests.
-- 5 Full Days — $175 ($35/visit) — Valid for 30 days
-- 5 Half Days — $130 ($26/visit) — Valid for 30 days
+| Size | Starting Price |
+|------|---------------|
+| Small | $89 |
+| Medium | $99 |
+| Large | $109 |
+| X-Large | $129 |
+| Doodles / Specialty Cuts | +$10 |
 
-#### Daycare Packages (Regular guests)
+Add Teeth Cleaning to any Groom for just $10.
 
-**Most Popular:**
-- 10 Full Days — $330 ($33/visit) — Valid for 90 days
-- 10 Half Days — $245 ($24.50/visit) — Valid for 90 days
-- Perfect for dogs who attend about once per week.
+#### À la carte services
 
-**Best Value:**
-- 20 Full Days — $620 ($31/visit) — Valid for 6 months
-- 20 Half Days — $460 ($23/visit) — Valid for 6 months
-- Most of our regular daycare guests attend 1–2 days per week.
-
-**Premium Value:**
-- 30 Full Days — $870 ($29/visit) — Valid for 9 months
-- 30 Half Days — $645 ($21.50/visit) — Valid for 9 months
-- Best for frequent daycare guests.
-
-**Package Policies:**
-- Packages activate on first use
-- Packages are non-refundable and non-transferable
-- Expired visits cannot be extended or reactivated
-
-### Dog Boarding
-- Regular Run (5×5): $69
-- Small Run (3×5): $59
-- VIP Run (4×6 private outdoor run): $79
-- Additional Dog: $29
-- Bank Kennel: $49 (manager approval)
-
-### Cat Services
-- Feline Daycare: $35
-- Feline Boarding (first cat): $44
-- Feline Boarding (additional cat): $22
-- Small animal boarding: Call for price and availability
-
-### Grooming Pricing
-
-#### Full Grooming
-- Small dogs: starting at $85
-- Medium dogs: starting at $105
-- Large dogs: starting at $135
-- Extra-large dogs: starting at $165
-- Final pricing determined by coat density, coat condition, and grooming time.
-
-#### Exit Bath
-- Small: $45
-- Medium: $55
-- Large: $65
-- X-Large: $85
-
-**Includes:** nail trim, ear cleaning, shampoo, conditioner, hand dry, brush out, bandana and cologne
-
-#### Daycare + Grooming Note
-Many guests schedule grooming during their daycare visit so they can play, relax, and go home fresh and clean at pickup.
+| Service | Price |
+|---------|-------|
+| Ear Cleaning | $8 |
+| Gland Expression | $12 |
+| Nail Trim and Grind | $18 |
+| Pad Trim | $10 |
+| Teeth Brushing | $15 |
 
 ---
 
-## 5. Hours of Operation
+### Transportation
 
-### Drop-Off / Pickup
-- **Monday–Friday:** 7:00 AM – 7:00 PM
-- **Saturday & Sunday:** 7:30–9:30 AM, 11:30 AM–1:30 PM, 4:30–6:30 PM
-- **Boarding pickup after 1:30 PM:** +$25 fee
+**Description (from current site):**
+Shuttle service to/from select parts of St. Louis and Franklin County. For clients who aren't home, arriving late, or prefer not to drive.
 
-### Holiday Closures
-Closed for:
-- New Year's Day
-- Easter
-- Memorial Day
-- Independence Day
-- Labor Day
-- Thanksgiving
-- Christmas
+**New pricing (from Brian's doc):**
+
+| Service | Price |
+|---------|-------|
+| Single trip (per pet, per direction) | $16 |
+| 5-trip package | $75 |
+| 10-trip package | $140 |
+
+**Old pricing:** $15/pet/direction, packages listed as "Contact us"
 
 ---
 
-## 6. Booking System
+## 5. Booking / Get Started Flow
 
-- **Platform:** Gingr Pet Parent App
-- **Invite Code:** 393992
-- **Functions:** Reservations, invoices, vet records upload, waivers and agreements
+**Current platform:** Gingr Pet Parent App
+**Portal URL:** https://kingdomcanine.portal.gingrapp.com/
+**Registration:** https://kingdomcanine.portal.gingrapp.com/#/public/new_customer
 
----
+**Current 3-step flow (from HighLevel site):**
+1. **Create Account** — Register in client portal
+2. **Schedule Your Trial Day** — Most services require a trial day to ensure compatibility
+3. **Start Requesting Services** — Once pet passes trial day, begin scheduling
 
-## 7. Testimonials (all five-star)
-
-1. "The best daycare in the valley."
-2. "My pup absolutely LOVES the staff at Home Away from Home, and she is the type that is a bit slow to warm up to strangers."
-3. "It is the only place we feel comfortable leaving our 2 dogs for a couple days when out of town."
-4. "The facility is cleaner than any other daycare/boarding place that I have ever been to."
-5. "Words can't describe how much I love Home Away From Home and their entire staff."
-6. "Our vet recommended Home Away From Home and we are SO happy that they did. We will not go anywhere else."
+**New site approach:** Custom form (details TBD during design pass). Maintain the 3-step concept but own the UX rather than embedding HighLevel funnel.
 
 ---
 
-## 8. Frequently Asked Questions
+## 6. POS Transition Note
 
-**What are your vaccination requirements?**
-Rabies, Distemper, Bordetella (Dogs), Feline Leukemia-negative (Cats)
+Kingdom Canine is currently on **Gingr** and transitioning to **Goose POS**. Go-live date for KC is TBD.
 
-**What should we bring for boarding?**
-Food from home, Medications, Select toys
+**Build strategy:** Launch with Gingr URLs. Store all POS-related URLs in a single Sanity `settings` document field so the Goose swap is one content update, not a code change. Pattern already established on other Embark sites.
 
-**What is the temperament testing process?**
-This is an opportunity for our staff to get to know your pet and for your pet to get to know us and the facility where we identify your pet's preferences and play styles.
+---
 
-**When are tours available?**
-Tours are available anytime! Call us or just stop in!
+## 7. Content Still Needed
+
+- [ ] **Photos from Brian** — promised but not received
+- [ ] **Logo source file** — current logo hosted on HighLevel CDN; need high-res or vector version
+- [ ] **Testimonials / reviews** — none provided yet
+- [ ] **Team info / staff bios** — none provided
+- [ ] **FAQ content** — vaccination requirements, what to bring, trial day process
+- [ ] **Facility email address** — confirm M365 mailbox(es)
+- [ ] **Goose POS go-live date** — determines whether we launch with Gingr or Goose URLs
+- [ ] **Cancellation / late pickup policy** — not mentioned in Brian's doc
+- [ ] **Holiday closure schedule** — not provided
+
+---
+
+## 8. Brian's Launch Coordination Note
+
+> "These are new prices, so I need a 24hr notice before live so I can log into the POS and update them."
+
+All pricing must match POS exactly on launch day. Give Brian 24 hours heads-up before DNS cutover.

@@ -1,10 +1,10 @@
-# Home Away From Home — Fargo
+# Kingdom Canine
 
-Website for Home Away From Home, a pet daycare, boarding, and grooming facility in Fargo, ND. Part of the [Embark Pet Services](https://www.embarkpetservices.com/) portfolio operated by Cadence Private Capital.
+Website for Kingdom Canine, a pet daycare, boarding, grooming, and transportation facility in Pacific, MO. Part of the [Embark Pet Services](https://www.embarkpetservices.com/) portfolio operated by Cadence Private Capital.
 
-**Live domain:** https://homeawayfargo.com/
-**Legacy site (being replaced):** https://hafhfacility.com/
-**Sister site (design reference):** https://houndaroundresort.com/
+**Live domain:** https://kingdomcanine.com/
+**Current site (being replaced):** HighLevel / GoHighLevel platform
+**Sister sites (design reference):** https://homeawayfargo.com/ · https://houndaroundresort.com/ · https://www.boxersbedandbiscuits.com/
 
 ## Context Files
 
@@ -16,6 +16,7 @@ Read the following to get the full context of the project:
 - @context/sanity-schema.md
 - @context/current-milestone.md
 - @context/milestones.md
+- @context/intake-content.md
 
 ## Commands
 

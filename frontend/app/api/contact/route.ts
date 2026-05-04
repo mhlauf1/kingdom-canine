@@ -52,7 +52,7 @@ export async function POST(request: Request) {
     const senderEmail = (body.email as string) || undefined
 
     await transporter.sendMail({
-      from: `"Home Away From Home Website" <${fromEmail}>`,
+      from: `"Kingdom Canine Website" <${fromEmail}>`,
       to: toEmail,
       replyTo: senderEmail,
       subject: `New Contact Form Submission from ${senderName}`,
@@ -60,7 +60,7 @@ export async function POST(request: Request) {
         <h2>New Contact Form Submission</h2>
         ${lines}
         <hr />
-        <p style="color: #888; font-size: 12px;">Sent from the Home Away From Home website contact form.</p>
+        <p style="color: #888; font-size: 12px;">Sent from the Kingdom Canine website contact form.</p>
       `,
     })
 

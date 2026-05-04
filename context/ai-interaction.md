@@ -61,18 +61,16 @@ This repo was cloned from the Hound Around Resort codebase (`mhlauf1/hound-3`) w
 - Rename files/components without a clear reason — the Hound Around naming conventions are the standard
 - Modify the Sanity schema structure unless the content genuinely requires it
 
-### When you find Hound Around content
-- Replace it with the HAFH equivalent from @context/project-overview.md
-- If HAFH content doesn't exist yet for that field, use a clear placeholder: `[PLACEHOLDER: About page story]`
-- Never leave a Hound Around reference as a placeholder — always swap to either real HAFH content or an explicit `[PLACEHOLDER]` marker
+### When you find HAFH or Hound Around content
+- Replace it with the Kingdom Canine equivalent from @context/project-overview.md or @context/intake-content.md
+- If KC content doesn't exist yet for that field, use a clear placeholder: `[PLACEHOLDER: description]`
+- Never leave an HAFH or Hound Around reference as a placeholder — always swap to either real KC content or an explicit `[PLACEHOLDER]` marker
 
 ## Theme System Rules
 
+- KC uses a single color palette — no multi-theme system, no theme toggle, no `data-theme` switching
 - Every color and font reference in a component must use a semantic CSS custom property token
-- Never use raw hex values (e.g., `bg-[#8B2D1E]`) — use the token (e.g., `bg-primary`)
-- When creating a new component, verify it looks correct in all three themes before considering it done
-- The theme toggle widget is dev-only — it must not appear in production builds
-- Test theme switching doesn't cause layout shifts or flash of unstyled content
+- Never use raw hex values (e.g., `bg-[#8B2D1E]`) — use the token (e.g., `bg-cream`, `bg-forest`)
 
 ## Sanity Content Rules
 

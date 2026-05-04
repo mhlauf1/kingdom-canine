@@ -95,7 +95,7 @@ export async function generateMetadata(): Promise<Metadata> {
     query: settingsQuery,
     stega: false,
   })
-  const title = settings?.title || 'Home Away From Home'
+  const title = settings?.title || 'Kingdom Canine'
   const description = settings?.description
 
   const ogImage = resolveOpenGraphImage(settings?.ogImage)

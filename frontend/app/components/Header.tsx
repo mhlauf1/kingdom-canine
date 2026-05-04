@@ -161,7 +161,7 @@ export default function Header({navItems, ctaButton, logo}: HeaderProps) {
             {logo?.asset?._ref ? (
               <Image
                 id={logo.asset._ref}
-                alt="Home Away From Home"
+                alt="Kingdom Canine"
                 width={150}
                 className="w-[120px] lg:w-[150px] h-auto"
               />

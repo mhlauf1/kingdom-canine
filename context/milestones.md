@@ -2,197 +2,147 @@
 
 ## Overview
 
-The HAFH website is built in milestones, not features. Each milestone represents a meaningful, deployable chunk of work. The site should be viewable on Vercel after every milestone.
+The Kingdom Canine website is built in milestones, not features. Each milestone represents a meaningful, deployable chunk of work. The site should be viewable on Vercel after every milestone.
+
+KC is the simplest site in the Embark portfolio. Brian confirmed this. The milestone plan reflects that — fewer milestones, tighter scope.
 
 ---
 
-## Milestone 1: Foundation & Theme System
+## Milestone 1: Foundation & Cleanup
 
-**Status:** Complete (2026-03-24)
-**Branch:** `feature/foundation` (merged to main)
+**Status:** In Progress
+**Branch:** `feature/foundation`
 
 ### Goals
-- Strip all Hound Around-specific content, images, and references from the cloned codebase
+- Strip all Home Away From Home-specific content, images, and references from the cloned codebase
+- Remove HAFH-specific features not needed for KC:
+  - Three-theme system — N/A, did not exist in clone (HAFH already had single palette)
+  - Theme toggle widget — N/A, did not exist in clone
+  - Cat services page and related schemas/components
+  - Webcams page and related schemas/components
+  - About page (not in scope unless Brian sends content)
 - Set up new Sanity project/dataset and connect it
-- Implement the three-theme CSS custom property system (Hearthstone, Prairie Modern, Farmstead Blue)
-- Load all three font pairings via Google Fonts
-- Build the dev-only floating theme toggle widget
-- Swap the logo to HAFH logo
-- Update all meta tags, site title, favicon, OG images for HAFH
-- Update `.env` / `.env.example` with HAFH-specific values
-- Verify clean Vercel deployment with theme switching working
+- Establish KC color palette and typography (single theme, no toggle)
+- Swap logo to KC logo (pending source file from Brian)
+- Update all meta tags, site title, favicon, OG images for KC
+- Update `.env` / `.env.example` with KC-specific values
+- Verify clean Vercel deployment
+
+### Completed so far
+- All HAFH text references replaced with "Kingdom Canine" (16 edits across 12 files)
+- HAFH phone number replaced with KC phone (314-631-6738) in pricing calculators
+- Webcam system fully removed (3 schema files, 3 components, 1 API route, plus references in BlockRenderer, queries, page/service schemas)
+- Cat pricing data removed from `pricingData.ts`
+- Root `package.json` name fixed from "hound-3" to "kingdom-canine"
+- `frontend/.env.local` created with Sanity env vars
+- TypeScript compiles clean; zero HAFH references in source files
+
+### Remaining
+- Logo swap (blocked — waiting on Brian)
+- Sanity project connection (need new project ID or decision to keep `ldmtl3r7`)
+- `SANITY_API_READ_TOKEN` needed for full build
+- Vercel deployment setup and verification
+- Schema deploy to cloud
 
 ### Definition of Done
-- Site deploys to Vercel with no Hound Around references anywhere
-- Theme toggle switches between all three themes with smooth transitions
+- Site deploys to Vercel with no HAFH or Hound Around references anywhere
 - All pages render without errors (content can be placeholder)
-- `?theme=hearthstone` URL param works for shareable links
+- Unused HAFH features removed (theme system, cats, webcams)
+- Single KC design direction applied
 
 ---
 
 ## Milestone 2: Sanity Schema & Content Seeding
 
-**Status:** Complete (2026-03-24)
-**Branch:** `content/sanity-seed` (merged to main)
+**Status:** Not Started
+**Branch:** `content/sanity-seed`
 
 ### Goals
-- Copy Sanity schemas from Hound Around
-- Add new schema types if needed (cat services, grooming team bios)
-- Seed all "have now" content into Sanity:
-  - Facility info (name, address, phone, email, hours, holidays)
-  - All pricing data (daycare packages, boarding runs, cat services, grooming, exit baths)
-  - Service descriptions (daycare, boarding, grooming, cat boarding)
-  - FAQs (4 provided)
-  - Testimonials (6 provided)
-  - Booking info (Gingr app, invite code)
-  - Grooming manager credentials (Sheryl Wagner)
-- Upload available photos to Sanity media library
+- Review Sanity schemas — trim unused types (cat services, webcams)
+- Add transportation service schema if needed
+- Seed all available content into Sanity:
+  - Facility info (name, address, phone, hours)
+  - All pricing data from Brian's doc (daycare, boarding, grooming, transportation)
+  - Service descriptions (from current site + Brian's doc)
+  - Booking info (Gingr portal URLs — stored in settings for easy Goose swap)
 - Verify all GROQ queries return correct data
 
 ### Definition of Done
 - Sanity Studio loads with all seeded content
 - All content renders on the site through GROQ queries
 - No hardcoded content in components — everything from Sanity
+- POS URLs in settings doc (single point of update for Gingr → Goose)
 
 ---
 
 ## Milestone 3: Core Pages — Homepage & Services
 
-**Status:** Complete (2026-03-25)
-**Branch:** `feature/core-pages` (merged to main)
+**Status:** Not Started
+**Branch:** `feature/core-pages`
 
 ### Goals
-- Homepage: hero, services overview, stats counter, photo scroll, testimonials, CTA
-- Daycare page: hero, features grid, pricing calculator, FAQ accordion, CTA
-- Boarding page: hero, features grid, packing list, pricing calculator, FAQ accordion, CTA
-- Grooming page: hero, service menu, pricing calculator, grooming team bio section, CTA
-- All pages use theme tokens and look correct in all three themes
-- Responsive across desktop, tablet, mobile
+- Homepage: hero, services overview, stats counter, CTA
+- Daycare page: hero, features, pricing (single visits + packages), CTA
+- Boarding page: hero, "Pack Mentality" narrative, pricing (Standard + VIP Luxury Suite), CTA
+- Grooming page: hero, pricing matrix (bath × size × hair length, full groom, à la carte), CTA
+- Transportation page: hero, description, pricing (single + packages), CTA
+- All pages responsive across desktop, tablet, mobile
+
+### Key design moments
+- **VIP Luxury Suite** needs its own visual treatment on the boarding page — premium tier, not just another row
+- **Grooming pricing matrix** replaces the old narrative packages with transparent pricing
+- **Transportation** is unique to KC — simple page but needs to feel like part of the system
 
 ### Definition of Done
-- All four pages fully built and populated with Sanity content
-- Pricing calculators functional
-- FAQ accordions functional
-- Looks correct in all three themes
+- All five pages fully built and populated with Sanity content
+- Pricing displays are accurate against Brian's doc
 - Mobile responsive
+- No placeholder content in service pages
 
 ---
 
-## Milestone 4: Supporting Pages
+## Milestone 4: Supporting Pages & New Client Flow
 
-**Status:** Complete (2026-03-25)
-**Branch:** `feature/supporting-pages` (merged to main)
+**Status:** Not Started
+**Branch:** `feature/supporting-pages`
 
 ### Goals
-- Pricing page: comprehensive pricing tables/cards for all services
-- Gallery page: photo grid with lightbox
-- Contact page: contact form, map embed, hours, Gingr booking link
-- About page: scaffolded with placeholder blocks (waiting on facility content)
-- New Clients page: scaffolded with Gingr integration and placeholder blocks
-- Webcams page: scaffolded (conditional on facility response)
+- Pricing page: comprehensive pricing overview for all services (daycare, boarding, grooming, transportation)
+- Contact page: contact form, map embed, hours, POS booking link
+- New Clients page: custom Get Started form/flow (replaces HighLevel 3-step funnel)
+- Gallery page: photo grid (scaffolded — photos pending from Brian)
 
 ### Definition of Done
 - All supporting pages built
-- Contact form functional (sends email or stores submission)
-- Gallery lightbox works
-- Placeholder sections clearly marked for future content
-- All three themes look correct
+- Contact form functional
+- New client flow designed and built
+- Gallery scaffolded with placeholder state
+- Testimonials section ready (scaffolded — content pending)
 
 ---
 
-## Milestone 5: Cat Services & Remaining Content
-
-**Status:** Not Started
-**Branch:** `feature/cat-services`
-
-### Goals
-- Implement cat services based on facility team's decision (own page or sections)
-- Add any additional content received from facility team
-- Fill in About page content when received
-- Fill in New Clients process when received
-- Add webcams page if confirmed
-- Add daily schedule timelines to service pages when received
-
-### Definition of Done
-- Cat services properly integrated
-- All received content populated
-- No remaining `[PLACEHOLDER]` markers for content we've received
-
----
-
-## Milestone 6: Polish & Launch Prep
+## Milestone 5: Polish & Launch Prep
 
 **Status:** Not Started
 **Branch:** `feature/polish`
 
 ### Goals
-- Final theme selection with stakeholders (strip unused themes for production)
 - SEO optimization (meta tags, structured data, sitemap.xml, robots.txt)
 - Performance audit (Lighthouse 90+ all categories)
 - Accessibility audit (WCAG AA compliance)
 - Cross-browser testing
 - Custom 404 page
-- Sticker/badge illustrations placed throughout site
-- Final content review with stakeholder approval
-- DNS cutover plan from hafhfacility.com to homeawayfargo.com
+- Final content review — audit all pricing against Brian's doc
+- Populate any content received from Brian (photos, testimonials, FAQs)
+- DNS cutover plan:
+  - Update A record + www CNAME in Cloudflare to point to Vercel
+  - Remove Mailgun SPF include
+  - Preserve Facebook domain verification + MS verification TXT records
+- 24-hour notice to Brian for POS price update coordination
 
 ### Definition of Done
-- Single selected theme active in production
 - Lighthouse 90+ across all categories
-- All content approved by stakeholders
-- DNS ready for cutover
-- Dev theme toggle removed from production build
-
----
-
-## Completed Milestones
-
-### Client Corrections — Round 2 (2026-04-20)
-Branch: `fix/client-corrections-round-2`
-- Boarding additional-dog rate $29 → $39 (code + both Sanity pricing tables)
-- Homepage About: replaced "Closed major holidays." with 365-day/limited-lobby-hours copy
-- Uploaded new HAFH logo asset and wired into `settings.logo`
-- `/services/boarding` "View Pricing" CTA repointed from `/pricing` (daycare default) to `/pricing#boarding`
-- Boarding pricing tab intro → "Boarding That Feels Like Home — Transparent Pricing, Exceptional Care"
-- Grooming service page hero → "Your Best Friend deserves a Spa Day"
-- Grooming pricing tab intro → "Professional Grooming by Certified Experts" (moved from grooming service page)
-- Cats service page: removed hero "View Pricing" CTA and inline Cat Care Pricing section
-- Pricing page: stripped 3 feline rows from pricingList, renamed block to "Small Animal Pricing"
-- Nav: "Services" → "Services and Pricing"; removed top-level "Pricing" and footer Information-column Pricing link
-- 6 Sanity docs published, build clean, HTML QA across 5 routes
-
-### Milestone 4: Supporting Pages (2026-03-25)
-- Pricing page: heroMinimal + pricingPageTabs (daycare table, boarding matrix, grooming matrix, all with calculators) + pricingList (cat/small animal pricing) + ctaBanner
-- Gallery page: heroMinimal + galleryPage (scaffolded, no images yet) + ctaBanner
-- Contact page: contactForm (5 fields: name, email, phone, service select, message) + contact info + map embed + 3 next steps
-- About page: heroMinimal + splitContent (placeholder for founder story) + statsBar + valuePillars (4 values) + ctaBanner
-- New Clients page: heroMinimal + processSteps (4 Gingr onboarding steps) + requirementsList (4 vaccinations) + faqAccordion (4 FAQs) + ctaBanner
-- Webcams page: heroMinimal + webcamGrid (scaffolded, no webcam docs) + ctaBanner
-- All content seeded via Sanity MCP tools and published
-- No code changes needed — build passes clean
-
-### Milestone 3: Core Pages — Homepage & Services (2026-03-25)
-- Populated homepage pageBuilder: hero, service cards (4), stats bar, testimonials (6), CTA banner
-- Populated daycare page: hero, feature cards (4), pricing calculator, FAQ accordion (3), CTA banner
-- Populated boarding page: hero, feature cards (4), requirements list (4), pricing calculator, FAQ accordion (3), CTA banner
-- Populated grooming page: hero, feature cards (4), team grid (Sheryl Wagner), pricing calculator, CTA banner
-- Populated cat services page: hero, feature cards (4), requirements list (4), CTA banner
-- All content seeded via Sanity MCP tools and published
-- Build passes, all pages render with content across all three themes
-
-### Milestone 2: Sanity Schema & Content Seeding (2026-03-24)
-- Schema reviewed — no changes needed from Hound Around
-- Fixed 3 hardcoded Hound Around phone numbers (651-788-9797 → 701-532-1618)
-- Rewrote pricing calculator data + UI for HAFH pricing model
-- Seeded all Sanity content (settings, 6 testimonials, 4 services, 7 pages)
-- Deployed schema to cloud, published all documents
-
-### Milestone 1: Foundation & Theme System (2026-03-24)
-- Stripped all Hound Around references (17 replacements across 12 files)
-- Connected HAFH Sanity project (`dafhmkyq`) with frontend and studio env files
-- Built three-theme CSS custom property system (Hearthstone, Prairie Modern, Farmstead Blue)
-- Loaded all font pairs: Lora/Nunito, Plus Jakarta Sans, Playfair Display/Inter
-- Built dev-only ThemeToggle widget with `?theme=` URL param and localStorage
-- Removed redundant Tailwind v3 JS config
-- Deleted Hound Around docs, design images, and pricing CSVs
-- Build passes, all pages render, theme switching works
+- All content approved
+- DNS cutover plan documented
+- Brian notified 24 hours before go-live
+- POS prices match site prices exactly on launch day

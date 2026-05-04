@@ -1,7 +1,6 @@
 import {page} from './documents/page'
 import {service} from './documents/service'
 import {testimonial} from './documents/testimonial'
-import {webcam} from './documents/webcam'
 import {callToAction} from './objects/callToAction'
 import {infoSection} from './objects/infoSection'
 import {hero} from './objects/hero'
@@ -9,7 +8,6 @@ import {imageRow} from './objects/imageRow'
 import {featureCards} from './objects/featureCards'
 import {serviceTabs} from './objects/serviceTabs'
 import {statsBar} from './objects/statsBar'
-import {webcamPreview} from './objects/webcamPreview'
 import {testimonials} from './objects/testimonials'
 import {ctaBanner} from './objects/ctaBanner'
 import {splitContent} from './objects/splitContent'
@@ -39,7 +37,6 @@ import {featureGrid} from './objects/featureGrid'
 import {pricingCalculator} from './objects/pricingCalculator'
 import {whatsIncluded} from './objects/whatsIncluded'
 import {requirementsList} from './objects/requirementsList'
-import {webcamGrid} from './objects/webcamGrid'
 import {galleryCarousel} from './objects/galleryCarousel'
 import {galleryShowcase} from './objects/galleryShowcase'
 import {galleryPage} from './objects/galleryPage'
@@ -60,7 +57,6 @@ export const schemaTypes = [
   page,
   service,
   testimonial,
-  webcam,
   // Objects
   seo,
   button,
@@ -75,7 +71,6 @@ export const schemaTypes = [
   featureCards,
   serviceTabs,
   statsBar,
-  webcamPreview,
   testimonials,
   ctaBanner,
   splitContent,
@@ -105,7 +100,6 @@ export const schemaTypes = [
   pricingCalculator,
   whatsIncluded,
   requirementsList,
-  webcamGrid,
   galleryCarousel,
   galleryShowcase,
   galleryPage,
