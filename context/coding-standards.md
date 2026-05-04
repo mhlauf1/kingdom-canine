@@ -44,76 +44,73 @@
 
 ### Theme token system
 
-All three design themes (Hearthstone, Prairie Modern, Farmstead Blue) are defined as CSS custom property sets. Components use semantic token names, never raw hex values.
+KC uses a single color palette defined as CSS custom properties in `globals.css`. Components use semantic token names mapped via the Tailwind `@theme` block — never raw hex values.
 
 ```css
 @import 'tailwindcss';
 
+:root {
+  --theme-cream: #FFF6F6;
+  --theme-forest: #2C687B;
+  --theme-terracotta: #DB1A1A;
+  --theme-sage: #8CC7C4;
+  --theme-charcoal: #1E4A5A;
+  /* ... etc */
+  --theme-font-heading: var(--font-bricolage, 'Bricolage Grotesque', ...);
+  --theme-font-body: var(--font-geist, 'Geist', ...);
+}
+
 @theme {
-  --color-primary: var(--theme-primary);
-  --color-accent: var(--theme-accent);
-  --color-surface: var(--theme-surface);
-  --color-surface-alt: var(--theme-surface-alt);
-  --color-text: var(--theme-text);
-  --color-text-muted: var(--theme-text-muted);
-  --font-heading: var(--theme-font-heading);
-  --font-body: var(--theme-font-body);
+  --color-cream: var(--theme-cream);
+  --color-forest: var(--theme-forest);
+  --color-terracotta: var(--theme-terracotta);
+  /* ... mapped tokens */
 }
 ```
 
 - **Never use hardcoded color values** in components — always reference semantic tokens
-- Theme switching is handled by swapping a `data-theme` attribute on `<html>` which activates the corresponding CSS custom property set
+- No multi-theme system — KC has a single design direction (no theme toggle, no `data-theme` switching)
 
 ## File Organization
 
 ```
-src/
-├── app/                          # Next.js app router pages
-│   ├── (site)/                   # Main site route group
-│   │   ├── page.tsx              # Homepage
-│   │   ├── services/
-│   │   │   ├── daycare/page.tsx
-│   │   │   ├── boarding/page.tsx
-│   │   │   ├── grooming/page.tsx
-│   │   │   └── cats/page.tsx
-│   │   ├── pricing/page.tsx
-│   │   ├── gallery/page.tsx
-│   │   ├── about/page.tsx
-│   │   ├── new-clients/page.tsx
-│   │   ├── contact/page.tsx
-│   │   └── webcams/page.tsx      # Conditional
+frontend/
+├── app/
+│   ├── page.tsx                  # Homepage
+│   ├── [slug]/page.tsx           # Dynamic CMS pages (pricing, gallery, new-clients, contact)
+│   ├── services/[slug]/page.tsx  # Dynamic service pages (daycare, boarding, grooming, transportation)
+│   ├── studio/[[...tool]]/page.tsx # Embedded Sanity Studio
+│   ├── api/
+│   │   ├── contact/route.ts      # Contact form submission
+│   │   └── draft-mode/           # Sanity draft mode toggle
 │   ├── layout.tsx
-│   └── globals.css               # Tailwind v4 config + theme tokens
-├── components/
-│   ├── layout/                   # Header, Footer, Nav, MobileMenu
-│   ├── sections/                 # Page sections (Hero, ServiceCards, Stats, etc.)
-│   ├── ui/                       # Reusable primitives (Button, Card, Accordion, etc.)
-│   └── dev/                      # Dev-only components (ThemeToggle)
-├── lib/
-│   ├── sanity/
-│   │   ├── client.ts             # Sanity client configuration
-│   │   ├── queries.ts            # All GROQ queries
-│   │   └── image.ts              # Image URL builder helper
-│   ├── utils.ts                  # General utilities
-│   └── constants.ts              # Site-wide constants
-├── types/
-│   └── sanity.ts                 # TypeScript types for Sanity documents
-└── styles/
-    └── themes/                   # Theme-specific CSS custom property sets
-        ├── hearthstone.css
-        ├── prairie-modern.css
-        └── farmstead-blue.css
+│   ├── globals.css               # Tailwind v4 config + single theme tokens
+│   ├── components/
+│   │   ├── Header.tsx, Footer.tsx, TextLogo.tsx  # Layout
+│   │   ├── sections/             # Page sections (Hero, ServiceCards, Stats, etc.)
+│   │   ├── pricing/              # Pricing calculators (Daycare, Boarding, Grooming)
+│   │   └── ui/                   # Reusable primitives (Button, Badge, FadeIn, etc.)
+│   └── data/
+│       └── pricingData.ts        # Hardcoded pricing data (to be rewritten with KC values in M2)
+├── sanity/
+│   └── lib/
+│       ├── client.ts             # Sanity client configuration
+│       ├── queries.ts            # All GROQ queries
+│       ├── api.ts                # Sanity API config (projectId, dataset, apiVersion)
+│       └── token.ts              # Sanity API read token
+└── public/
+    ├── illustrations/            # Sticker/badge SVGs and PNGs
+    └── images/                   # Static images (logo, fallbacks)
 
-sanity/                           # Sanity Studio schemas
-├── schemas/
-│   ├── documents/                # Document types (service, pricing, faq, etc.)
-│   └── objects/                  # Object types (portableText, imageWithAlt, etc.)
+studio/
+├── src/
+│   ├── schemaTypes/
+│   │   ├── documents/            # page, service, testimonial
+│   │   ├── objects/              # 45+ page builder block types
+│   │   ├── singletons/           # settings
+│   │   └── index.ts              # Schema registry
+│   └── structure.ts              # Custom Studio structure
 └── sanity.config.ts
-
-public/
-├── fonts/                        # Self-hosted font files if needed
-├── illustrations/                # Sticker/badge SVGs and PNGs
-└── images/                       # Static images (logo, fallbacks)
 ```
 
 ## Naming
@@ -152,7 +149,7 @@ public/
 - No commented-out code unless specified
 - No unused imports or variables
 - Keep functions under 50 lines when possible
-- No Hound Around references in any user-facing content, meta tags, alt text, or comments
+- No HAFH or Hound Around references in any user-facing content, meta tags, alt text, or comments
 
 ## Performance
 
@@ -167,5 +164,5 @@ public/
 - Semantic HTML throughout
 - ARIA labels on interactive elements
 - Keyboard navigation for all interactive components (nav, accordions, pricing calculators)
-- Color contrast meets WCAG AA minimum for all three themes
+- Color contrast meets WCAG AA minimum
 - Skip-to-content link

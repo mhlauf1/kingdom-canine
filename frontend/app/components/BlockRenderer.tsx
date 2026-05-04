@@ -16,7 +16,6 @@ const ImageRow = lazy(() => import('@/app/components/sections/ImageRow'))
 const FeatureCards = lazy(() => import('@/app/components/sections/FeatureCards'))
 const ServiceTabs = lazy(() => import('@/app/components/sections/ServiceTabs'))
 const StatsBar = lazy(() => import('@/app/components/sections/StatsBar'))
-const WebcamPreview = lazy(() => import('@/app/components/sections/WebcamPreview'))
 const Testimonials = lazy(() => import('@/app/components/sections/Testimonials'))
 const SplitContent = lazy(() => import('@/app/components/sections/SplitContent'))
 const FaqAccordion = lazy(() => import('@/app/components/sections/FaqAccordion'))
@@ -40,7 +39,6 @@ const FeatureGrid = lazy(() => import('@/app/components/sections/FeatureGrid'))
 const PricingCalculator = lazy(() => import('@/app/components/sections/PricingCalculator'))
 const WhatsIncluded = lazy(() => import('@/app/components/sections/WhatsIncluded'))
 const RequirementsList = lazy(() => import('@/app/components/sections/RequirementsList'))
-const WebcamGrid = lazy(() => import('@/app/components/sections/WebcamGrid'))
 const GalleryCarousel = lazy(() => import('@/app/components/sections/GalleryCarousel'))
 const GalleryShowcase = lazy(() => import('@/app/components/sections/GalleryShowcase'))
 const GalleryPage = lazy(() => import('@/app/components/sections/GalleryPage'))
@@ -80,7 +78,6 @@ const Blocks = {
   featureCards: FeatureCards,
   serviceTabs: ServiceTabs,
   statsBar: StatsBar,
-  webcamPreview: WebcamPreview,
   testimonials: Testimonials,
   ctaBanner: CtaBanner,
   splitContent: SplitContent,
@@ -110,7 +107,6 @@ const Blocks = {
   pricingCalculator: PricingCalculator,
   whatsIncluded: WhatsIncluded,
   requirementsList: RequirementsList,
-  webcamGrid: WebcamGrid,
   galleryCarousel: GalleryCarousel,
   galleryShowcase: GalleryShowcase,
   galleryPage: GalleryPage,

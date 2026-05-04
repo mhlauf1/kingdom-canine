@@ -57,7 +57,7 @@ export default function Footer({
                 {logo?.asset?._ref ? (
                   <Image
                     id={logo.asset._ref}
-                    alt={logo.alt || 'Home Away From Home'}
+                    alt={logo.alt || 'Kingdom Canine'}
                     width={160}
                     className="w-[140px] h-auto"
                   />
@@ -175,7 +175,7 @@ export default function Footer({
                 ? footerTextLink?.label && footerTextLink?.href
                   ? renderFooterTextWithLink(footerText, footerTextLink.label, footerTextLink.href)
                   : footerText
-                : `\u00A9 ${new Date().getFullYear()} Home Away From Home. All rights reserved.`}
+                : `\u00A9 ${new Date().getFullYear()} Kingdom Canine. All rights reserved.`}
             </p>
             <p className="font-sans text-[14px] text-text-muted">
               Designed and developed by{' '}

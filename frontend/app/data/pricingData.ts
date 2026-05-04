@@ -190,13 +190,6 @@ export function calculateBoardingPerDog(input: {dogs: BoardingDogConfig[]}): Boa
   }
 }
 
-// ─── Cat Services ───────────────────────────────────────────
-export const catPricing = {
-  daycare: 35,
-  boardingFirst: 44,
-  boardingAdditional: 22,
-}
-
 // ─── Grooming ───────────────────────────────────────────────
 export type GroomingService = 'fullGrooming' | 'exitBath'
 export type DogSize = 's' | 'm' | 'l' | 'xl'

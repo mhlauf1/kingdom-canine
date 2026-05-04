@@ -2,57 +2,51 @@
 
 ## What This Is
 
-This is the website for **Home Away From Home**, a pet daycare, boarding, and grooming facility located at 5390 51st Ave S Suite A, Fargo, ND 58104. The site lives at **homeawayfargo.com**.
+This is the website for **Kingdom Canine**, a pet daycare, boarding, grooming, and transportation facility located at 2549 Hogan Rd, Pacific, MO 63069. The site lives at **kingdomcanine.com**.
 
-Home Away From Home (HAFH) is one of ~10 facilities in the **Embark Pet Services** portfolio, a pet care roll-up platform operated by **Cadence Private Capital**. Lauf Studio (lauf.co) owns the design system, tech stack, and infrastructure for all Embark portfolio websites.
+Kingdom Canine is one of ~10 facilities in the **Embark Pet Services** portfolio, a pet care roll-up platform operated by **Cadence Private Capital**. Lauf Studio (lauf.co) owns the design system, tech stack, and infrastructure for all Embark portfolio websites.
 
 ## Repository Origin
 
-**This repo was cloned from the Hound Around Resort codebase** (`mhlauf1/hound-3` on GitHub), the first Embark site we built and the design/technical reference for all future builds. The git history was wiped for a clean start — this is its own repo (`mhlauf1/home-away-fargo`), not a GitHub fork.
+**This repo was cloned from the Home Away From Home codebase** (`mhlauf1/home-away-fargo` on GitHub), the most recent Embark site build. The git history was wiped for a clean start — this is its own repo (`mhlauf1/kingdom-canine`), not a GitHub fork.
 
 ### How this repo was created
 
 ```bash
-git clone https://github.com/mhlauf1/hound-3.git home-away-fargo
-cd home-away-fargo
+git clone --depth 1 https://github.com/mhlauf1/home-away-fargo.git kingdom-canine
+cd kingdom-canine
 rm -rf .git
 git init
 git add .
-git commit -m "Initial commit from Hound Around design system"
-git remote add origin https://github.com/mhlauf1/home-away-fargo.git
-git branch -M main
-git push -u origin main
+git commit -m "Initial commit from Home Away From Home design system"
+gh repo create mhlauf1/kingdom-canine --public --source=. --remote=origin --push
 ```
 
 ### What this means in practice
 
-- The component library, page structures, layout patterns, and Sanity integration patterns all originated from the Hound Around build
-- The design system (colors, fonts, spacing, illustrations) is being **completely reskinned** for HAFH — same bones, different skin
-- The Sanity schemas are copied from Hound Around and may receive minor additions (cat services, grooming team bios) but should stay structurally aligned for future multi-site template extraction
-
-### Future: Template repository pattern
-
-After HAFH ships, the plan is to convert the Hound Around repo (`hound-3`) into a **GitHub template repository** (Settings → General → "Template repository"). Future Embark sites can then be created with "Use this template" on GitHub — same file structure, no commit history, clean starting point every time. HAFH is the second data point that will inform what goes into that template vs. what's location-specific.
+- The component library, page structures, layout patterns, and Sanity integration patterns all originated from the Hound Around / Home Away builds
+- The design system (colors, fonts, spacing, illustrations) will be **reskinned** for Kingdom Canine — same bones, different skin
+- Kingdom Canine is a simpler site than HAFH — no cat services, no multi-theme system, no webcams. The structure will be trimmed accordingly
 
 ### Critical rules for this repo
 
-- **Never reference Hound Around in user-facing content.** No leftover copy, image alt text, meta tags, or comments mentioning Hound Around, Cottage Grove, or any Hound Around-specific details
-- **Never hardcode Hound Around URLs, Sanity project IDs, or API keys.** All environment-specific values must come from `.env`
-- **Preserve component architecture.** When modifying a component, keep the same prop interface and data-fetching pattern unless there is a clear reason to change it. These patterns will become a shared template
-- **Document any structural divergence.** If HAFH requires a component or page pattern that Hound Around doesn't have (e.g., cat services page, grooming team bio section), note it clearly so it can be backported to the template later
+- **Never reference Home Away From Home or Hound Around in user-facing content.** No leftover copy, image alt text, meta tags, or comments mentioning HAFH, Fargo, Hound Around, Cottage Grove, or any other facility-specific details
+- **Never hardcode other facility URLs, Sanity project IDs, or API keys.** All environment-specific values must come from `.env`
+- **Preserve component architecture.** When modifying a component, keep the same prop interface and data-fetching pattern unless there is a clear reason to change it
+- **Document any structural divergence.** If KC requires a component or page pattern the template doesn't have (e.g., transportation page), note it clearly so it can be backported to the template later
 
 ## The Embark Network Context
 
-HAFH is the **second** website in what will become a portfolio of 8-10 Embark facility sites, all built on the same design system and tech stack. Decisions made here directly impact future builds:
+Kingdom Canine is the **fourth** website in the Embark portfolio:
 
-- **Barks & Rec** (Hastings) — future
-- **Boxers Bed & Biscuits** — future
-- **Kingdom Canine** — future
-- **Wags Stay N Play** (Moorhead, MN) — in queue
-- **Canine Country Club** (West Des Moines, IA) — migration only, no rebuild
-- **Rio Grooming School & Salon** — future
-
-The long-term goal is extracting a shared Embark site template where each location is a config layer (design tokens + CMS content) on top of a common component library. HAFH is the second data point that will inform that extraction.
+- **Hound Around Resort** (houndaroundresort.com) — Live, design system origin
+- **Boxers Bed & Biscuits** (boxersbedandbiscuits.com) — Live
+- **Home Away From Home** (homeawayfargo.com) — Live, this repo's clone source
+- **Kingdom Canine** (kingdomcanine.com) — This build
+- **Wags Stay N Play** (Moorhead, MN) — In queue
+- **Canine Country Club** (West Des Moines, IA) — Migration only, no rebuild
+- **Barks & Rec** (Hastings, MN) — Future
+- **Rio Grooming School & Salon** — Future
 
 ## Tech Stack
 
@@ -65,110 +59,97 @@ The long-term goal is extracting a shared Embark site template where each locati
 | DNS | Cloudflare |
 | CSS | Tailwind CSS v4 |
 | Animations | Framer Motion |
-| Fonts | Google Fonts (theme-dependent) |
-| Domain Registrar | GoDaddy (Peter Mark's account) |
+| Fonts | Google Fonts |
+| Domain Registrar | Cloudflare (already there — no transfer needed) |
+| Email | GoDaddy M365 (already migrated) |
 
-## Design System — Three-Theme Architecture
+## Infrastructure Status
 
-HAFH ships with **three selectable design themes** during development. Each theme defines a complete set of design tokens (colors, fonts, border radii, spacing feel). A floating dev-only toggle widget lets stakeholders switch between themes on the live preview.
+DNS recon complete. Kingdom Canine is the cleanest infrastructure picture in the portfolio:
 
-### Theme: Hearthstone
-- **Vibe:** Warm, cozy, rustic — pulled from the barn-red siding and stone accents of the physical facility
-- **Palette:** Barn red (#8B2D1E), warm stone (#C4835A), wheat (#D4A76A), cream (#F5EDE0), dark walnut (#2C2418), denim blue (#3B6E8A)
-- **Fonts:** Serif headings (Lora or Merriweather), rounded sans body (Nunito or DM Sans)
-
-### Theme: Prairie Modern
-- **Vibe:** Clean, contemporary, airy — warm but lifted
-- **Palette:** Sage (#6B8F71), terracotta (#C67D52), warm white (#F7F3ED), sand (#E8DFD1), charcoal warm (#3D3A35), mint (#A8C4B8)
-- **Fonts:** Rounded sans throughout (Plus Jakarta Sans or similar)
-
-### Theme: Farmstead Blue
-- **Vibe:** Confident, established — navy + gold from the outdoor play structures and sky
-- **Palette:** Navy (#1E3A5F), sky blue (#3B7BC0), gold wheat (#D4A24E), cream (#FAF6EF), dark brown (#2A2520), rust accent (#E86F45)
-- **Fonts:** Bold serif headings (Playfair Display or Libre Baskerville), geometric sans body (Inter or Work Sans)
-
-### Theme implementation
-
-- All three palettes defined as CSS custom property sets in Tailwind v4's `@theme` directive
-- Every color reference in components uses semantic tokens (`--color-primary`, `--color-accent`, `--color-surface`, etc.), never hardcoded hex values
-- Theme switching swaps the active CSS custom property set + font-family tokens
-- The toggle widget only renders in development/preview builds (controlled by env var)
-- Theme selection persists via URL param (`?theme=hearthstone`) for shareable preview links
-
-### Sticker/badge illustration system
-
-Like Hound Around, HAFH uses custom illustrated stickers/badges throughout the site (service icons, section accents, decorative elements). These will be HAFH-specific illustrations that match each theme's personality. Illustrations are managed in Sanity as image assets.
+- **Domain:** Registered at Cloudflare, DNS hosted on Cloudflare. No domain transfer needed.
+- **Current hosting:** HighLevel (GoHighLevel). www CNAME → `sites.ludicrous.cloud`. At launch, update A + www CNAME to Vercel.
+- **Email:** Already on M365 (`kingdomcanine-com.mail.protection.outlook.com`). SPF configured. No email migration needed.
+- **POS:** Currently Gingr (`kingdomcanine.portal.gingrapp.com`). Transitioning to Goose — timeline TBD. POS portal lives on gingrapp.com domain, no DNS dependency on our side.
+- **TXT records to preserve at launch:** Facebook domain verification, MS verification. Drop Mailgun SPF include (HighLevel artifact).
 
 ## Site Structure
 
+Kingdom Canine is simpler than HAFH — Brian confirmed this is the simplest site in the portfolio. No cat services, no webcams, no about page narrative.
+
 ```
-homeawayfargo.com/
+kingdomcanine.com/
 ├── / (Homepage)
 ├── /services/
 │   ├── /daycare
 │   ├── /boarding
 │   ├── /grooming
-│   └── /cats (TBD — may be standalone page or sections within daycare/boarding)
+│   └── /transportation (unique to KC — not in other Embark sites)
 ├── /pricing
-├── /gallery
-├── /about
-├── /new-clients
-├── /contact
-└── /webcams (conditional — only if facility has webcams)
+├── /gallery (if photos arrive from Brian)
+├── /new-clients (Get Started flow — custom form)
+└── /contact
 ```
 
 ### Nav structure
 
-- **Services dropdown:** Daycare · Boarding · Grooming · Cat Services
-- **Top-level:** Pricing · Gallery · About · New Clients
+- **Services dropdown:** Daycare · Boarding · Grooming · Transportation
+- **Top-level:** Pricing · New Clients
 - **CTA button:** Contact / Book a Visit
 
-### Page pattern (inherited from Hound Around)
+### Key differences from HAFH
+
+- **Transportation page** — KC offers shuttle service to/from St. Louis and Franklin County. This is unique to KC and will need a new service page. Simple content: description + pricing + packages.
+- **No cat services** — Remove cat-related schemas, pages, and pricing
+- **No multi-theme system** — Single design direction for KC (no theme toggle widget)
+- **No webcams page** — Remove webcam schemas and page
+- **No about page** — Brian didn't include about/founder content; skip unless requested
+- **Grooming pricing overhaul** — Current site hides prices behind "Contact us." New build has a full pricing matrix: baths (size × hair length), full grooms by size, à la carte services (ear cleaning, gland expression, nail trim, pad trim, teeth brushing), plus doodle/specialty surcharge. This is the biggest content shift.
+- **VIP Luxury Suite** — New boarding tier at $150/night for 1–4 dogs. Needs a visual moment, not just another row in a table.
+- **Daycare packages** — New structured packages (10/20/30 day) replacing the old flat-rate-only model.
+- **POS transition** — Gingr → Goose is in progress. All POS URLs stored in a single Sanity site-settings doc so the swap is one update, not a code change.
+
+### Page pattern (inherited from Embark design system)
 
 Each service page follows a consistent component pattern:
 1. Hero section (headline, description, photo, CTA buttons)
 2. Feature/differentiator grid (icon cards highlighting key selling points)
-3. Pricing calculator (interactive, pulls from Sanity)
-4. "How it works" timeline (step-by-step day walkthrough)
-5. FAQ accordion (pulls from Sanity)
-6. Bottom CTA band
+3. Pricing section (table, matrix, or calculator — varies by service)
+4. FAQ accordion (if applicable)
+5. Bottom CTA band
 
-Homepage ties it together with: hero, services overview cards, stats counter, photo scroll, differentiators grid, gallery preview, testimonials carousel, and CTA band.
+Homepage: hero, services overview cards, stats counter, testimonials, CTA band.
 
 ## Content Status
 
-### Have now (can populate in Sanity immediately)
-- All pricing data (daycare packages, boarding runs, cat services, grooming tiers, exit baths)
-- Hours of operation (weekday, weekend, holidays, late pickup policy)
-- Basic facility info (name, address, phone, email, year opened, service area)
-- Service descriptions (daycare, boarding, grooming, cat boarding)
-- 4 FAQs (vaccinations, boarding checklist, temperament testing, tours)
-- 6 five-star testimonials
-- Booking system info (Gingr Pet Parent App, invite code 393992)
-- ~8 facility photos (exterior, outdoor yards, indoor play, dogs)
-- Grooming manager credentials (Sheryl Wagner — NDSU Vet Tech, AKC SAFE certified, etc.)
+### Have now (from Brian's pricing doc + current site)
+- All new pricing data (daycare single visits + packages, boarding tiers including VIP, grooming matrix, transportation + packages)
+- Hours of operation (Mon–Fri 6am–11am & 1pm–7pm, Sat–Sun 11am–4pm)
+- Facility info (name, address, phone)
+- Service descriptions (boarding "Pack Mentality" narrative, daycare, grooming packages, transportation)
+- Facility stats (11,000 sqft turfed outdoor, 4,200 sqft indoor)
+- Booking flow (Gingr portal — 3-step: create account → trial day → schedule)
+- Brand language ("Pack Mentality", "Enjoy your vacay while your dog has a staycay")
 
-### Waiting on facility team
-- About page content (founder story, team info, community narrative)
-- Team photos / headshots
-- Daily schedule timelines (daycare and boarding "how it works" steps)
-- New client onboarding process details
-- Webcam availability and embed details
-- Cat services prominence decision (own page vs. section)
-- Additional photos (boarding runs, grooming area, cats, front desk)
-- Cancellation policy details
-- Social media links
-- Google Business Profile info
+### Waiting on
+- **Photos from Brian** — he said he'd send "PICs shortly" but they haven't come through yet
+- Logo files (current logo is hosted on HighLevel CDN — need source file or high-res version)
+- Testimonials / reviews (none provided yet)
+- Team info / staff bios (none provided)
+- FAQ content (none provided beyond what's implied by current site)
+- Vaccination / requirements info
+- Email address for the facility (need to confirm what mailboxes exist under M365)
+- Goose POS go-live date for KC
 
 ## Facility Quick Reference
 
-- **Name:** Home Away From Home
-- **Address:** 5390 51st Ave S Suite A, Fargo, ND 58104
-- **Phone:** 701-532-1618
-- **Email:** contactus@hafhfacility.com
-- **Year established:** 2017
-- **Service area:** Fargo, Moorhead, West Fargo, Dilworth, and surrounding Fargo-Moorhead communities
-- **Play areas:** 4 indoor, 3 outdoor
-- **Booking:** Gingr Pet Parent App (invite code: 393992)
-- **Grooming manager:** Sheryl Wagner
-- **Services:** Dog daycare, dog boarding, cat daycare, cat boarding, grooming (full service + exit bath), small animal boarding
+- **Name:** Kingdom Canine
+- **Address:** 2549 Hogan Rd, Pacific, MO 63069
+- **Phone:** (314) 631-6738
+- **Email:** TBD (confirm M365 mailboxes)
+- **Service area:** St. Louis area and Franklin County, MO
+- **Hours:** Mon–Fri 6am–11am & 1pm–7pm | Sat–Sun 11am–4pm
+- **Play areas:** 11,000 sqft turfed outdoor, 4,200 sqft indoor
+- **Booking:** Gingr Pet Parent App (portal: kingdomcanine.portal.gingrapp.com)
+- **Services:** Dog daycare, dog boarding (Standard + VIP Luxury Suite), grooming, transportation
+- **POS:** Gingr (transitioning to Goose — date TBD)
