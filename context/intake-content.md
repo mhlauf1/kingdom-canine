@@ -79,10 +79,10 @@ Group boarding, cage-free and all-inclusive. During the day, everyone participat
 | Room Type | Price | Notes |
 |-----------|-------|-------|
 | Standard Room | $64/night | — |
-| VIP Luxury Suite | $150/night | 1–4 dogs, all-inclusive |
+| VIP Luxury Cottage Suite | $125/night | 1–4 dogs, all-inclusive |
 | Additional Dog | $55/dog/night | — |
 
-**VIP Luxury Suite** is a new tier — needs a real visual moment on the boarding page. This is an upsell product, not just another line item.
+**VIP Luxury Cottage Suite** is a new tier — needs a real visual moment on the boarding page. This is an upsell product, not just another line item.
 
 **Included with all boarding:**
 - Daycare participation
@@ -133,7 +133,8 @@ Add Teeth Cleaning to any Groom for just $10.
 | Ear Cleaning | $8 |
 | Gland Expression | $12 |
 | Nail Trim and Grind | $18 |
-| Pad Trim | $10 |
+| Spot Trim | $15 |
+| Face, Feet & Sanitary | $30 |
 | Teeth Brushing | $15 |
 
 ---

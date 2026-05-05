@@ -127,7 +127,7 @@
   },
   {
     "type": "type",
-    "name": "object.image",
+    "name": "serviceCard.image",
     "value": {
       "type": "object",
       "attributes": {
@@ -143,7 +143,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "inline",
-            "name": "object.image.media"
+            "name": "serviceCard.image.media"
           },
           "optional": true
         },
@@ -175,7 +175,7 @@
   },
   {
     "type": "type",
-    "name": "cards.object.image",
+    "name": "object.image",
     "value": {
       "type": "object",
       "attributes": {
@@ -191,7 +191,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "inline",
-            "name": "cards.object.image.media"
+            "name": "object.image.media"
           },
           "optional": true
         },
@@ -3447,7 +3447,7 @@
                   "type": "objectAttribute",
                   "value": {
                     "type": "inline",
-                    "name": "cards.object.image"
+                    "name": "object.image"
                   },
                   "optional": false
                 },
@@ -3554,7 +3554,7 @@
                   "type": "objectAttribute",
                   "value": {
                     "type": "inline",
-                    "name": "object.image"
+                    "name": "serviceCard.image"
                   },
                   "optional": true
                 },
@@ -3579,6 +3579,13 @@
                     "name": "button"
                   },
                   "optional": true
+                },
+                "_type": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string",
+                    "value": "serviceCard"
+                  }
                 }
               },
               "rest": {
@@ -3593,6 +3600,23 @@
                 }
               }
             }
+          },
+          "optional": true
+        },
+        "variant": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "union",
+            "of": [
+              {
+                "type": "string",
+                "value": "white"
+              },
+              {
+                "type": "string",
+                "value": "imageOverlay"
+              }
+            ]
           },
           "optional": true
         },
@@ -5292,6 +5316,50 @@
           },
           "optional": true
         },
+        "hours": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "array",
+            "of": {
+              "type": "object",
+              "attributes": {
+                "label": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  },
+                  "optional": false
+                },
+                "value": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  },
+                  "optional": false
+                },
+                "_type": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string",
+                    "value": "hoursEntry"
+                  }
+                }
+              },
+              "rest": {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "optional": true
+        },
         "imagePosition": {
           "type": "objectAttribute",
           "value": {
@@ -5787,6 +5855,13 @@
                     "type": "string"
                   },
                   "optional": false
+                },
+                "_type": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string",
+                    "value": "statItem"
+                  }
                 }
               },
               "rest": {
@@ -6296,6 +6371,74 @@
                 "value": {
                   "type": "string",
                   "value": "image"
+                }
+              }
+            }
+          },
+          "optional": true
+        },
+        "carouselImages": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "array",
+            "of": {
+              "type": "object",
+              "attributes": {
+                "asset": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "inline",
+                    "name": "sanity.imageAsset.reference"
+                  },
+                  "optional": true
+                },
+                "media": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "unknown"
+                  },
+                  "optional": true
+                },
+                "hotspot": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "inline",
+                    "name": "sanity.imageHotspot"
+                  },
+                  "optional": true
+                },
+                "crop": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "inline",
+                    "name": "sanity.imageCrop"
+                  },
+                  "optional": true
+                },
+                "alt": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  },
+                  "optional": true
+                },
+                "_type": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string",
+                    "value": "image"
+                  }
+                }
+              },
+              "rest": {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }

@@ -38,17 +38,17 @@ export type TeamMemberImage = {
   _type: 'image'
 }
 
-export type ObjectImage = {
+export type ServiceCardImage = {
   asset?: SanityImageAssetReference
-  media?: unknown // Unable to locate the referenced type "object.image.media" in schema
+  media?: unknown // Unable to locate the referenced type "serviceCard.image.media" in schema
   hotspot?: SanityImageHotspot
   crop?: SanityImageCrop
   _type: 'image'
 }
 
-export type CardsObjectImage = {
+export type ObjectImage = {
   asset?: SanityImageAssetReference
-  media?: unknown // Unable to locate the referenced type "cards.object.image.media" in schema
+  media?: unknown // Unable to locate the referenced type "object.image.media" in schema
   hotspot?: SanityImageHotspot
   crop?: SanityImageCrop
   _type: 'image'
@@ -481,7 +481,7 @@ export type ExpandingCardsRow = {
   heading: string
   subheading?: string
   cards?: Array<{
-    image: CardsObjectImage
+    image: ObjectImage
     title: string
     subtext?: string
     link?: Button
@@ -496,12 +496,14 @@ export type ServiceCards = {
   heading: string
   description?: string
   cards?: Array<{
-    image?: ObjectImage
+    image?: ServiceCardImage
     title: string
     description?: string
     cta?: Button
+    _type: 'serviceCard'
     _key: string
   }>
+  variant?: 'white' | 'imageOverlay'
   columns?: 2 | 3 | 4
   backgroundColor?: 'cream' | 'sand'
 }
@@ -735,6 +737,12 @@ export type SplitContent = {
     alt?: string
     _type: 'image'
   }
+  hours?: Array<{
+    label: string
+    value: string
+    _type: 'hoursEntry'
+    _key: string
+  }>
   imagePosition?: 'left' | 'right'
   backgroundColor?: 'cream' | 'sand' | 'forest'
 }
@@ -812,6 +820,7 @@ export type StatsBar = {
   stats?: Array<{
     value: string
     label: string
+    _type: 'statItem'
     _key: string
   }>
   showLogo?: boolean
@@ -896,6 +905,15 @@ export type Hero = {
     crop?: SanityImageCrop
     _type: 'image'
   }
+  carouselImages?: Array<{
+    asset?: SanityImageAssetReference
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    alt?: string
+    _type: 'image'
+    _key: string
+  }>
 }
 
 export type PageReference = {
@@ -1714,8 +1732,8 @@ export type AllSanitySchemaTypes =
   | RequirementsListLink
   | SanityImageAssetReference
   | TeamMemberImage
+  | ServiceCardImage
   | ObjectImage
-  | CardsObjectImage
   | FeaturesObjectImage
   | ColumnsObjectImage
   | LogosObjectImage
@@ -2238,7 +2256,7 @@ export type GetPageQueryResult = {
         heading: string
         subheading?: string
         cards: Array<{
-          image: CardsObjectImage
+          image: ObjectImage
           title: string
           subtext?: string
           link: {
@@ -2583,6 +2601,15 @@ export type GetPageQueryResult = {
           crop?: SanityImageCrop
           _type: 'image'
         }
+        carouselImages?: Array<{
+          asset?: SanityImageAssetReference
+          media?: unknown
+          hotspot?: SanityImageHotspot
+          crop?: SanityImageCrop
+          alt?: string
+          _type: 'image'
+          _key: string
+        }>
       }
     | {
         _key: string
@@ -3025,7 +3052,7 @@ export type GetPageQueryResult = {
         heading: string
         description?: string
         cards: Array<{
-          image?: ObjectImage
+          image?: ServiceCardImage
           title: string
           description?: string
           cta: {
@@ -3041,8 +3068,10 @@ export type GetPageQueryResult = {
               pageType: 'page' | 'service' | null
             } | null
           } | null
+          _type: 'serviceCard'
           _key: string
         }> | null
+        variant?: 'imageOverlay' | 'white'
         columns?: 2 | 3 | 4
         backgroundColor?: 'cream' | 'sand'
       }
@@ -3127,6 +3156,12 @@ export type GetPageQueryResult = {
           alt?: string
           _type: 'image'
         }
+        hours?: Array<{
+          label: string
+          value: string
+          _type: 'hoursEntry'
+          _key: string
+        }>
         imagePosition?: 'left' | 'right'
         backgroundColor?: 'cream' | 'forest' | 'sand'
       }
@@ -3136,6 +3171,7 @@ export type GetPageQueryResult = {
         stats?: Array<{
           value: string
           label: string
+          _type: 'statItem'
           _key: string
         }>
         showLogo?: boolean
@@ -3484,7 +3520,7 @@ export type HomepageQueryResult = {
         heading: string
         subheading?: string
         cards: Array<{
-          image: CardsObjectImage
+          image: ObjectImage
           title: string
           subtext?: string
           link: {
@@ -3829,6 +3865,15 @@ export type HomepageQueryResult = {
           crop?: SanityImageCrop
           _type: 'image'
         }
+        carouselImages?: Array<{
+          asset?: SanityImageAssetReference
+          media?: unknown
+          hotspot?: SanityImageHotspot
+          crop?: SanityImageCrop
+          alt?: string
+          _type: 'image'
+          _key: string
+        }>
       }
     | {
         _key: string
@@ -4271,7 +4316,7 @@ export type HomepageQueryResult = {
         heading: string
         description?: string
         cards: Array<{
-          image?: ObjectImage
+          image?: ServiceCardImage
           title: string
           description?: string
           cta: {
@@ -4287,8 +4332,10 @@ export type HomepageQueryResult = {
               pageType: 'page' | 'service' | null
             } | null
           } | null
+          _type: 'serviceCard'
           _key: string
         }> | null
+        variant?: 'imageOverlay' | 'white'
         columns?: 2 | 3 | 4
         backgroundColor?: 'cream' | 'sand'
       }
@@ -4373,6 +4420,12 @@ export type HomepageQueryResult = {
           alt?: string
           _type: 'image'
         }
+        hours?: Array<{
+          label: string
+          value: string
+          _type: 'hoursEntry'
+          _key: string
+        }>
         imagePosition?: 'left' | 'right'
         backgroundColor?: 'cream' | 'forest' | 'sand'
       }
@@ -4382,6 +4435,7 @@ export type HomepageQueryResult = {
         stats?: Array<{
           value: string
           label: string
+          _type: 'statItem'
           _key: string
         }>
         showLogo?: boolean
@@ -4757,7 +4811,7 @@ export type GetServiceQueryResult = {
         heading: string
         subheading?: string
         cards: Array<{
-          image: CardsObjectImage
+          image: ObjectImage
           title: string
           subtext?: string
           link: {
@@ -5084,6 +5138,15 @@ export type GetServiceQueryResult = {
           crop?: SanityImageCrop
           _type: 'image'
         }
+        carouselImages?: Array<{
+          asset?: SanityImageAssetReference
+          media?: unknown
+          hotspot?: SanityImageHotspot
+          crop?: SanityImageCrop
+          alt?: string
+          _type: 'image'
+          _key: string
+        }>
       }
     | {
         _key: string
@@ -5499,7 +5562,7 @@ export type GetServiceQueryResult = {
         heading: string
         description?: string
         cards: Array<{
-          image?: ObjectImage
+          image?: ServiceCardImage
           title: string
           description?: string
           cta: {
@@ -5515,8 +5578,10 @@ export type GetServiceQueryResult = {
               pageType: 'page' | 'service' | null
             } | null
           } | null
+          _type: 'serviceCard'
           _key: string
         }> | null
+        variant?: 'imageOverlay' | 'white'
         columns?: 2 | 3 | 4
         backgroundColor?: 'cream' | 'sand'
       }
@@ -5601,6 +5666,12 @@ export type GetServiceQueryResult = {
           alt?: string
           _type: 'image'
         }
+        hours?: Array<{
+          label: string
+          value: string
+          _type: 'hoursEntry'
+          _key: string
+        }>
         imagePosition?: 'left' | 'right'
         backgroundColor?: 'cream' | 'forest' | 'sand'
       }
@@ -5610,6 +5681,7 @@ export type GetServiceQueryResult = {
         stats?: Array<{
           value: string
           label: string
+          _type: 'statItem'
           _key: string
         }>
         showLogo?: boolean
