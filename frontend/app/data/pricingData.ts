@@ -26,7 +26,6 @@ export const daycarePackages: Record<DaycarePackage, PackageMeta> = {
     fullRate: 32.5,
     halfRate: 21.67,
     fullTotal: 325,
-    halfTotal: 217,
     label: '10-Day Package',
     badge: 'Save 10%',
     validity: '2 months',
@@ -36,7 +35,6 @@ export const daycarePackages: Record<DaycarePackage, PackageMeta> = {
     fullRate: 30.75,
     halfRate: 20.5,
     fullTotal: 615,
-    halfTotal: 410,
     label: '20-Day Package',
     badge: 'Save 15%',
     validity: '4 months',
@@ -46,7 +44,6 @@ export const daycarePackages: Record<DaycarePackage, PackageMeta> = {
     fullRate: 28.83,
     halfRate: 19.22,
     fullTotal: 865,
-    halfTotal: 577,
     label: '30-Day Package',
     badge: 'Save 20%',
     validity: '6 months',
@@ -125,7 +122,7 @@ export const boardingRooms: Record<RoomType, RoomMeta> = {
   standard: {
     label: 'Standard Room',
     rate: 64,
-    description: 'Individual kennel run',
+    description: 'Cage-free, all-inclusive group boarding',
   },
   vip: {
     label: 'VIP Luxury Cottage Suite',
