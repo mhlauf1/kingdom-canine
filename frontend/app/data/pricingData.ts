@@ -128,10 +128,10 @@ export const boardingRooms: Record<RoomType, RoomMeta> = {
     description: 'Individual kennel run',
   },
   vip: {
-    label: 'VIP Luxury Suite',
-    rate: 150,
+    label: 'VIP Luxury Cottage Suite',
+    rate: 125,
     description: 'Premium suite for 1–4 dogs',
-    note: 'Flat rate — accommodates up to 4 dogs',
+    note: 'All-inclusive experience and daycare participation included',
     isSuiteRate: true,
     maxDogs: 4,
   },
@@ -231,7 +231,8 @@ export const alaCarteItems: AlaCarteItem[] = [
   {id: 'earCleaning', label: 'Ear Cleaning', price: 8},
   {id: 'glandExpression', label: 'Gland Expression', price: 12},
   {id: 'nailTrimGrind', label: 'Nail Trim & Grind', price: 18},
-  {id: 'padTrim', label: 'Pad Trim', price: 10},
+  {id: 'spotTrim', label: 'Spot Trim', price: 15},
+  {id: 'faceFeetSanitary', label: 'Face, Feet & Sanitary', price: 30},
   {id: 'teethBrushing', label: 'Teeth Brushing', price: 15},
 ]
 
