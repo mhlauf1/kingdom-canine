@@ -228,14 +228,6 @@ export type GalleryCarousel = {
   backgroundColor?: 'cream' | 'sand' | 'forest'
 }
 
-export type WebcamGrid = {
-  _type: 'webcamGrid'
-  heading?: string
-  subtext?: string
-  trustMessage?: string
-  showGroupHeaders?: boolean
-}
-
 export type RequirementsList = {
   _type: 'requirementsList'
   eyebrow?: string
@@ -815,21 +807,6 @@ export type Testimonials = {
   googleReviewCount?: number
 }
 
-export type WebcamPreview = {
-  _type: 'webcamPreview'
-  eyebrow?: string
-  heading: string
-  previewImage?: {
-    asset?: SanityImageAssetReference
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  }
-  passwordProtected?: boolean
-  webcamUrl?: string
-}
-
 export type StatsBar = {
   _type: 'statsBar'
   stats?: Array<{
@@ -1033,19 +1010,6 @@ export type Seo = {
   noIndex?: boolean
 }
 
-export type Webcam = {
-  _id: string
-  _type: 'webcam'
-  _createdAt: string
-  _updatedAt: string
-  _rev: string
-  name: string
-  cameraId: string
-  group: 'indoor' | 'outdoor'
-  sortOrder?: number
-  enabled?: boolean
-}
-
 export type Testimonial = {
   _id: string
   _type: 'testimonial'
@@ -1108,9 +1072,6 @@ export type Service = {
     | ({
         _key: string
       } & StatsBar)
-    | ({
-        _key: string
-      } & WebcamPreview)
     | ({
         _key: string
       } & Testimonials)
@@ -1198,9 +1159,6 @@ export type Service = {
     | ({
         _key: string
       } & RequirementsList)
-    | ({
-        _key: string
-      } & WebcamGrid)
     | ({
         _key: string
       } & GalleryCarousel)
@@ -1326,6 +1284,14 @@ export type Settings = {
     instagram?: string
     google?: string
   }
+  posUrls?: {
+    portalUrl?: string
+    registrationUrl?: string
+    daycareBookingUrl?: string
+    boardingBookingUrl?: string
+    groomingBookingUrl?: string
+    transportationBookingUrl?: string
+  }
   ogImage?: {
     asset?: SanityImageAssetReference
     media?: unknown
@@ -1401,9 +1367,6 @@ export type Page = {
     | ({
         _key: string
       } & StatsBar)
-    | ({
-        _key: string
-      } & WebcamPreview)
     | ({
         _key: string
       } & Testimonials)
@@ -1491,9 +1454,6 @@ export type Page = {
     | ({
         _key: string
       } & RequirementsList)
-    | ({
-        _key: string
-      } & WebcamGrid)
     | ({
         _key: string
       } & GalleryCarousel)
@@ -1768,7 +1728,6 @@ export type AllSanitySchemaTypes =
   | GalleryPage
   | GalleryShowcase
   | GalleryCarousel
-  | WebcamGrid
   | RequirementsList
   | WhatsIncluded
   | PricingCalculator
@@ -1799,7 +1758,6 @@ export type AllSanitySchemaTypes =
   | CtaBanner
   | TestimonialReference
   | Testimonials
-  | WebcamPreview
   | StatsBar
   | ServiceReference
   | ServiceTabs
@@ -1814,7 +1772,6 @@ export type AllSanitySchemaTypes =
   | BlockContent
   | Button
   | Seo
-  | Webcam
   | Testimonial
   | Service
   | SanityImageCrop

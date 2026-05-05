@@ -1,66 +1,62 @@
 # Current Milestone
 
-## Milestone 1: Foundation & Cleanup
+## Milestone 2: Sanity Schema & Content Seeding
 
 ### Status
-In Progress (on branch `feature/foundation`)
+Complete (on branch `content/sanity-seed`, ready to merge)
 
 ### Goals
-Strip all Home Away From Home content and references from the cloned codebase. Remove unused HAFH features. Set up KC-specific Sanity project, design direction, and deployment.
+Rewrite all pricing data with correct KC values from Brian's doc. Update calculator components for KC's service structure (VIP suite, grooming matrix, à la carte). Add POS URL fields to settings schema. Seed Sanity with KC content. Deploy schema. Establish KC color palette.
 
 ### Checklist
 
-#### Remove HAFH-specific content
-- [x] Search all files for "Home Away", "HAFH", "Fargo", "Hound Around", "Cottage Grove", "hafhfacility" — replace or remove
-- [ ] Remove HAFH logo assets — blocked, waiting on KC logo from Brian
-- [ ] Remove HAFH-specific images from Sanity media library and `/public` — deferred, images are generic/reusable
-- [ ] Clear any seeded Sanity content from the HAFH build — deferred until new Sanity project connected
+#### Pricing data rewrite (`pricingData.ts`)
+- [x] Daycare: replaced HAFH rates with KC values ($36/$24), removed 5-day package, added 10/20/30-day packages with correct totals ($325/$615/$865)
+- [x] Boarding: replaced 4 room types with 2 (Standard $64, VIP $150 suite), updated additional dog rate to $55, added suite rate logic
+- [x] Grooming: added hair length dimension for bath (size × short/long), added à la carte items (5 services), added doodle surcharge (+$10), renamed services (bath/fullGroom), added teeth cleaning add-on
 
-#### Remove unused features
-- [x] Remove three-theme CSS custom property system — N/A, did not exist in cloned codebase (HAFH already had a single palette)
-- [x] Remove ThemeToggle widget component — N/A, did not exist in cloned codebase
-- [x] Remove `?theme=` URL param and localStorage logic — N/A, did not exist in cloned codebase
-- [x] Remove cat services page (`/services/cats`) and related components — removed `catPricing` from `pricingData.ts` (no dedicated cat page/components existed; pages are CMS-driven)
-- [x] Remove webcams page (`/webcams`) and related components — deleted `WebcamGrid.tsx`, `WebcamEmbed.tsx`, `WebcamPreview.tsx`, `webcam-auth/route.ts`; cleaned `BlockRenderer.tsx` and `queries.ts`
-- [x] Remove webcam schema types (`webcam`, `webcamGrid`, `webcamPreview`) — deleted 3 schema files; cleaned `index.ts`, `page.ts`, `service.ts`
-- [x] Remove about page — N/A, no static about page existed (pages are CMS-driven via dynamic `[slug]` route)
-- [x] Clean up any unused schema object types after removals — done (webcam types removed from page builder arrays)
+#### Calculator component updates
+- [x] DaycareCalculator: type narrowing from 5-day package removal (auto-propagated)
+- [x] BoardingCalculator: VIP suite logic (flat rate, hides add-dog, auto-removes extra dogs on switch), fixed hardcoded "$29/night" bug to use dynamic rate
+- [x] GroomingCalculator: hair length pill selector for bath, à la carte CheckboxGroup, doodle toggle per dog, teeth cleaning checkbox for full groom
 
-#### Set up KC identity
-- [x] Establish single color palette for KC — using inherited palette (cream/forest/terracotta) as placeholder; will refine in M3
-- [x] Set typography — using inherited fonts (Bricolage Grotesque + Geist) as placeholder; will refine in M3
-- [ ] Swap logo — blocked, waiting on source file from Brian; TextLogo fallback updated to "Kingdom / Canine"
-- [x] Update site title, meta tags, favicon, OG image placeholders — site title updated to "Kingdom Canine" across all configs and fallbacks; robots.ts sitemap URL updated to kingdomcanine.com
+#### Settings schema
+- [x] Added `posUrls` object field to settings singleton (portalUrl, registrationUrl, per-service booking URLs)
+- [x] Updated settingsQuery in queries.ts to include posUrls
+
+#### Sanity content seeding
+- [x] Settings: facility info, contact, hours, POS URLs (Gingr), nav with page/service references, footer columns, local business structured data
+- [x] Service: Daycare (heroMinimal + pricingCalculator + ctaBanner)
+- [x] Service: Boarding (heroMinimal + pricingCalculator + ctaBanner)
+- [x] Service: Grooming (heroMinimal + pricingCalculator + ctaBanner)
+- [x] Service: Transportation (heroMinimal + pricingList with 3 items + ctaBanner)
+- [x] Page: Homepage (hero + serviceTabs + statsBar + ctaBanner)
+- [x] Page: Pricing (pricingPageTabs with daycare/boarding/grooming tabs, full matrix data)
+- [x] Page: Contact (heroMinimal + contactForm)
+- [x] Page: New Clients (heroMinimal + processSteps with 3-step flow)
 
 #### Infrastructure
-- [ ] Connect new Sanity project (update `NEXT_PUBLIC_SANITY_PROJECT_ID` and `NEXT_PUBLIC_SANITY_DATASET` in `.env.local`) — currently using `ldmtl3r7` from HAFH; need new project ID or confirmation to keep this one
-- [ ] Deploy Sanity schema to cloud — blocked until Sanity project confirmed
-- [ ] Verify Vercel deployment is clean — blocked until Vercel project set up
-- [ ] Add Vercel preview URL to Sanity CORS origins — blocked until Vercel project set up
-- [ ] Add `SANITY_API_READ_TOKEN` to `frontend/.env.local` — needed for full build; pre-existing gap from clone
+- [x] Deploy schema to Sanity cloud (via `npx sanity schema deploy` from studio/)
+- [x] Created `studio/.env` with correct project ID and dataset
+- [x] Verify build passes — clean
+- [x] Verify GROQ queries return correct data — 9 documents live
 
-#### Additional completed items (not in original checklist)
-- [x] Replaced HAFH phone number (701-532-1618) with KC phone (314-631-6738) in pricing calculators
-- [x] Fixed root `package.json` name from "hound-3" to "kingdom-canine"
-- [x] Created `frontend/.env.local` with Sanity project ID and dataset (was missing)
-- [x] Contact form email sender and footer updated from HAFH to Kingdom Canine
+#### Color palette
+- [x] Replaced HAFH teal/red palette with KC royal purple + gold palette in `globals.css`
+- [x] All 18 CSS custom properties updated — zero component changes needed
 
 ### Definition of Done
-- Site deploys with no HAFH or Hound Around references anywhere
-- All pages render without errors (content can be placeholder)
-- Theme system removed — single KC design direction in place
-- Cat services, webcams, and about page removed
-- Sanity connected and schema deployed
-
-### What's left to complete M1
-- Logo swap (blocked on Brian)
-- Sanity project connection (need project ID or decision to keep current)
-- `SANITY_API_READ_TOKEN` for full build
-- Vercel deployment verification
-- Schema deploy to cloud
+- [x] All pricing values match Brian's doc exactly
+- [x] Calculator components work correctly for all services
+- [x] POS URLs stored in Sanity settings (single-point swap for Gingr → Goose)
+- [x] All content renders on the site through GROQ queries
+- [x] Build passes clean
+- [x] KC brand colors applied
 
 ### Notes
-- Don't touch pricing data or content seeding yet — that's Milestone 2
-- Focus is purely on making this codebase "Kingdom Canine" instead of "Home Away From Home"
-- Design direction (colors, fonts) can be minimal/placeholder for now — refine in Milestone 3
-- The three-theme system, ThemeToggle, and `?theme=` URL param never existed in this cloned codebase — HAFH had already simplified to a single palette before we cloned
+- Half-day package rates derived proportionally (24/36 = 2/3 ratio) since Brian only specified full-day package prices
+- VIP Luxury Suite is a flat $150/night for 1-4 dogs (suite rate, not per-dog)
+- Transportation uses static pricingList block, no calculator needed
+- À la carte grooming services use existing CheckboxGroup component
+- Settings singleton ID is auto-generated (not "siteSettings") — queried by `_type == "settings"` which works fine
+- Logo swap still blocked on Brian providing source file
