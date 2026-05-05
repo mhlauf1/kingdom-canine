@@ -50,11 +50,12 @@ KC uses a single color palette defined as CSS custom properties in `globals.css`
 @import 'tailwindcss';
 
 :root {
-  --theme-cream: #FFF6F6;
-  --theme-forest: #2C687B;
-  --theme-terracotta: #DB1A1A;
-  --theme-sage: #8CC7C4;
-  --theme-charcoal: #1E4A5A;
+  --theme-cream: #FBF7F4;
+  --theme-forest: #3D1952;       /* deep purple (primary dark) */
+  --theme-terracotta: #7B2D8E;   /* purple (accent) */
+  --theme-gold: #D4A843;         /* gold (highlight) */
+  --theme-charcoal: #2A1038;     /* darker purple */
+  --theme-sage: #B89DC7;         /* soft lavender */
   /* ... etc */
   --theme-font-heading: var(--font-bricolage, 'Bricolage Grotesque', ...);
   --theme-font-body: var(--font-geist, 'Geist', ...);
@@ -91,7 +92,7 @@ frontend/
 │   │   ├── pricing/              # Pricing calculators (Daycare, Boarding, Grooming)
 │   │   └── ui/                   # Reusable primitives (Button, Badge, FadeIn, etc.)
 │   └── data/
-│       └── pricingData.ts        # Hardcoded pricing data (to be rewritten with KC values in M2)
+│       └── pricingData.ts        # KC pricing data (daycare, boarding, grooming with à la carte)
 ├── sanity/
 │   └── lib/
 │       ├── client.ts             # Sanity client configuration

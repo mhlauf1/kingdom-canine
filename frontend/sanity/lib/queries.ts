@@ -46,6 +46,7 @@ export const settingsQuery = defineQuery(`*[_type == "settings"][0]{
   logo,
   yearEstablished,
   socialLinks,
+  posUrls,
   "faviconUrl": favicon.asset->url,
   ga4MeasurementId,
   gtmContainerId,

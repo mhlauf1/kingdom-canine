@@ -261,6 +261,21 @@ export const settings = defineType({
       ],
     }),
     defineField({
+      name: 'posUrls',
+      title: 'POS & Booking URLs',
+      type: 'object',
+      description: 'External POS system URLs. Update these when swapping providers (Gingr → Goose).',
+      options: {collapsible: true, collapsed: true},
+      fields: [
+        defineField({name: 'portalUrl', title: 'Customer Portal URL', type: 'url', description: 'Main customer portal / booking page'}),
+        defineField({name: 'registrationUrl', title: 'New Customer Registration URL', type: 'url'}),
+        defineField({name: 'daycareBookingUrl', title: 'Daycare Booking URL', type: 'url'}),
+        defineField({name: 'boardingBookingUrl', title: 'Boarding Booking URL', type: 'url'}),
+        defineField({name: 'groomingBookingUrl', title: 'Grooming Booking URL', type: 'url'}),
+        defineField({name: 'transportationBookingUrl', title: 'Transportation Booking URL', type: 'url'}),
+      ],
+    }),
+    defineField({
       name: 'ogImage',
       title: 'Open Graph Image',
       type: 'image',

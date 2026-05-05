@@ -10,68 +10,75 @@ KC is the simplest site in the Embark portfolio. Brian confirmed this. The miles
 
 ## Milestone 1: Foundation & Cleanup
 
-**Status:** In Progress
+**Status:** Complete (merged to main)
 **Branch:** `feature/foundation`
 
 ### Goals
 - Strip all Home Away From Home-specific content, images, and references from the cloned codebase
-- Remove HAFH-specific features not needed for KC:
-  - Three-theme system — N/A, did not exist in clone (HAFH already had single palette)
-  - Theme toggle widget — N/A, did not exist in clone
-  - Cat services page and related schemas/components
-  - Webcams page and related schemas/components
-  - About page (not in scope unless Brian sends content)
-- Set up new Sanity project/dataset and connect it
-- Establish KC color palette and typography (single theme, no toggle)
-- Swap logo to KC logo (pending source file from Brian)
-- Update all meta tags, site title, favicon, OG images for KC
-- Update `.env` / `.env.example` with KC-specific values
-- Verify clean Vercel deployment
+- Remove HAFH-specific features not needed for KC (cat services, webcams)
+- Connect Sanity project and set up environment
+- Update all meta tags, site title for KC
 
-### Completed so far
+### What was done
 - All HAFH text references replaced with "Kingdom Canine" (16 edits across 12 files)
 - HAFH phone number replaced with KC phone (314-631-6738) in pricing calculators
 - Webcam system fully removed (3 schema files, 3 components, 1 API route, plus references in BlockRenderer, queries, page/service schemas)
 - Cat pricing data removed from `pricingData.ts`
 - Root `package.json` name fixed from "hound-3" to "kingdom-canine"
-- `frontend/.env.local` created with Sanity env vars
+- `frontend/.env.local` created with Sanity env vars and read token
+- Contact form email sender and footer updated
 - TypeScript compiles clean; zero HAFH references in source files
 
-### Remaining
-- Logo swap (blocked — waiting on Brian)
-- Sanity project connection (need new project ID or decision to keep `ldmtl3r7`)
-- `SANITY_API_READ_TOKEN` needed for full build
-- Vercel deployment setup and verification
-- Schema deploy to cloud
-
-### Definition of Done
-- Site deploys to Vercel with no HAFH or Hound Around references anywhere
-- All pages render without errors (content can be placeholder)
-- Unused HAFH features removed (theme system, cats, webcams)
-- Single KC design direction applied
+### Still blocked
+- Logo swap (waiting on source file from Brian)
+- Vercel deployment (deferred — not deploying until further along)
 
 ---
 
 ## Milestone 2: Sanity Schema & Content Seeding
 
-**Status:** Not Started
+**Status:** Complete (on branch `content/sanity-seed`, ready to merge)
 **Branch:** `content/sanity-seed`
 
 ### Goals
-- Review Sanity schemas — trim unused types (cat services, webcams)
-- Add transportation service schema if needed
-- Seed all available content into Sanity:
-  - Facility info (name, address, phone, hours)
-  - All pricing data from Brian's doc (daycare, boarding, grooming, transportation)
-  - Service descriptions (from current site + Brian's doc)
-  - Booking info (Gingr portal URLs — stored in settings for easy Goose swap)
-- Verify all GROQ queries return correct data
+- Rewrite all pricing data with correct KC values from Brian's doc
+- Update calculator components for KC's service structure
+- Add POS URL fields to settings schema for Gingr → Goose swap
+- Seed all Sanity content
+- Deploy schema to cloud
+- Establish KC color palette
 
-### Definition of Done
-- Sanity Studio loads with all seeded content
-- All content renders on the site through GROQ queries
-- No hardcoded content in components — everything from Sanity
-- POS URLs in settings doc (single point of update for Gingr → Goose)
+### What was done
+
+#### Pricing data (`pricingData.ts` — complete rewrite)
+- Daycare: $36 full / $24 half, 10/20/30-day packages ($325/$615/$865), removed 5-day package
+- Boarding: Standard $64/night, VIP Luxury Suite $150/night (flat rate 1-4 dogs), additional dog $55/night
+- Grooming: Bath matrix (size × hair length), full groom by size ($89-$129), doodle surcharge +$10, 5 à la carte services ($8-$18), teeth cleaning add-on $10
+- All calculation functions updated with suite rate logic, marketed totals, and à la carte support
+
+#### Calculator components
+- BoardingCalculator: VIP suite auto-removes extra dogs, hides add-dog button, shows suite note, fixed "$29/night" hardcoded bug
+- GroomingCalculator: hair length pill selector for bath, isDoodle toggle per dog, à la carte CheckboxGroup, teeth cleaning checkbox
+- DaycareCalculator: minimal changes (type narrowing auto-propagated from data)
+
+#### Settings schema
+- Added `posUrls` object field (portalUrl, registrationUrl, per-service booking URLs)
+- Updated settingsQuery to include posUrls
+
+#### Sanity content (9 documents seeded and published)
+- Settings: full facility info, nav with page/service references, footer, contact, POS URLs (Gingr), local business structured data with hours and geo
+- 4 services: Daycare, Boarding, Grooming, Transportation (each with hero + pricing + CTA)
+- 4 pages: Homepage (hero + serviceTabs + statsBar + CTA), Pricing (pricingPageTabs with 3 service tabs + full matrix data), Contact (form), New Clients (3-step process)
+
+#### Infrastructure
+- Schema deployed to Sanity cloud
+- `studio/.env` created with correct project ID
+- Build passes clean
+
+#### Color palette
+- Replaced HAFH teal/red palette with KC royal purple + gold
+- Primary dark: `#3D1952` (deep purple), Accent: `#7B2D8E` (purple), Gold: `#D4A843`
+- All 18 CSS custom properties updated in `globals.css` — zero component changes needed
 
 ---
 

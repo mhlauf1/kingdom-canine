@@ -3,7 +3,7 @@
 import {useState, useMemo, useCallback} from 'react'
 import {NumberStepper, RadioGroup, AddDogButton, ContactNotice} from './CalculatorInputs'
 import PriceOutputCard from './PriceOutputCard'
-import {calculateBoardingPerDog, boardingRooms} from '@/app/data/pricingData'
+import {calculateBoardingPerDog, boardingRooms, boardingAdditionalDogRate} from '@/app/data/pricingData'
 import type {RoomType, BoardingDogConfig} from '@/app/data/pricingData'
 import type {DereferencedLink} from '@/sanity/lib/types'
 
@@ -16,14 +16,26 @@ type BoardingCalculatorProps = {
 let dogIdCounter = 1
 
 function createDog(): BoardingDogConfig {
-  return {id: String(dogIdCounter++), nights: 1, roomType: 'regular'}
+  return {id: String(dogIdCounter++), nights: 1, roomType: 'standard'}
 }
 
 export default function BoardingCalculator({ctaText, ctaLink, taxNote}: BoardingCalculatorProps) {
   const [dogs, setDogs] = useState<BoardingDogConfig[]>(() => [createDog()])
 
+  const selectedRoom = boardingRooms[dogs[0]?.roomType ?? 'standard']
+  const isVip = selectedRoom.isSuiteRate === true
+
   const handleUpdateDog = useCallback((index: number, updates: Partial<BoardingDogConfig>) => {
-    setDogs((prev) => prev.map((d, i) => (i === index ? {...d, ...updates} : d)))
+    setDogs((prev) => {
+      const updated = prev.map((d, i) => (i === index ? {...d, ...updates} : d))
+      if (index === 0 && updates.roomType) {
+        const newRoom = boardingRooms[updates.roomType]
+        if (newRoom.isSuiteRate) {
+          return [updated[0]]
+        }
+      }
+      return updated
+    })
   }, [])
 
   const handleRemoveDog = useCallback((index: number) => {
@@ -80,7 +92,12 @@ export default function BoardingCalculator({ctaText, ctaLink, taxNote}: Boarding
               onRemove={() => handleRemoveDog(i)}
             />
           ))}
-          {dogs.length < 3 && <AddDogButton onClick={handleAddDog} />}
+          {!isVip && dogs.length < 3 && <AddDogButton onClick={handleAddDog} />}
+          {isVip && (
+            <p className="font-sans text-[13px] text-cream/50 italic">
+              VIP Luxury Suite accommodates up to 4 dogs at one flat nightly rate.
+            </p>
+          )}
         </div>
       </div>
 
@@ -116,7 +133,7 @@ function BoardingDogCard({dog, index, total, isAdditional, onUpdate, onRemove}: 
         <span className="font-sans text-[14px] font-medium text-cream">
           {total > 1 ? `Dog ${index + 1}` : 'Your Dog'}
           {isAdditional && (
-            <span className="text-cream/50 text-[12px] ml-2">($29/night)</span>
+            <span className="text-cream/50 text-[12px] ml-2">(${boardingAdditionalDogRate}/night)</span>
           )}
         </span>
         {total > 1 && (
