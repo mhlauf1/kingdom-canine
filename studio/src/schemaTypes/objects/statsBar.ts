@@ -13,6 +13,7 @@ export const statsBar = defineType({
       type: 'array',
       of: [
         defineArrayMember({
+          name: 'statItem',
           type: 'object',
           fields: [
             defineField({

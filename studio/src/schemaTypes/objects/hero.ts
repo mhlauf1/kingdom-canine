@@ -58,6 +58,27 @@ export const hero = defineType({
       type: 'image',
       options: {hotspot: true},
     }),
+    defineField({
+      name: 'carouselImages',
+      title: 'Carousel Images',
+      type: 'array',
+      description:
+        'Optional row of facility photos that scrolls horizontally beneath the hero copy. Recommend 5–8 images.',
+      of: [
+        {
+          type: 'image',
+          options: {hotspot: true},
+          fields: [
+            defineField({
+              name: 'alt',
+              title: 'Alt Text',
+              type: 'string',
+            }),
+          ],
+        },
+      ],
+      options: {layout: 'grid'},
+    }),
   ],
   preview: {
     select: {title: 'heading'},

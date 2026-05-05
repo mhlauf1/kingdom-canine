@@ -30,6 +30,7 @@ export const serviceCards = defineType({
       type: 'array',
       of: [
         defineArrayMember({
+          name: 'serviceCard',
           type: 'object',
           fields: [
             defineField({
@@ -61,6 +62,19 @@ export const serviceCards = defineType({
           },
         }),
       ],
+    }),
+    defineField({
+      name: 'variant',
+      title: 'Card Style',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'White card with image on top', value: 'white'},
+          {title: 'Image background with overlay text + numbered badge', value: 'imageOverlay'},
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'white',
     }),
     defineField({
       name: 'columns',

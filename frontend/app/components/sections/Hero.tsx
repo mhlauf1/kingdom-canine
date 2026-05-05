@@ -14,6 +14,13 @@ type HeroProps = {
     reviewText?: string
     trustLine?: string
     heroImage?: {asset?: {_ref: string}; crop?: any; hotspot?: any}
+    carouselImages?: Array<{
+      _key: string
+      asset?: {_ref: string}
+      crop?: any
+      hotspot?: any
+      alt?: string
+    }>
   }
   index: number
   pageId: string
@@ -31,7 +38,10 @@ export default function Hero({block, index}: HeroProps) {
     reviewText,
     trustLine,
     heroImage,
+    carouselImages,
   } = block
+
+  const validCarouselImages = (carouselImages || []).filter((img) => img?.asset?._ref)
 
   const isFirst = index === 0
   const Wrap = isFirst
@@ -129,7 +139,7 @@ export default function Hero({block, index}: HeroProps) {
           )}
         </div>
 
-        {heroImage?.asset?._ref &&
+        {!validCarouselImages.length && heroImage?.asset?._ref &&
           (isFirst ? (
             <div className="mt-10 lg:mt-16 max-w-4xl mx-auto">
               <Image
@@ -158,6 +168,32 @@ export default function Hero({block, index}: HeroProps) {
             </FadeIn>
           ))}
       </div>
+
+      {validCarouselImages.length > 0 && (
+        <FadeIn delay={isFirst ? 0 : 0.5}>
+          <div className="mt-10 lg:mt-16 overflow-hidden" aria-label="Facility photos">
+            <div className="flex w-max gap-4 md:gap-6 pb-4 animate-marquee">
+              {[...validCarouselImages, ...validCarouselImages].map((img, i) => (
+                <div
+                  key={`${img._key}-${i}`}
+                  aria-hidden={i >= validCarouselImages.length || undefined}
+                  className="shrink-0 w-[320px] md:w-[440px] lg:w-[520px] h-[400px] md:h-[520px] lg:h-[600px] rounded-2xl overflow-hidden"
+                >
+                  <Image
+                    id={img.asset!._ref}
+                    alt={img.alt || ''}
+                    width={520}
+                    crop={img.crop}
+                    hotspot={img.hotspot}
+                    sizes="(max-width: 768px) 320px, (max-width: 1024px) 440px, 520px"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+      )}
     </section>
   )
 }

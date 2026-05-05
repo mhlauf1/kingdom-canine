@@ -70,6 +70,25 @@ export const splitContent = defineType({
       ],
     }),
     defineField({
+      name: 'hours',
+      title: 'Hours',
+      type: 'array',
+      description: 'Optional hours block (e.g. for an About section). Renders as a labeled list under the body.',
+      of: [
+        {
+          name: 'hoursEntry',
+          type: 'object',
+          fields: [
+            defineField({name: 'label', title: 'Label', type: 'string', validation: (Rule) => Rule.required()}),
+            defineField({name: 'value', title: 'Value', type: 'string', validation: (Rule) => Rule.required()}),
+          ],
+          preview: {
+            select: {title: 'label', subtitle: 'value'},
+          },
+        },
+      ],
+    }),
+    defineField({
       name: 'imagePosition',
       title: 'Image Position',
       type: 'string',

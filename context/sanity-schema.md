@@ -4,7 +4,7 @@
 
 ## Status
 
-Schema fully set up for Kingdom Canine. Webcam types removed in M1. POS URL fields added to settings in M2. All content seeded and published. Schema deployed to cloud.
+Schema fully set up for Kingdom Canine. Webcam types removed in M1. POS URL fields added to settings in M2. M3 added: `hero.carouselImages[]`, `serviceCards.variant` (`white` | `imageOverlay`, default `white`), `serviceCards.cards[]` named as `serviceCard`, `splitContent.hours[]` (named `hoursEntry`, label/value). All content seeded and published. Schema deployed to cloud.
 
 ## Sanity Project Details
 
