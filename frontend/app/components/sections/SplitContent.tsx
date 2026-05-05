@@ -13,6 +13,7 @@ type SplitContentProps = {
     badge?: {asset?: {_ref: string}; alt?: string}
     image?: {asset?: {_ref: string}; crop?: any; alt?: string}
     stickerImage?: {asset?: {_ref: string}; alt?: string}
+    hours?: Array<{_key: string; label?: string; value?: string}>
     imagePosition?: 'left' | 'right'
     backgroundColor?: 'cream' | 'sand' | 'forest' | 'tan' | 'lavender' | 'dark'
   }
@@ -32,7 +33,8 @@ const bgColors: Record<string, {classes: string; isDark: boolean}> = {
 }
 
 export default function SplitContent({block}: SplitContentProps) {
-  const {heading, body, link, badge, image, stickerImage, imagePosition, backgroundColor} = block
+  const {heading, body, link, badge, image, stickerImage, hours, imagePosition, backgroundColor} = block
+  const validHours = (hours || []).filter((h) => h?.label && h?.value)
   const isImageLeft = stegaClean(imagePosition) === 'left'
   const {classes: bg, isDark} = bgColors[stegaClean(backgroundColor) || 'sand'] || bgColors.sand
 
@@ -56,6 +58,22 @@ export default function SplitContent({block}: SplitContentProps) {
                   className={`font-sans text-[16px] lg:text-[18px]  leading-[150%] opacity-80 mb-6 prose prose-p:mb-3 ${isDark ? 'prose-invert' : ''}`}
                 >
                   <PortableText value={body} />
+                </div>
+              </FadeIn>
+            )}
+
+            {validHours.length > 0 && (
+              <FadeIn delay={0.15}>
+                <div className="mb-6">
+                  <h3 className="font-sans font-semibold text-base mb-3">Hours</h3>
+                  <dl className="font-sans text-[16px] lg:text-[18px] leading-[160%] opacity-90 space-y-1">
+                    {validHours.map((h) => (
+                      <div key={h._key} className="flex flex-wrap gap-x-2">
+                        <dt className="font-semibold">{h.label}</dt>
+                        <dd>{h.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
                 </div>
               </FadeIn>
             )}

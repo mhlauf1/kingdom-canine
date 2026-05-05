@@ -16,6 +16,7 @@ type ServiceCardsProps = {
       description?: string
       cta?: {buttonText?: string; link?: any}
     }>
+    variant?: 'white' | 'imageOverlay'
     columns?: number
     backgroundColor?: 'cream' | 'sand'
   }
@@ -36,10 +37,11 @@ const bgColors: Record<string, string> = {
 }
 
 export default function ServiceCards({block}: ServiceCardsProps) {
-  const {eyebrow, heading, description, cards, columns, backgroundColor} = block
+  const {eyebrow, heading, description, cards, variant, columns, backgroundColor} = block
   const cols = stegaClean(columns) || 3
   const gridClass = columnClasses[cols] || columnClasses[3]
   const bg = bgColors[stegaClean(backgroundColor) || 'cream'] || bgColors.cream
+  const isOverlay = stegaClean(variant) === 'imageOverlay'
 
   return (
     <section className={bg}>
@@ -60,7 +62,7 @@ export default function ServiceCards({block}: ServiceCardsProps) {
           </div>
         </FadeIn>
 
-        {cards && cards.length > 0 && (
+        {cards && cards.length > 0 && !isOverlay && (
           <div className={`grid ${gridClass} gap-6`}>
             {cards.map((card, i) => (
               <FadeIn key={card._key} delay={0.05 * i}>
@@ -95,6 +97,60 @@ export default function ServiceCards({block}: ServiceCardsProps) {
                       >
                         {card.cta.buttonText} &rarr;
                       </Button>
+                    )}
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        )}
+
+        {cards && cards.length > 0 && isOverlay && (
+          <div className={`grid ${gridClass} gap-6`}>
+            {cards.map((card, i) => (
+              <FadeIn key={card._key} delay={0.05 * i}>
+                <div className="group relative rounded-2xl overflow-hidden aspect-[3/4] h-full bg-forest">
+                  {card.image?.asset?._ref && (
+                    <Image
+                      id={card.image.asset._ref}
+                      alt={card.title || ''}
+                      width={600}
+                      crop={card.image.crop}
+                      hotspot={card.image.hotspot}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
+                  {/* Gradient scrim */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10" />
+
+                  {/* Numbered badge */}
+                  <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur flex items-center justify-center font-sans text-sm font-semibold text-forest">
+                    {i + 1}
+                  </div>
+
+                  {/* Content overlay */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 lg:p-7 text-cream">
+                    {card.title && (
+                      <h3 className="text-[22px] md:text-[26px] lg:text-[28px] leading-[110%] font-semibold mb-2">
+                        {card.title}
+                      </h3>
+                    )}
+                    {card.description && (
+                      <p className="font-sans text-[14px] lg:text-[15px] leading-[150%] text-cream/85 mb-4 line-clamp-4">
+                        {card.description}
+                      </p>
+                    )}
+                    {card.cta?.buttonText && (
+                      <div>
+                        <Button
+                          variant="primary"
+                          link={card.cta.link}
+                          className="!px-4 !py-2 !text-sm"
+                        >
+                          {card.cta.buttonText}
+                        </Button>
+                      </div>
                     )}
                   </div>
                 </div>
