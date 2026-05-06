@@ -166,6 +166,34 @@ export const contactForm = defineType({
       title: 'Email',
       type: 'string',
     }),
+    defineField({
+      name: 'hours',
+      title: 'Hours of Operation',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'hoursEntry',
+          fields: [
+            defineField({
+              name: 'label',
+              title: 'Label',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'value',
+              title: 'Value',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+          preview: {
+            select: {title: 'label', subtitle: 'value'},
+          },
+        }),
+      ],
+    }),
   ],
   preview: {
     select: {title: 'heading'},

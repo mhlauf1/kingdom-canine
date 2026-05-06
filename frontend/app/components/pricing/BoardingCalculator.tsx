@@ -22,20 +22,8 @@ function createDog(): BoardingDogConfig {
 export default function BoardingCalculator({ctaText, ctaLink, taxNote}: BoardingCalculatorProps) {
   const [dogs, setDogs] = useState<BoardingDogConfig[]>(() => [createDog()])
 
-  const selectedRoom = boardingRooms[dogs[0]?.roomType ?? 'standard']
-  const isVip = selectedRoom.isSuiteRate === true
-
   const handleUpdateDog = useCallback((index: number, updates: Partial<BoardingDogConfig>) => {
-    setDogs((prev) => {
-      const updated = prev.map((d, i) => (i === index ? {...d, ...updates} : d))
-      if (index === 0 && updates.roomType) {
-        const newRoom = boardingRooms[updates.roomType]
-        if (newRoom.isSuiteRate) {
-          return [updated[0]]
-        }
-      }
-      return updated
-    })
+    setDogs((prev) => prev.map((d, i) => (i === index ? {...d, ...updates} : d)))
   }, [])
 
   const handleRemoveDog = useCallback((index: number) => {
@@ -92,12 +80,7 @@ export default function BoardingCalculator({ctaText, ctaLink, taxNote}: Boarding
               onRemove={() => handleRemoveDog(i)}
             />
           ))}
-          {!isVip && dogs.length < 3 && <AddDogButton onClick={handleAddDog} />}
-          {isVip && (
-            <p className="font-sans text-[13px] text-cream/50 italic">
-              VIP Luxury Suite accommodates up to 4 dogs at one flat nightly rate.
-            </p>
-          )}
+          {dogs.length < 3 && <AddDogButton onClick={handleAddDog} />}
         </div>
       </div>
 

@@ -629,6 +629,12 @@ export type ContactForm = {
   address?: string
   phone?: string
   email?: string
+  hours?: Array<{
+    label: string
+    value: string
+    _type: 'hoursEntry'
+    _key: string
+  }>
 }
 
 export type GalleryGrid = {
@@ -2116,6 +2122,12 @@ export type GetPageQueryResult = {
         address?: string
         phone?: string
         email?: string
+        hours?: Array<{
+          label: string
+          value: string
+          _type: 'hoursEntry'
+          _key: string
+        }>
       }
     | {
         _key: string
@@ -3380,6 +3392,12 @@ export type HomepageQueryResult = {
         address?: string
         phone?: string
         email?: string
+        hours?: Array<{
+          label: string
+          value: string
+          _type: 'hoursEntry'
+          _key: string
+        }>
       }
     | {
         _key: string
@@ -4671,6 +4689,12 @@ export type GetServiceQueryResult = {
         address?: string
         phone?: string
         email?: string
+        hours?: Array<{
+          label: string
+          value: string
+          _type: 'hoursEntry'
+          _key: string
+        }>
       }
     | {
         _key: string

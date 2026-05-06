@@ -33,8 +33,10 @@ export default function ContactForm({block}: ContactFormProps) {
     phone,
     email,
     nextSteps,
+    hours,
   } = block as typeof block & {
     nextSteps?: Array<{_key?: string; title?: string; description?: string}>
+    hours?: Array<{_key?: string; label?: string; value?: string}>
   }
 
   const searchParams = useSearchParams()
@@ -78,8 +80,9 @@ export default function ContactForm({block}: ContactFormProps) {
     }
   }
 
+  const validHours = (hours || []).filter((h) => h?.label && h?.value)
   const hasContactInfo =
-    image?.asset?._ref || address || phone || email || (stegaClean(showMap) && mapEmbedUrl)
+    image?.asset?._ref || address || phone || email || validHours.length > 0 || (stegaClean(showMap) && mapEmbedUrl)
 
   return (
     <section className="bg-cream pt-8">
@@ -250,41 +253,56 @@ export default function ContactForm({block}: ContactFormProps) {
                   </div>
                 )}
 
-                <div className="space-y-4">
-                  {address && (
-                    <div>
+                <div className={`grid ${validHours.length > 0 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'} gap-6`}>
+                  <div className="space-y-4">
+                    {address && (
+                      <div>
+                        <h4 className="font-sans text-[14px] font-medium uppercase tracking-[0.08em] text-terracotta mb-1">
+                          Address
+                        </h4>
+                        <p className="font-sans text-[16px] text-charcoal/80 whitespace-pre-line">
+                          {address}
+                        </p>
+                      </div>
+                    )}
+                    {phone && (
+                      <div>
+                        <h4 className="font-sans text-[14px] font-medium uppercase tracking-[0.08em] text-terracotta mb-1">
+                          Phone
+                        </h4>
+                        <a
+                          href={`tel:${phone.replace(/\D/g, '')}`}
+                          className="font-sans text-[16px] text-forest hover:text-terracotta transition-colors"
+                        >
+                          {phone}
+                        </a>
+                      </div>
+                    )}
+                    {email && (
+                      <div>
+                        <h4 className="font-sans text-[14px] font-medium uppercase tracking-[0.08em] text-terracotta mb-1">
+                          Email
+                        </h4>
+                        <a
+                          href={`mailto:${email}`}
+                          className="font-sans text-[16px] text-forest hover:text-terracotta transition-colors"
+                        >
+                          {email}
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                  {validHours.length > 0 && (
+                    <div className="space-y-4">
                       <h4 className="font-sans text-[14px] font-medium uppercase tracking-[0.08em] text-terracotta mb-1">
-                        Address
+                        Hours
                       </h4>
-                      <p className="font-sans text-[16px] text-charcoal/80 whitespace-pre-line">
-                        {address}
-                      </p>
-                    </div>
-                  )}
-                  {phone && (
-                    <div>
-                      <h4 className="font-sans text-[14px] font-medium uppercase tracking-[0.08em] text-terracotta mb-1">
-                        Phone
-                      </h4>
-                      <a
-                        href={`tel:${phone.replace(/\D/g, '')}`}
-                        className="font-sans text-[16px] text-forest hover:text-terracotta transition-colors"
-                      >
-                        {phone}
-                      </a>
-                    </div>
-                  )}
-                  {email && (
-                    <div>
-                      <h4 className="font-sans text-[14px] font-medium uppercase tracking-[0.08em] text-terracotta mb-1">
-                        Email
-                      </h4>
-                      <a
-                        href={`mailto:${email}`}
-                        className="font-sans text-[16px] text-forest hover:text-terracotta transition-colors"
-                      >
-                        {email}
-                      </a>
+                      {validHours.map((h) => (
+                        <div key={h._key}>
+                          <p className="font-sans text-[16px] font-medium text-forest">{h.label}</p>
+                          <p className="font-sans text-[15px] text-charcoal/80">{h.value}</p>
+                        </div>
+                      ))}
                     </div>
                   )}
                 </div>

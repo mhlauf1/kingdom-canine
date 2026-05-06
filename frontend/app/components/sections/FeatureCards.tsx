@@ -17,6 +17,7 @@ type FeatureCardsProps = {
     }>
     cta?: {buttonText?: string; link?: any}
     trustLine?: string
+    columns?: 3 | 4
     darkMode?: boolean
   }
   index: number
@@ -25,7 +26,8 @@ type FeatureCardsProps = {
 }
 
 export default function FeatureCards({block}: FeatureCardsProps) {
-  const {heading, subheading, stickerLeft, stickerRight, features, cta, trustLine} = block
+  const {heading, subheading, stickerLeft, stickerRight, features, cta, trustLine, columns} = block
+  const gridCols = columns === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'
 
   return (
     <section className="relative bg-forest text-cream rounded-[48px] -mt-12 z-10 overflow-hidden">
@@ -68,7 +70,7 @@ export default function FeatureCards({block}: FeatureCardsProps) {
         )}
 
         {features && features.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-12 lg:mb-16">
+          <div className={`grid grid-cols-1 sm:grid-cols-2 ${gridCols} gap-3 mb-12 lg:mb-16`}>
             {features.map((feature, i) => (
               <FadeIn key={feature._key} delay={0.1 * i}>
                 <div className="bg-forest-card border border-border-dark rounded-md px-6 py-12 h-full">

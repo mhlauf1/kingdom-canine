@@ -91,6 +91,20 @@ export const featureCards = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'columns',
+      title: 'Columns',
+      type: 'number',
+      description: 'Number of columns on desktop (default: 4)',
+      options: {
+        list: [
+          {title: '3 Columns', value: 3},
+          {title: '4 Columns', value: 4},
+        ],
+        layout: 'radio',
+      },
+      initialValue: 4,
+    }),
+    defineField({
       name: 'darkMode',
       title: 'Dark Mode',
       type: 'boolean',

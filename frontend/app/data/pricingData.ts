@@ -114,8 +114,6 @@ export type RoomMeta = {
   rate: number
   description: string
   note?: string
-  isSuiteRate?: boolean
-  maxDogs?: number
 }
 
 export const boardingRooms: Record<RoomType, RoomMeta> = {
@@ -129,8 +127,6 @@ export const boardingRooms: Record<RoomType, RoomMeta> = {
     rate: 125,
     description: 'Premium suite for 1–4 dogs',
     note: 'All-inclusive experience and daycare participation included',
-    isSuiteRate: true,
-    maxDogs: 4,
   },
 }
 
@@ -156,37 +152,21 @@ export function calculateBoardingPerDog(input: {dogs: BoardingDogConfig[]}): Boa
 
   const room = boardingRooms[dogs[0].roomType]
 
-  if (room.isSuiteRate) {
-    const nights = dogs[0].nights
-    const cost = room.rate * nights
-    total = cost
+  for (let i = 0; i < dogs.length; i++) {
+    const dog = dogs[i]
+    const isAdditional = i > 0
+    const rate = isAdditional ? boardingAdditionalDogRate : room.rate
+    const cost = rate * dog.nights
+
+    const dogLabel = dogs.length > 1 ? `Dog ${i + 1}` : 'Your dog'
+    const rateLabel = isAdditional
+      ? `Additional dog — ${dog.nights} night${dog.nights > 1 ? 's' : ''} @ $${rate}/night`
+      : `${room.label} — ${dog.nights} night${dog.nights > 1 ? 's' : ''} @ $${rate}/night`
     lineItems.push({
-      label: `${room.label} — ${nights} night${nights > 1 ? 's' : ''} @ $${room.rate}/night`,
+      label: `${dogLabel} — ${rateLabel}`,
       amount: cost,
     })
-    if (dogs.length > 1) {
-      lineItems.push({
-        label: `${dogs.length - 1} additional dog${dogs.length > 2 ? 's' : ''} included in suite`,
-        amount: 0,
-      })
-    }
-  } else {
-    for (let i = 0; i < dogs.length; i++) {
-      const dog = dogs[i]
-      const isAdditional = i > 0
-      const rate = isAdditional ? boardingAdditionalDogRate : room.rate
-      const cost = rate * dog.nights
-
-      const dogLabel = dogs.length > 1 ? `Dog ${i + 1}` : 'Your dog'
-      const rateLabel = isAdditional
-        ? `Additional dog — ${dog.nights} night${dog.nights > 1 ? 's' : ''} @ $${rate}/night`
-        : `${room.label} — ${dog.nights} night${dog.nights > 1 ? 's' : ''} @ $${rate}/night`
-      lineItems.push({
-        label: `${dogLabel} — ${rateLabel}`,
-        amount: cost,
-      })
-      total += cost
-    }
+    total += cost
   }
 
   return {
