@@ -52,8 +52,8 @@ KC is the simplest site in the Embark portfolio. Brian confirmed this. The miles
 
 #### Pricing data (`pricingData.ts` — complete rewrite)
 - Daycare: $36 full / $24 half, 10/20/30-day packages ($325/$615/$865), removed 5-day package
-- Boarding: Standard $64/night, VIP Luxury Suite $150/night (flat rate 1-4 dogs), additional dog $55/night
-- Grooming: Bath matrix (size × hair length), full groom by size ($89-$129), doodle surcharge +$10, 5 à la carte services ($8-$18), teeth cleaning add-on $10
+- Boarding: Standard $64/night, VIP Luxury Cottage Suite $125/night (1-4 dogs), additional dog $55/night
+- Grooming: Bath matrix (size × hair length), full groom by size ($89-$129), doodle surcharge +$10, 6 à la carte services ($8-$30), teeth cleaning add-on $10
 - All calculation functions updated with suite rate logic, marketed totals, and à la carte support
 
 #### Calculator components
@@ -84,47 +84,50 @@ KC is the simplest site in the Embark portfolio. Brian confirmed this. The miles
 
 ## Milestone 3: Core Pages — Homepage & Services
 
-**Status:** Not Started
+**Status:** Complete (merged to main)
 **Branch:** `feature/core-pages`
 
 ### Goals
-- Homepage: hero, services overview, stats counter, CTA
-- Daycare page: hero, features, pricing (single visits + packages), CTA
-- Boarding page: hero, "Pack Mentality" narrative, pricing (Standard + VIP Luxury Suite), CTA
-- Grooming page: hero, pricing matrix (bath × size × hair length, full groom, à la carte), CTA
-- Transportation page: hero, description, pricing (single + packages), CTA
-- All pages responsive across desktop, tablet, mobile
+- Homepage: hero with image carousel, service cards (image-overlay variant), about us split with hours, testimonials, stats bar, CTA banner
+- Daycare page: hero, pricing calculator, CTA
+- Boarding page: hero, pricing calculator (Standard + VIP Luxury Cottage Suite), CTA
+- Grooming page: hero, pricing calculator (bath matrix, full groom, à la carte), CTA
+- Transportation page: hero, pricing list (single + packages), CTA
 
-### Key design moments
-- **VIP Luxury Suite** needs its own visual treatment on the boarding page — premium tier, not just another row
-- **Grooming pricing matrix** replaces the old narrative packages with transparent pricing
-- **Transportation** is unique to KC — simple page but needs to feel like part of the system
-
-### Definition of Done
-- All five pages fully built and populated with Sanity content
-- Pricing displays are accurate against Brian's doc
-- Mobile responsive
-- No placeholder content in service pages
+### What was done
+- Homepage built with all sections rendering from Sanity content
+- Hero headline updated to "Where your dog is treated like royalty" per Brian's feedback
+- All four service pages built with heroMinimal + pricing + ctaBanner
+- Schema changes: hero carouselImages, serviceCards variant, splitContent hours
+- Schema deployed to cloud, all content seeded and published
+- Brian's May 5 feedback applied: VIP Luxury Suite → VIP Luxury Cottage Suite, $150 → $125/night, Pad Trim → Spot Trim ($15), added Face Feet & Sanitary ($30)
+- Removed unconfirmed half-day package totals (only full-day totals from Brian's doc)
+- Fixed standard boarding description from "Individual kennel run" to "Cage-free, all-inclusive group boarding"
+- Hero carousel marquee slowed to 200s
+- All pricing audited and verified against intake doc + Brian's feedback
 
 ---
 
-## Milestone 4: Supporting Pages & New Client Flow
+## Milestone 4: Supporting Pages & Homepage CTA
 
 **Status:** Not Started
 **Branch:** `feature/supporting-pages`
 
 ### Goals
-- Pricing page: comprehensive pricing overview for all services (daycare, boarding, grooming, transportation)
-- Contact page: contact form, map embed, hours, POS booking link
-- New Clients page: custom Get Started form/flow (replaces HighLevel 3-step funnel)
-- Gallery page: photo grid (scaffolded — photos pending from Brian)
+- Add "Get Started" ctaStrip to homepage (position 3, between Service Cards and About Us) linking to Gingr registration
+- Contact page: contact form, Google Maps embed, hours, phone
+- Pricing page: comprehensive pricing overview (pricingPageTabs)
+- Gallery page: scaffolded with placeholder state (photos pending from Brian)
+- Remove New Clients page from nav (registration handled by Gingr portal link)
 
 ### Definition of Done
-- All supporting pages built
-- Contact form functional
-- New client flow designed and built
-- Gallery scaffolded with placeholder state
-- Testimonials section ready (scaffolded — content pending)
+- Homepage ctaStrip added and linking to Gingr registration
+- Contact page with form, Google Maps, hours, phone
+- Pricing page rendering all calculator tabs
+- Gallery page scaffolded
+- New Clients page removed from nav
+- Mobile responsive
+- `npm run build` passes clean
 
 ---
 

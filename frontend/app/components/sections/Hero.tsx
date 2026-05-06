@@ -86,7 +86,7 @@ export default function Hero({block, index}: HeroProps) {
 
           {heading && (
             <Wrap delay={0.1}>
-              <h1 className="text-[48px] md:text-[56px] lg:text-[74px] leading-[104%] tracking-tight font-semibold mb-5">
+              <h1 className="text-[48px] md:text-[56px] md:max-w-[16ch] lg:text-[74px] leading-[104%] tracking-tight font-semibold mb-5">
                 {heading}
               </h1>
             </Wrap>
@@ -139,7 +139,8 @@ export default function Hero({block, index}: HeroProps) {
           )}
         </div>
 
-        {!validCarouselImages.length && heroImage?.asset?._ref &&
+        {!validCarouselImages.length &&
+          heroImage?.asset?._ref &&
           (isFirst ? (
             <div className="mt-10 lg:mt-16 max-w-4xl mx-auto">
               <Image

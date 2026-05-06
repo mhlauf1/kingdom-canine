@@ -11,23 +11,23 @@
    ============================================================ */
 
 :root {
-  --theme-cream: #FBF7F4;
-  --theme-sand: #F0EBE8;
-  --theme-forest: #3D1952;
-  --theme-forest-card: #4A2462;
-  --theme-terracotta: #7B2D8E;
-  --theme-terracotta-dark: #5E1E6E;
-  --theme-terracotta-light: #C89DD3;
-  --theme-sage: #B89DC7;
-  --theme-charcoal: #2A1038;
-  --theme-gold: #D4A843;
-  --theme-rose: #9B4DAF;
-  --theme-black: #120A18;
-  --theme-black-card: #1A1022;
+  --theme-cream: #fbf7f4;
+  --theme-sand: #f0ebe8;
+  --theme-forest: #3d1952;
+  --theme-forest-card: #4a2462;
+  --theme-terracotta: #7b2d8e;
+  --theme-terracotta-dark: #5e1e6e;
+  --theme-terracotta-light: #c89dd3;
+  --theme-sage: #b89dc7;
+  --theme-charcoal: #2a1038;
+  --theme-gold: #d4a843;
+  --theme-rose: #9b4daf;
+  --theme-black: #120a18;
+  --theme-black-card: #1a1022;
   --theme-border-light: rgba(61, 25, 82, 0.15);
   --theme-border-dark: rgba(251, 247, 244, 0.2);
   --theme-border-black: rgba(251, 247, 244, 0.12);
-  --theme-text-muted: rgba(61, 25, 82, 0.80);
+  --theme-text-muted: rgba(61, 25, 82, 0.8);
   --theme-text-muted-dark: rgba(251, 247, 244, 0.7);
   --theme-shadow-color: 61, 25, 82;
   --theme-font-heading: var(--font-bricolage, 'Bricolage Grotesque', system-ui, sans-serif);
@@ -92,7 +92,7 @@
 
   /* Shadows */
   --shadow-card: 0 2px 8px rgba(var(--theme-shadow-color), 0.06);
-  --shadow-card-hover: 0 8px 24px rgba(var(--theme-shadow-color), 0.10);
+  --shadow-card-hover: 0 8px 24px rgba(var(--theme-shadow-color), 0.1);
 
   --default-transition-duration: 250ms;
 }
@@ -152,7 +152,7 @@
 }
 
 @utility animate-marquee {
-  animation: marquee 160s linear infinite;
+  animation: marquee 200s linear infinite;
 }
 
 @utility animate-ticker {
@@ -179,7 +179,7 @@
 @layer base {
   .bg-forest button:focus-visible,
   .bg-forest label:focus-visible,
-  .bg-forest [role="radio"]:focus-visible {
+  .bg-forest [role='radio']:focus-visible {
     outline: 2px solid var(--color-terracotta);
     outline-offset: 2px;
     border-radius: 4px;
