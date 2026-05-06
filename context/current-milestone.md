@@ -1,37 +1,41 @@
 # Current Milestone
 
-## Milestone 3: Core Pages — Homepage & Services
+## Milestone 4: Supporting Pages & Homepage CTA
 
 ### Status
-In progress (branch `feature/core-pages`)
+Not started
 
 ### Goals
-Build the homepage and four service detail pages (Daycare, Boarding, Grooming, Transportation) using the established Embark component patterns. The homepage mirrors the HAFH structure that we want to standardize across the network.
+- Add "Get Started" `ctaStrip` to homepage (position 3, between Service Cards and About Us split) linking to Gingr registration URL
+- Contact page: contact form, Google Maps embed, hours, phone
+- Pricing page: comprehensive pricing overview (pricingPageTabs already seeded in Sanity)
+- Gallery page: scaffolded with placeholder state (photos pending from Brian)
+- Remove or repurpose New Clients page (no custom form needed — registration handled by Gingr portal)
 
-### Homepage structure (in build order)
-1. **Hero with image carousel** — eyebrow, headline, subtext, dual CTAs, star rating row, horizontal facility-photo carousel beneath
-2. **Service cards (image-overlay variant)** — 4 cards, each with bg image, numbered badge (1–4), name + description overlaid at bottom, "Learn more" CTA
-3. **About Us split** — left: heading + body + structured Hours block; right: facility photo
-4. **Testimonial carousel** — 3 placeholder reviews to start (Brian's real reviews swap in later)
-5. **CTA banner** — centered bg image, "Ready to give your dog a kingdom of their own?", Book a Visit CTA, star rating
+### Homepage ctaStrip
+- Position: between Service Cards and About Us split (block 3)
+- CTA links to: https://kingdomcanine.portal.gingrapp.com/#/public/new_customer
+- Component already exists and is wired into page builder — just needs a Sanity block added to the homepage
 
-### Schema changes for homepage
-- `hero`: add optional `carouselImages: image[]`
-- `serviceCards`: add optional `variant: 'white' | 'imageOverlay'` (default `white` keeps other Embark sites visually unchanged)
-- `splitContent`: add optional `hours: { label: string, value: string }[]`
+### Contact page
+- Contact form (already has `contactForm` block type)
+- Google Maps embed showing 2549 Hogan Rd, Pacific, MO 63069
+- Hours of operation
+- Phone number: (314) 631-6738
 
-### Service pages (next sub-chunk)
-After homepage approved, build Daycare, Boarding (with VIP Luxury Suite as a real visual moment), Grooming (transparent pricing matrix), Transportation (single + packages).
+### Pricing page
+- Already has `pricingPageTabs` block seeded in Sanity
+- Verify it renders correctly with all three calculator tabs (daycare, boarding, grooming)
+
+### Gallery page
+- Scaffold with placeholder state
+- Photos pending from Brian
 
 ### Definition of Done
-- [ ] Homepage all 5 sections rendering with Sanity content
-- [ ] Schema redeployed to cloud
-- [ ] 3 placeholder testimonials seeded
-- [ ] All four service pages built and populated
-- [ ] Mobile responsive (375 / 768 / 1280)
+- [ ] Homepage ctaStrip added and linking to Gingr registration
+- [ ] Contact page with form, Google Maps, hours, phone
+- [ ] Pricing page rendering all three calculator tabs
+- [ ] Gallery page scaffolded
+- [ ] New Clients page removed from nav (or repurposed)
+- [ ] Mobile responsive
 - [ ] `npm run build` passes clean
-- [ ] No HAFH/Hound Around references in any output
-
-### Notes
-- User uploads hero carousel images, About Us photo, and CTA banner background image to Sanity after schema lands
-- Service detail pages already have `heroMinimal + pricingCalculator + ctaBanner` from M2 seed; M3 expands them with feature grids and any service-specific moments (VIP suite, grooming matrix, etc.)
