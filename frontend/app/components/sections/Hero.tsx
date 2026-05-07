@@ -73,7 +73,7 @@ export default function Hero({block, index}: HeroProps) {
         alt=""
         aria-hidden="true"
         loading="lazy"
-        className="absolute right-1/8 bottom-1/4 w-15 lg:w-[80px] pointer-events-none hidden lg:block"
+        className="absolute right-1/8 bottom-[60%] w-15 lg:w-[80px] pointer-events-none hidden lg:block"
       />
 
       <div className="container relative z-10 pt-20 pb-4 lg:pt-[12vh] lg:pb-12">
@@ -173,7 +173,7 @@ export default function Hero({block, index}: HeroProps) {
       {validCarouselImages.length > 0 && (
         <FadeIn delay={isFirst ? 0 : 0.5}>
           <div className="mt-10 lg:mt-16 overflow-hidden" aria-label="Facility photos">
-            <div className="flex w-max gap-4 md:gap-6 pb-4 animate-marquee">
+            <div className="flex w-max gap-2 md:gap-4 pb-4 animate-marquee">
               {[...validCarouselImages, ...validCarouselImages].map((img, i) => (
                 <div
                   key={`${img._key}-${i}`}
