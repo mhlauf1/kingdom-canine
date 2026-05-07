@@ -242,10 +242,11 @@ export default function HeroMarquee({block, index}: HeroMarqueeProps) {
       {hasImages && (
         <div className="mt-4 lg:mt-6 pb-4 lg:pb-12 overflow-hidden">
           <div
-            className="flex gap-3 md:gap-4"
+            className="marquee-track flex gap-3 md:gap-4"
             style={{
               width: 'max-content',
               animation: 'marquee 120s linear infinite',
+              willChange: 'transform',
             }}
           >
             {[...marqueeImages, ...marqueeImages].map((img, i) =>
@@ -277,6 +278,10 @@ export default function HeroMarquee({block, index}: HeroMarqueeProps) {
             @keyframes marquee {
               0% { transform: translateX(0); }
               100% { transform: translateX(-50%); }
+            }
+            .marquee-track {
+              content-visibility: visible;
+              animation-play-state: running !important;
             }
           `,
         }}

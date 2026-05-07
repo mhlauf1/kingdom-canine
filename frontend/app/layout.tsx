@@ -27,9 +27,11 @@ import Footer from '@/app/components/Footer'
 import Header from '@/app/components/Header'
 import {sanityFetch, SanityLive} from '@/sanity/lib/live'
 import {settingsQuery, servicesNavQuery} from '@/sanity/lib/queries'
-import {resolveOpenGraphImage} from '@/sanity/lib/utils'
+import {resolveOpenGraphImage, urlForImage} from '@/sanity/lib/utils'
 import Script from 'next/script'
 import {handleError} from '@/app/client-utils'
+
+const SITE_URL = 'https://kingdomcanine.com'
 
 function buildLocalBusinessJsonLd(settings: any) {
   const lb = settings?.localBusiness
@@ -80,11 +82,10 @@ function buildLocalBusinessJsonLd(settings: any) {
     )
   }
 
-  if (settings?.ogImage?.asset?._ref) {
-    const logoUrl = settings?.logo?.asset?._ref
-    if (logoUrl) {
-      jsonLd.image = logoUrl
-    }
+  if (settings?.logo?.asset?._ref) {
+    try {
+      jsonLd.image = urlForImage(settings.logo).width(600).url()
+    } catch {}
   }
 
   return jsonLd
@@ -99,13 +100,13 @@ export async function generateMetadata(): Promise<Metadata> {
   const description = settings?.description
 
   const ogImage = resolveOpenGraphImage(settings?.ogImage)
-  let metadataBase: URL | undefined = undefined
+  let metadataBase: URL
   try {
     metadataBase = settings?.ogImage?.metadataBase
       ? new URL(settings.ogImage.metadataBase)
-      : undefined
+      : new URL(SITE_URL)
   } catch {
-    // ignore
+    metadataBase = new URL(SITE_URL)
   }
   return {
     metadataBase,
@@ -141,6 +142,10 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   const localBusinessJsonLd = buildLocalBusinessJsonLd(settings)
   const ga4Id = settings?.ga4MeasurementId
   const gtmId = settings?.gtmContainerId
+  let logoUrl: string | undefined
+  try {
+    if (settings?.logo?.asset?._ref) logoUrl = urlForImage(settings.logo).width(600).url()
+  } catch {}
 
   // Inject services as dropdown children into the "Services" nav item
   const navItems = settings?.navItems?.map((item: any) => {
@@ -178,10 +183,8 @@ export default async function RootLayout({children}: {children: React.ReactNode}
                 '@context': 'https://schema.org',
                 '@type': 'Organization',
                 name: settings.title,
-                url: settings?.ogImage?.metadataBase || undefined,
-                ...(settings?.logo?.asset?._ref && {
-                  logo: settings.logo.asset._ref,
-                }),
+                url: settings?.ogImage?.metadataBase || SITE_URL,
+                ...(logoUrl && {logo: logoUrl}),
                 sameAs: [
                   settings?.socialLinks?.facebook,
                   settings?.socialLinks?.instagram,
@@ -199,7 +202,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
                 '@context': 'https://schema.org',
                 '@type': 'WebSite',
                 name: settings.title,
-                url: settings?.ogImage?.metadataBase || undefined,
+                url: settings?.ogImage?.metadataBase || SITE_URL,
               }),
             }}
           />
