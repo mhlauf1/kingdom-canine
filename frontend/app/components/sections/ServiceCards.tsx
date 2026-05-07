@@ -47,15 +47,15 @@ export default function ServiceCards({block}: ServiceCardsProps) {
     <section className={bg}>
       <div className="px-6 md:px-24 py-16 lg:py-24">
         <FadeIn>
-          <div className="text-center mb-10 lg:mb-14 max-w-2xl mx-auto">
-            {eyebrow && <Badge className="mb-3">{eyebrow}</Badge>}
+          <div className="text-center mb-10 lg:mb-14 max-w-3xl mx-auto">
+            {eyebrow && <Badge className="md:text-[14px] mb-3">{eyebrow}</Badge>}
             {heading && (
-              <h2 className="text-[36px] md:text-[48px] lg:text-[56px] font-semibold tracking-tight leading-[105%] text-forest mb-4">
+              <h2 className="text-[40px] md:text-[52px] lg:text-[68px] font-semibold tracking-tight leading-[105%] text-forest mb-4">
                 {heading}
               </h2>
             )}
             {description && (
-              <p className="font-sans text-[16px] lg:text-[18px] leading-[150%] text-text-muted">
+              <p className="font-sans text-[16px] lg:text-[20px] leading-[150%] text-text-muted">
                 {description}
               </p>
             )}
@@ -85,7 +85,7 @@ export default function ServiceCards({block}: ServiceCardsProps) {
                       </h3>
                     )}
                     {card.description && (
-                      <p className="font-sans text-[16px] leading-[150%] text-text-muted mb-4 flex-1">
+                      <p className="font-sans text-[16px] md:text-[18px] leading-[150%] text-text-muted mb-4 flex-1">
                         {card.description}
                       </p>
                     )}
@@ -106,7 +106,7 @@ export default function ServiceCards({block}: ServiceCardsProps) {
         )}
 
         {cards && cards.length > 0 && isOverlay && (
-          <div className={`grid ${gridClass} gap-6`}>
+          <div className={`grid ${gridClass} gap-4`}>
             {cards.map((card, i) => (
               <FadeIn key={card._key} delay={0.05 * i}>
                 <div className="group relative rounded-2xl overflow-hidden aspect-[3/4] h-full bg-forest">
@@ -132,12 +132,12 @@ export default function ServiceCards({block}: ServiceCardsProps) {
                   {/* Content overlay */}
                   <div className="absolute inset-0 flex flex-col justify-end p-6 lg:p-7 text-cream">
                     {card.title && (
-                      <h3 className="text-[22px] md:text-[26px] lg:text-[28px] leading-[110%] font-semibold mb-2">
+                      <h3 className="text-[24px] md:text-[28px] lg:text-[30px] leading-[110%] font-semibold mb-2">
                         {card.title}
                       </h3>
                     )}
                     {card.description && (
-                      <p className="font-sans text-[14px] lg:text-[15px] leading-[150%] text-cream/85 mb-4 line-clamp-4">
+                      <p className="font-sans text-[16px] lg:text-[18px] leading-[150%] text-cream/90 mb-4 line-clamp-4">
                         {card.description}
                       </p>
                     )}

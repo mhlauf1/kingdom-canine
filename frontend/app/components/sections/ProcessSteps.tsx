@@ -44,13 +44,13 @@ export default function ProcessSteps({block}: ProcessStepsProps) {
           <div className="text-center flex flex-col items-center mb-10 lg:mb-14 max-w-2xl mx-auto">
             {eyebrow && <Badge className="mb-3">{eyebrow}</Badge>}
             {heading && (
-              <h2 className="text-[36px] md:text-[48px] lg:text-[56px] max-w-[16ch] font-semibold tracking-tight leading-[105%] mb-4">
+              <h2 className="text-[40px] md:text-[52px] lg:text-[64px] max-w-[16ch] font-semibold tracking-tight leading-[105%] mb-4">
                 {heading}
               </h2>
             )}
             {description && (
               <p
-                className={`font-sans text-[16px] lg:text-[18px] leading-[150%] ${isDark ? 'text-text-muted-dark' : 'text-text-muted'}`}
+                className={`font-sans text-[16px] lg:text-[20px] leading-[150%] ${isDark ? 'text-text-muted-dark' : 'text-text-muted'}`}
               >
                 {description}
               </p>
@@ -76,19 +76,19 @@ export default function ProcessSteps({block}: ProcessStepsProps) {
                         )}
                       </div>
                       {step.title && (
-                        <h3 className="text-[18px] md:text-[20px] leading-[120%] mb-1">
+                        <h3 className="text-[20px] md:text-[24px] leading-[120%] mb-1">
                           {step.title}
                         </h3>
                       )}
                       {step.badge && (
-                        <span className="font-sans text-[13px] font-medium text-terracotta mb-2">
+                        <span className="font-sans text-[14px] font-medium text-terracotta mb-2">
                           {step.badge}
                         </span>
                       )}
                       {!step.badge && step.title && <div className="mb-1" />}
                       {step.description && (
                         <p
-                          className={`font-sans text-[14px]  leading-[150%] w-[90%] ${isDark ? 'text-text-muted-dark' : 'text-text-muted'}`}
+                          className={`font-sans text-[14px] md:text-[16px] leading-[150%] w-[90%] ${isDark ? 'text-text-muted-dark' : 'text-text-muted'}`}
                         >
                           {step.description}
                         </p>

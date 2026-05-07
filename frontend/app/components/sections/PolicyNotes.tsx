@@ -43,9 +43,9 @@ export default function PolicyNotes({block}: PolicyNotesProps) {
       <div className="px-6 md:px-24 py-16 lg:py-24">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
-            {eyebrow && <Badge className="mb-3">{eyebrow}</Badge>}
+            {eyebrow && <Badge className="mb-3 md:text-[14px]">{eyebrow}</Badge>}
             {heading && (
-              <h2 className="text-[36px] md:text-[48px] lg:text-[56px] font-semibold tracking-tight leading-[105%] mb-4">
+              <h2 className="text-[40px] md:text-[54px] lg:text-[68px] font-semibold tracking-tight leading-[105%] mb-4">
                 {heading}
               </h2>
             )}
@@ -61,7 +61,7 @@ export default function PolicyNotes({block}: PolicyNotesProps) {
                 >
                   {cat.categoryName && (
                     <h3
-                      className={`font-sans text-[20px] md:text-[24px] font-medium mb-4 ${isDark ? 'text-cream' : 'text-forest'}`}
+                      className={`font-sans text-[24px] md:text-[28px] font-medium mb-4 ${isDark ? 'text-cream' : 'text-forest'}`}
                     >
                       {cat.categoryName}
                     </h3>
@@ -84,7 +84,7 @@ export default function PolicyNotes({block}: PolicyNotesProps) {
                             />
                           </svg>
                           <span
-                            className={`font-sans text-[14px] md:text-[15px] leading-[150%] ${isDark ? 'text-cream/80' : 'text-charcoal/80'}`}
+                            className={`font-sans text-[16px] md:text-[18px] leading-[150%] ${isDark ? 'text-cream/80' : 'text-charcoal/80'}`}
                           >
                             {policy}
                           </span>

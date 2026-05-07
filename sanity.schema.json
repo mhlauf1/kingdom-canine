@@ -6209,6 +6209,23 @@
           },
           "optional": true
         },
+        "columns": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "union",
+            "of": [
+              {
+                "type": "number",
+                "value": 3
+              },
+              {
+                "type": "number",
+                "value": 4
+              }
+            ]
+          },
+          "optional": true
+        },
         "darkMode": {
           "type": "objectAttribute",
           "value": {

@@ -44,9 +44,16 @@ export default function HeroSplit({block, index}: HeroSplitProps) {
   const isDark = stegaClean(backgroundColor) === 'forest'
   const isFirst = index === 0
   const Wrap = isFirst
-    ? ({children, className}: {children: React.ReactNode; className?: string; delay?: number; direction?: string}) => <div className={className}>{children}</div>
+    ? ({
+        children,
+        className,
+      }: {
+        children: React.ReactNode
+        className?: string
+        delay?: number
+        direction?: string
+      }) => <div className={className}>{children}</div>
     : FadeIn
-
 
   return (
     <section className={` pt-18 ${bg}`}>
@@ -69,7 +76,7 @@ export default function HeroSplit({block, index}: HeroSplitProps) {
             {body && (
               <Wrap delay={0.1}>
                 <p
-                  className={`font-sans text-[16px] lg:text-[18px] md:max-w-[64ch]  leading-[150%] mb-8 ${isDark ? 'text-text-muted-dark' : 'text-text-muted'}`}
+                  className={`font-sans text-[16px] md:text-[18px] lg:text-[20px] md:max-w-[64ch]  leading-[150%] mb-8 ${isDark ? 'text-text-muted-dark' : 'text-text-muted'}`}
                 >
                   {body}
                 </p>

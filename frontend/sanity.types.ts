@@ -878,6 +878,7 @@ export type FeatureCards = {
   }>
   cta?: Button
   trustLine?: string
+  columns?: 3 | 4
   darkMode?: boolean
 }
 
@@ -2373,6 +2374,7 @@ export type GetPageQueryResult = {
           } | null
         } | null
         trustLine?: string
+        columns?: 3 | 4
         darkMode?: boolean
       }
     | {
@@ -3643,6 +3645,7 @@ export type HomepageQueryResult = {
           } | null
         } | null
         trustLine?: string
+        columns?: 3 | 4
         darkMode?: boolean
       }
     | {
@@ -4940,6 +4943,7 @@ export type GetServiceQueryResult = {
           } | null
         } | null
         trustLine?: string
+        columns?: 3 | 4
         darkMode?: boolean
       }
     | {

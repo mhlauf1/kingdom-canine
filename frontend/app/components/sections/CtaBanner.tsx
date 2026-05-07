@@ -201,7 +201,7 @@ export default function CtaBanner({block, index}: CtaBannerProps) {
           {heading && (
             <FadeIn delay={0.1}>
               <h2
-                className={`text-[32px] tracking-tight font-semibold md:text-[44px] lg:text-[56px] leading-[105%] text-white mb-10 max-w-4xl ${
+                className={`text-[32px] tracking-tight font-semibold text-[40px] md:text-[58px] lg:text-[72px] leading-[105%] text-white mb-10 max-w-4xl ${
                   isLeft ? 'text-left' : 'text-center mx-auto'
                 }`}
               >

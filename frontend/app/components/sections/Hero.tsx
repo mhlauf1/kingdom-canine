@@ -80,13 +80,13 @@ export default function Hero({block, index}: HeroProps) {
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
           {eyebrow && (
             <Wrap>
-              <Badge className="mb-5 md:mb-6">{eyebrow}</Badge>
+              <Badge className="mb-5 md:text-[14px] md:mb-6">{eyebrow}</Badge>
             </Wrap>
           )}
 
           {heading && (
             <Wrap delay={0.1}>
-              <h1 className="text-[48px] md:text-[56px] md:max-w-[16ch] lg:text-[74px] leading-[104%] tracking-tight font-semibold mb-5">
+              <h1 className="text-[48px] md:text-[56px] md:max-w-[16ch] lg:text-[82px] leading-[104%] tracking-tight font-semibold mb-5">
                 {heading}
               </h1>
             </Wrap>
@@ -94,7 +94,7 @@ export default function Hero({block, index}: HeroProps) {
 
           {subtext && (
             <Wrap delay={0.2}>
-              <p className="font-sans md:text-base lg:text-lg text-text-muted leading-[150%] max-w-3xl mb-6">
+              <p className="font-sans text-base md:text-lg lg:text-xl text-text-muted leading-[150%] max-w-3xl mb-6">
                 {subtext}
               </p>
             </Wrap>

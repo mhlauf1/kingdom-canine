@@ -32,10 +32,17 @@ type NumberStepperProps = {
   badge?: string | null
 }
 
-export function NumberStepper({label, value, min = 1, max = 30, onChange, badge}: NumberStepperProps) {
+export function NumberStepper({
+  label,
+  value,
+  min = 1,
+  max = 30,
+  onChange,
+  badge,
+}: NumberStepperProps) {
   return (
     <div>
-      <label className="block text-cream/70 font-sans text-[13px] font-medium uppercase tracking-wider mb-2">
+      <label className="block text-cream/70 font-sans text-[14px] md:text-[16px] font-medium uppercase tracking-wider mb-2">
         {label}
       </label>
       <div className="flex items-center gap-3">
@@ -50,7 +57,7 @@ export function NumberStepper({label, value, min = 1, max = 30, onChange, badge}
             <path d="M3 8h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </button>
-        <span className="font-sans text-[20px] font-medium text-cream w-8 text-center tabular-nums">
+        <span className="font-sans text-[20px] md:text-[24px] font-medium text-cream w-8 text-center tabular-nums">
           {value}
         </span>
         <button
@@ -65,7 +72,7 @@ export function NumberStepper({label, value, min = 1, max = 30, onChange, badge}
           </svg>
         </button>
         {badge && (
-          <span className="ml-2 text-[12px] font-sans font-medium bg-sage/20 text-sage px-2.5 py-1 rounded-full">
+          <span className="ml-2 text-[14px] font-sans font-medium bg-sage/20 text-sage px-2.5 py-1 rounded-full">
             {badge}
           </span>
         )}
@@ -91,7 +98,7 @@ type RadioGroupProps = {
 export function RadioGroup({label, options, value, onChange}: RadioGroupProps) {
   return (
     <fieldset>
-      <legend className="block text-cream/70 font-sans text-[13px] font-medium uppercase tracking-wider mb-2">
+      <legend className="block text-cream/70 font-sans text-[14px] font-medium uppercase tracking-wider mb-2">
         {label}
       </legend>
       <div className="flex flex-wrap gap-2">
@@ -100,7 +107,7 @@ export function RadioGroup({label, options, value, onChange}: RadioGroupProps) {
             key={option.value}
             type="button"
             onClick={() => onChange(option.value)}
-            className={`font-sans text-[14px] font-medium px-4 py-2.5 rounded-full border transition-all ${
+            className={`font-sans text-[14px] md:text-[16px] font-medium px-5 py-2.5 rounded-full border transition-all ${
               value === option.value
                 ? 'bg-terracotta text-white border-terracotta'
                 : 'bg-transparent text-cream/70 border-border-dark hover:border-cream/40 hover:text-cream'
@@ -110,7 +117,9 @@ export function RadioGroup({label, options, value, onChange}: RadioGroupProps) {
           >
             {option.label}
             {option.description && (
-              <span className="block text-[11px] opacity-70 mt-0.5">{option.description}</span>
+              <span className="block text-[12px] md:text-[13px] opacity-70 mt-0.5">
+                {option.description}
+              </span>
             )}
           </button>
         ))}
@@ -149,10 +158,7 @@ export function CheckboxGroup({label, options, selected, onChange}: CheckboxGrou
       </legend>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
         {options.map((option) => (
-          <label
-            key={option.id}
-            className="flex items-center gap-3 cursor-pointer group"
-          >
+          <label key={option.id} className="flex items-center gap-3 cursor-pointer group">
             <span
               className={`w-5 h-5 rounded-[4px] border-2 flex items-center justify-center shrink-0 transition-all ${
                 selected.includes(option.id)
@@ -162,7 +168,13 @@ export function CheckboxGroup({label, options, selected, onChange}: CheckboxGrou
             >
               {selected.includes(option.id) && (
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M2.5 6l2.5 2.5 4.5-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path
+                    d="M2.5 6l2.5 2.5 4.5-5"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               )}
             </span>
@@ -174,9 +186,7 @@ export function CheckboxGroup({label, options, selected, onChange}: CheckboxGrou
             />
             <span className="font-sans text-[14px] text-cream/90">
               {option.label}
-              {option.detail && (
-                <span className="text-cream/50 ml-1">{option.detail}</span>
-              )}
+              {option.detail && <span className="text-cream/50 ml-1">{option.detail}</span>}
             </span>
           </label>
         ))}

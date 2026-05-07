@@ -49,7 +49,7 @@ export default function PriceOutputCard({
     <div className="bg-cream rounded-2xl p-6 md:p-8 lg:sticky lg:top-32">
       {/* Header */}
       <div className="flex items-center justify-between mb-1">
-        <span className="font-sans text-[13px]  uppercase tracking-wider text-terracotta">
+        <span className="font-sans text-[13px] md:text-[14px] uppercase tracking-wider text-terracotta">
           Estimated Cost
         </span>
         {badge && (
@@ -90,8 +90,10 @@ export default function PriceOutputCard({
         <div className="border-t border-forest/10 pt-4 mb-4 space-y-2">
           {lineItems.map((item, i) => (
             <div key={i} className="flex items-start justify-between gap-4">
-              <span className="font-sans text-[14px] text-charcoal/70">{item.label}</span>
-              <span className="font-sans text-[14px]  text-forest tabular-nums shrink-0">
+              <span className="font-sans text-[14px] md:text-[16px] text-charcoal/70">
+                {item.label}
+              </span>
+              <span className="font-sans text-[14px] md:text-[16px]  text-forest tabular-nums shrink-0">
                 ${formatPrice(item.amount)}
               </span>
             </div>
@@ -122,7 +124,7 @@ export default function PriceOutputCard({
       {/* Includes */}
       {!disabled && includes && includes.length > 0 && (
         <div className="border-t border-forest/10 pt-4 mb-4">
-          <span className="font-sans text-[12px]  uppercase tracking-wider text-charcoal/50 mb-2 block">
+          <span className="font-sans text-[13px] md:text-[14px]  uppercase tracking-wider text-charcoal/70 mb-2 block">
             Included
           </span>
           <ul className="space-y-1.5">
@@ -137,7 +139,9 @@ export default function PriceOutputCard({
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
-                <span className="font-sans text-[13px] text-charcoal/70">{item}</span>
+                <span className="font-sans text-[14px] md:text-[15px] text-charcoal/70">
+                  {item}
+                </span>
               </li>
             ))}
           </ul>

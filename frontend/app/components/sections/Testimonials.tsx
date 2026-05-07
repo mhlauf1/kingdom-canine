@@ -111,7 +111,7 @@ export default function Testimonials({block}: TestimonialsProps) {
 
         {heading && (
           <FadeIn delay={0.1}>
-            <h2 className="text-[36px] md:text-[48px] lg:text-[56px] leading-[105%] tracking-tight font-semibold text-cream text-center mb-12 lg:mb-16">
+            <h2 className="text-[40px] md:text-[52px] lg:text-[64px] leading-[105%] tracking-tight font-semibold text-cream text-center mb-12 lg:mb-16">
               {heading}
             </h2>
           </FadeIn>
@@ -175,7 +175,7 @@ export default function Testimonials({block}: TestimonialsProps) {
                       </div>
 
                       {review.quote && (
-                        <p className="font-sans text-[15px] leading-[160%] text-forest/90 mb-6 flex-1">
+                        <p className="font-sans text-[16px] md:text-[18px] leading-[160%] text-forest/90 mb-6 flex-1">
                           &ldquo;{review.quote}&rdquo;
                         </p>
                       )}

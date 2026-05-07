@@ -30,12 +30,12 @@ export default function FeatureCards({block}: FeatureCardsProps) {
   const gridCols = columns === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'
 
   return (
-    <section className="relative bg-forest text-cream rounded-[48px] -mt-12 z-10 overflow-hidden">
+    <section className="relative bg-forest text-cream rounded-[48px]  z-10 overflow-hidden">
       <div className="px-6 md:px-28 relative z-10 py-[80px] lg:py-[148px]">
         <FadeIn>
           <div className="flex flex-row justify-between items-center mb-8">
             {heading && (
-              <h2 className="text-[36px] md:text-[56px] lg:text-[84px] leading-[105%] font-semibold tracking-tight text-sand max-w-[18ch]">
+              <h2 className="text-[40px] md:text-[56px] lg:text-[72px] leading-[105%] font-semibold tracking-tight text-sand max-w-[18ch]">
                 {heading}
               </h2>
             )}
@@ -63,7 +63,7 @@ export default function FeatureCards({block}: FeatureCardsProps) {
 
         {subheading && (
           <FadeIn delay={0.1}>
-            <p className="font-sans text-[16px] md:text-lg text-sand/70 max-w-2xl leading-relaxed -mt-4 mb-7 lg:mb-12">
+            <p className="font-sans text-[16px] mdtext-lg lg:text-xl text-sand/80 max-w-2xl leading-relaxed -mt-4 mb-7 lg:mb-12">
               {subheading}
             </p>
           </FadeIn>
@@ -80,7 +80,7 @@ export default function FeatureCards({block}: FeatureCardsProps) {
                     </div>
                   )}
                   {feature.title && (
-                    <h3 className="text-[24px] md:text-3xl font-semibold leading-[120%] text-sand mb-3">
+                    <h3 className="text-[28px] md:text-4xl font-semibold leading-[120%] text-sand mb-3">
                       {feature.title}
                     </h3>
                   )}

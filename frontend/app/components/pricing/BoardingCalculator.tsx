@@ -3,7 +3,11 @@
 import {useState, useMemo, useCallback} from 'react'
 import {NumberStepper, RadioGroup, AddDogButton, ContactNotice} from './CalculatorInputs'
 import PriceOutputCard from './PriceOutputCard'
-import {calculateBoardingPerDog, boardingRooms, boardingAdditionalDogRate} from '@/app/data/pricingData'
+import {
+  calculateBoardingPerDog,
+  boardingRooms,
+  boardingAdditionalDogRate,
+} from '@/app/data/pricingData'
 import type {RoomType, BoardingDogConfig} from '@/app/data/pricingData'
 import type {DereferencedLink} from '@/sanity/lib/types'
 
@@ -37,10 +41,7 @@ export default function BoardingCalculator({ctaText, ctaLink, taxNote}: Boarding
     })
   }, [])
 
-  const result = useMemo(
-    () => calculateBoardingPerDog({dogs}),
-    [dogs],
-  )
+  const result = useMemo(() => calculateBoardingPerDog({dogs}), [dogs])
 
   if (dogs.length > 3) {
     return (
@@ -66,7 +67,7 @@ export default function BoardingCalculator({ctaText, ctaLink, taxNote}: Boarding
       {/* Inputs */}
       <div className="space-y-6">
         <div className="space-y-3">
-          <span className="block text-cream/70 font-sans text-[13px] font-medium uppercase tracking-wider">
+          <span className="block text-cream/70 font-sans text-[14px] md:text-[16px] font-medium uppercase tracking-wider">
             {dogs.length > 1 ? 'Your Dogs' : 'Your Dog'}
           </span>
           {dogs.map((dog, i) => (
@@ -107,23 +108,32 @@ type BoardingDogCardProps = {
   onRemove: () => void
 }
 
-function BoardingDogCard({dog, index, total, isAdditional, onUpdate, onRemove}: BoardingDogCardProps) {
+function BoardingDogCard({
+  dog,
+  index,
+  total,
+  isAdditional,
+  onUpdate,
+  onRemove,
+}: BoardingDogCardProps) {
   const room = boardingRooms[dog.roomType]
 
   return (
     <div className="bg-forest-card border border-border-dark rounded-lg p-4 space-y-4">
       <div className="flex items-center justify-between">
-        <span className="font-sans text-[14px] font-medium text-cream">
+        <span className="font-sans text-[14px] md:text-[16px] font-medium text-cream">
           {total > 1 ? `Dog ${index + 1}` : 'Your Dog'}
           {isAdditional && (
-            <span className="text-cream/50 text-[12px] ml-2">(${boardingAdditionalDogRate}/night)</span>
+            <span className="text-cream/50 text-[14px] md:text-[16px] ml-2">
+              (${boardingAdditionalDogRate}/night)
+            </span>
           )}
         </span>
         {total > 1 && (
           <button
             type="button"
             onClick={onRemove}
-            className="font-sans text-[12px] text-cream/40 hover:text-terracotta-light transition-colors"
+            className="font-sans text-[12px] md:text-[14px] text-cream/40 hover:text-terracotta-light transition-colors"
           >
             Remove
           </button>

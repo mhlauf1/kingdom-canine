@@ -75,7 +75,7 @@ export default function WhatsIncluded({block}: WhatsIncludedProps) {
   const iconStyle = iconStyles[stegaClean(iconColor) || 'terracotta'] || iconStyles.terracotta
 
   return (
-    <section className={`${colors.section} mb-12 md:mb-20 ]`}>
+    <section className={`${colors.section} ]`}>
       <div className="px-6 md:px-16 lg:px-24 py-16 lg:py-24">
         <FadeIn>
           <div className="text-center flex flex-col items-center mb-10 lg:mb-18 max-w-3xl mx-auto">
@@ -86,14 +86,14 @@ export default function WhatsIncluded({block}: WhatsIncludedProps) {
             )}
             {heading && (
               <h2
-                className={`text-[36px] md:text-[48px] lg:text-[56px] leading-[105%] font-semibold tracking-tight  md:max-w-[18ch] text-center ${colors.heading}`}
+                className={`text-[40px] md:text-[54px] lg:text-[68px] leading-[105%] font-semibold tracking-tight  md:max-w-[18ch] text-center ${colors.heading}`}
               >
                 {heading}
               </h2>
             )}
             {description && (
               <p
-                className={`font-sans text-[16px] lg:text-[18px]  leading-[150%] ${colors.muted} mt-4 md:mt-6`}
+                className={`font-sans text-[16px] lg:text-[20px]  leading-[150%] ${colors.muted} mt-4 md:mt-6`}
               >
                 {description}
               </p>
@@ -118,14 +118,14 @@ export default function WhatsIncluded({block}: WhatsIncludedProps) {
                     )}
                     {item.title && (
                       <h3
-                        className={`text-[18px] md:text-[20px] leading-[120%] ${colors.heading} mb-2`}
+                        className={`text-[20px] md:text-[24px] leading-[120%] ${colors.heading} mb-2`}
                       >
                         {item.title}
                       </h3>
                     )}
                     {item.description && (
                       <p
-                        className={`font-sans text-[14px] md:text-[16px]  leading-[150%] ${colors.muted}`}
+                        className={`font-sans text-[16px] md:text-[18px]  leading-[150%] ${colors.muted}`}
                       >
                         {item.description}
                       </p>

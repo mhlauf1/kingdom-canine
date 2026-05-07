@@ -629,6 +629,12 @@ export type ContactForm = {
   address?: string
   phone?: string
   email?: string
+  hours?: Array<{
+    label: string
+    value: string
+    _type: 'hoursEntry'
+    _key: string
+  }>
 }
 
 export type GalleryGrid = {
@@ -872,6 +878,7 @@ export type FeatureCards = {
   }>
   cta?: Button
   trustLine?: string
+  columns?: 3 | 4
   darkMode?: boolean
 }
 

@@ -33,7 +33,8 @@ const bgColors: Record<string, {classes: string; isDark: boolean}> = {
 }
 
 export default function SplitContent({block}: SplitContentProps) {
-  const {heading, body, link, badge, image, stickerImage, hours, imagePosition, backgroundColor} = block
+  const {heading, body, link, badge, image, stickerImage, hours, imagePosition, backgroundColor} =
+    block
   const validHours = (hours || []).filter((h) => h?.label && h?.value)
   const isImageLeft = stegaClean(imagePosition) === 'left'
   const {classes: bg, isDark} = bgColors[stegaClean(backgroundColor) || 'sand'] || bgColors.sand
@@ -46,7 +47,7 @@ export default function SplitContent({block}: SplitContentProps) {
           <div className={isImageLeft ? 'lg:order-2' : 'lg:order-1'}>
             {heading && (
               <FadeIn>
-                <h2 className="text-4xl font-semibold md:text-text-5xl lg:text-6xl leading-[105%] tracking-tight max-w-[15ch] mb-6">
+                <h2 className="font-semibold text-[40px] md:text-[52px] lg:text-[68px] leading-[105%] tracking-tight max-w-[18ch] mb-6">
                   {heading}
                 </h2>
               </FadeIn>
@@ -55,7 +56,7 @@ export default function SplitContent({block}: SplitContentProps) {
             {body && (
               <FadeIn delay={0.1}>
                 <div
-                  className={`font-sans text-[16px] lg:text-[18px]  leading-[150%] opacity-80 mb-6 prose prose-p:mb-3 ${isDark ? 'prose-invert' : ''}`}
+                  className={`font-sans text-[16px] lg:text-[20px]  leading-[150%] opacity-90 mb-6 prose prose-p:mb-3 ${isDark ? 'prose-invert' : ''}`}
                 >
                   <PortableText value={body} />
                 </div>
@@ -88,7 +89,12 @@ export default function SplitContent({block}: SplitContentProps) {
 
             {badge?.asset?._ref && (
               <FadeIn delay={0.2}>
-                <Image id={badge.asset._ref} alt={badge.alt || 'Badge'} width={80} className="h-36 w-auto" />
+                <Image
+                  id={badge.asset._ref}
+                  alt={badge.alt || 'Badge'}
+                  width={80}
+                  className="h-36 w-auto"
+                />
               </FadeIn>
             )}
           </div>

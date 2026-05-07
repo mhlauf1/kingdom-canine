@@ -110,7 +110,7 @@ KC is the simplest site in the Embark portfolio. Brian confirmed this. The miles
 
 ## Milestone 4: Supporting Pages & Homepage CTA
 
-**Status:** Not Started
+**Status:** Complete (merged to main)
 **Branch:** `feature/supporting-pages`
 
 ### Goals
@@ -118,16 +118,19 @@ KC is the simplest site in the Embark portfolio. Brian confirmed this. The miles
 - Contact page: contact form, Google Maps embed, hours, phone
 - Pricing page: comprehensive pricing overview (pricingPageTabs)
 - Gallery page: scaffolded with placeholder state (photos pending from Brian)
-- Remove New Clients page from nav (registration handled by Gingr portal link)
+- Remove or repurpose New Clients page (registration handled by Gingr portal link)
 
-### Definition of Done
-- Homepage ctaStrip added and linking to Gingr registration
-- Contact page with form, Google Maps, hours, phone
-- Pricing page rendering all calculator tabs
-- Gallery page scaffolded
-- New Clients page removed from nav
-- Mobile responsive
-- `npm run build` passes clean
+### What was done
+- Homepage ctaStrip added between Service Cards and About Us, linking to Gingr registration
+- Contact page with contactForm, Google Maps embed, hours grid, phone link, address
+- Pricing page rendering all three calculator tabs (daycare, boarding, grooming) via pricingPageTabs
+- Gallery page scaffolded with placeholder state (waiting on photos from Brian)
+- New Clients page restored to nav (repurposed as onboarding guide, not removed)
+- Phone number added to header nav (desktop + mobile)
+- Boarding calculator fix: flat $55 additional dog rate regardless of room type
+- ContactForm schema updated with hours array (label/value pairs)
+- FeatureCards schema updated with columns prop (3 or 4)
+- Build passes clean
 
 ---
 

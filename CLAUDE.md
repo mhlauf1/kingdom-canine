@@ -17,6 +17,7 @@ Read the following to get the full context of the project:
 - @context/current-milestone.md
 - @context/milestones.md
 - @context/intake-content.md
+- @context/service-content/ (daycare, boarding, grooming, transportation content docs)
 
 ## Commands
 
