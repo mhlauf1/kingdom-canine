@@ -37,6 +37,19 @@ export const galleryPage = defineType({
               title: 'Caption',
               type: 'string',
             }),
+            defineField({
+              name: 'span',
+              title: 'Column Span',
+              type: 'number',
+              options: {
+                list: [
+                  {title: '1 Column', value: 1},
+                  {title: '2 Columns (Wide)', value: 2},
+                ],
+                layout: 'radio',
+              },
+              initialValue: 1,
+            }),
           ],
         }),
       ],

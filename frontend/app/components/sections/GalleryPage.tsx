@@ -11,6 +11,7 @@ type GalleryImage = {
   _key: string
   alt?: string
   caption?: string
+  span?: number
   asset?: {_ref: string}
   crop?: any
   hotspot?: any
@@ -69,31 +70,40 @@ export default function GalleryPage({block}: GalleryPageProps) {
 
         {/* Grid layout */}
         {activeLayout === 'grid' && validImages.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {validImages.map((image, i) => (
-              <FadeIn key={image._key} delay={0.03 * Math.min(i, 12)}>
-                <div>
-                  <button
-                    type="button"
-                    onClick={() => openLightbox(i)}
-                    className="w-full cursor-zoom-in group"
-                    aria-label={image.alt || 'View image in lightbox'}
-                  >
-                    <Image
-                      id={image.asset!._ref}
-                      alt={image.alt || 'Gallery image'}
-                      width={500}
-                      crop={image.crop}
-                      hotspot={image.hotspot}
-                      className="rounded-lg aspect-[3/4] w-full object-cover transition-opacity group-hover:opacity-90"
-                    />
-                  </button>
-                  {image.caption && (
-                    <p className="mt-2 text-[14px] text-forest/60 text-center">{image.caption}</p>
-                  )}
-                </div>
-              </FadeIn>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {validImages.map((image, i) => {
+              const isWide = image.span === 2
+              return (
+                <FadeIn
+                  key={image._key}
+                  delay={0.03 * Math.min(i, 12)}
+                  className={isWide ? 'sm:col-span-2' : ''}
+                >
+                  <div>
+                    <button
+                      type="button"
+                      onClick={() => openLightbox(i)}
+                      className="w-full cursor-zoom-in group"
+                      aria-label={image.alt || 'View image in lightbox'}
+                    >
+                      <Image
+                        id={image.asset!._ref}
+                        alt={image.alt || 'Gallery image'}
+                        width={isWide ? 800 : 500}
+                        crop={image.crop}
+                        hotspot={image.hotspot}
+                        className={`rounded-lg w-full object-cover transition-opacity group-hover:opacity-90 ${isWide ? 'aspect-[3/2]' : 'aspect-[3/4]'}`}
+                      />
+                    </button>
+                    {image.caption && (
+                      <p className="mt-2 text-[14px] text-forest/60 text-center">
+                        {image.caption}
+                      </p>
+                    )}
+                  </div>
+                </FadeIn>
+              )
+            })}
           </div>
         )}
 
