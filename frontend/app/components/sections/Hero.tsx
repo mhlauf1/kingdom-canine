@@ -64,7 +64,7 @@ export default function Hero({block, index}: HeroProps) {
         alt=""
         aria-hidden="true"
         loading="lazy"
-        className="absolute left-1/12 top-1/3 w-[81px] lg:w-section-lg pointer-events-none hidden lg:block"
+        className="absolute left-1/12 top-1/3 w-[80px] lg:w-section-lg pointer-events-none hidden lg:block"
       />
 
       {/* Right dog illustration */}

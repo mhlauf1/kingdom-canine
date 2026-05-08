@@ -185,6 +185,7 @@ export type GalleryPage = {
     crop?: SanityImageCrop
     alt?: string
     caption?: string
+    span?: 1 | 2
     _type: 'image'
     _key: string
   }>
@@ -2549,6 +2550,7 @@ export type GetPageQueryResult = {
           crop?: SanityImageCrop
           alt?: string
           caption?: string
+          span?: 1 | 2
           _type: 'image'
           _key: string
         }>
@@ -3820,6 +3822,7 @@ export type HomepageQueryResult = {
           crop?: SanityImageCrop
           alt?: string
           caption?: string
+          span?: 1 | 2
           _type: 'image'
           _key: string
         }>
