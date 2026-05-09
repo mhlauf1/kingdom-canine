@@ -1,12 +1,11 @@
 'use client'
 
+import NextImage from 'next/image'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
 import {useState, useEffect, useRef, useCallback} from 'react'
 import {motion, AnimatePresence} from 'framer-motion'
 import Button from '@/app/components/ui/Button'
-import Image from '@/app/components/SanityImage'
-import TextLogo from '@/app/components/TextLogo'
 
 type NavChild = {
   _key: string
@@ -158,16 +157,14 @@ export default function Header({navItems, ctaButton, logo}: HeaderProps) {
         <div className="flex lg:grid lg:grid-cols-3 border bg-cream/95 backdrop-blur-sm border-forest/20 rounded-md mt-2 md:mt-4 pl-4 md:pl-12 pr-2 md:pr-6 items-center justify-between py-3">
           {/* Logo */}
           <Link href="/" className="flex items-start">
-            {logo?.asset?._ref ? (
-              <Image
-                id={logo.asset._ref}
-                alt="Kingdom Canine"
-                width={150}
-                className="w-[120px] lg:w-[150px] h-auto"
-              />
-            ) : (
-              <TextLogo />
-            )}
+            <NextImage
+              src="/images/kingdom-logo.png"
+              alt="Kingdom Canine"
+              width={150}
+              height={75}
+              className="w-[120px] lg:w-[150px] h-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}

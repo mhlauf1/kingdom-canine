@@ -1,6 +1,6 @@
+import NextImage from 'next/image'
 import Link from 'next/link'
 import Image from '@/app/components/SanityImage'
-import TextLogo from '@/app/components/TextLogo'
 
 type FooterLink = {
   _key: string
@@ -54,16 +54,13 @@ export default function Footer({
           <div className="flex flex-col justify-between">
             <div>
               <div className="mb-4">
-                {logo?.asset?._ref ? (
-                  <Image
-                    id={logo.asset._ref}
-                    alt={logo.alt || 'Kingdom Canine'}
-                    width={160}
-                    className="w-[140px] h-auto"
-                  />
-                ) : (
-                  <TextLogo align="left" />
-                )}
+                <NextImage
+                  src="/images/kingdom-logo.png"
+                  alt="Kingdom Canine"
+                  width={160}
+                  height={80}
+                  className="w-[140px] h-auto"
+                />
               </div>
               {tagline && (
                 <p className="font-sans text-[15px] md:max-w-[34ch] text-text-muted leading-relaxed">
