@@ -51,7 +51,7 @@ export default function PricingMatrixDisplay({tables, footnotes}: PricingMatrixD
                     {table.columnHeaders?.map((header, hi) => (
                       <th
                         key={hi}
-                        className={`text-center font-sans text-[13px] md:text-[14px] font-medium px-4 py-3 ${hi === (table.columnHeaders?.length ?? 0) - 1 ? 'rounded-tr-lg' : ''}`}
+                        className={`w-[200px] text-center font-sans text-[13px] md:text-[14px] font-medium px-4 py-3 ${hi === (table.columnHeaders?.length ?? 0) - 1 ? 'rounded-tr-lg' : ''}`}
                       >
                         {header}
                       </th>
