@@ -151,6 +151,7 @@ Shuttle service to/from select parts of St. Louis and Franklin County. For clien
 | Single trip (per pet, per direction) | $16 |
 | 5-trip package | $75 |
 | 10-trip package | $140 |
+| 30-trip package | $399 |
 
 **Old pricing:** $15/pet/direction, packages listed as "Contact us"
 

@@ -4,7 +4,7 @@
 
 ## Status
 
-Schema fully set up for Kingdom Canine. Webcam types removed in M1. POS URL fields added to settings in M2. M3 added: `hero.carouselImages[]`, `serviceCards.variant` (`white` | `imageOverlay`, default `white`), `serviceCards.cards[]` named as `serviceCard`, `splitContent.hours[]` (named `hoursEntry`, label/value). All content seeded and published. Schema deployed to cloud.
+Schema fully set up for Kingdom Canine. Webcam types removed in M1. POS URL fields added to settings in M2. M3 added: `hero.carouselImages[]`, `serviceCards.variant` (`white` | `imageOverlay`, default `white`), `serviceCards.cards[]` named as `serviceCard`, `splitContent.hours[]` (named `hoursEntry`, label/value). All content seeded and published. Schema deployed to cloud. Post-launch: grooming `pricingCalculator` block removed from grooming service page, `showCalculator` set to `false` on grooming tab of pricing page (per Brian — calculator let clients inflate estimates). 30-trip transportation package ($399) added to transportation `pricingList`.
 
 ## Sanity Project Details
 
