@@ -125,7 +125,7 @@ export const boardingRooms: Record<RoomType, RoomMeta> = {
   vip: {
     label: 'VIP Luxury Cottage Suite',
     rate: 125,
-    description: 'Premium suite for 1–4 dogs',
+    description: 'Premium private suite',
     note: 'All-inclusive experience and daycare participation included',
   },
 }
