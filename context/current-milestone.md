@@ -9,7 +9,7 @@ Not started
 ### Goals
 
 - SEO optimization (meta tags, structured data, sitemap.xml, robots.txt)
-- Performance audit (Lighthouse 90+ all categories)
+- Performance audit - Lighthouse 90+ all categories
 - Accessibility audit (WCAG AA compliance)
 - Cross-browser testin
 - Custom 404 page
