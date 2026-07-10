@@ -14,7 +14,7 @@ const linkFields = /* groq */ `
       }
 `
 
-export const settingsQuery = defineQuery(`*[_type == "settings"][0]{
+export const settingsQuery = defineQuery(`*[_type == "settings" && _id == "siteSettings"][0]{
   ...,
   navItems[]{
     ...,
