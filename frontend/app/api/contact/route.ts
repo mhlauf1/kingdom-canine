@@ -12,6 +12,7 @@ const transporter = nodemailer.createTransport({
 })
 
 const toEmail = process.env.CONTACT_FORM_TO_EMAIL || ''
+const bccEmail = process.env.CONTACT_FORM_BCC_EMAIL || ''
 const fromEmail = process.env.SMTP_FROM || process.env.SMTP_USER || ''
 
 export async function POST(request: Request) {
@@ -54,6 +55,7 @@ export async function POST(request: Request) {
     await transporter.sendMail({
       from: `"Kingdom Canine Website" <${fromEmail}>`,
       to: toEmail,
+      bcc: bccEmail || undefined,
       replyTo: senderEmail,
       subject: `New Contact Form Submission from ${senderName}`,
       html: `
