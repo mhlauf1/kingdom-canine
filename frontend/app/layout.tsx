@@ -20,11 +20,13 @@ const geist = Geist({
 import {draftMode} from 'next/headers'
 import {toPlainText} from 'next-sanity'
 import {VisualEditing} from 'next-sanity/visual-editing'
+import {Suspense} from 'react'
 import {Toaster} from 'sonner'
 
 import DraftModeToast from '@/app/components/DraftModeToast'
 import Footer from '@/app/components/Footer'
 import Header from '@/app/components/Header'
+import TrackingRouteEvents from '@/app/components/TrackingRouteEvents'
 import {sanityFetch, SanityLive} from '@/sanity/lib/live'
 import {settingsQuery, servicesNavQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage, urlForImage} from '@/sanity/lib/utils'
@@ -142,6 +144,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   const localBusinessJsonLd = buildLocalBusinessJsonLd(settings)
   const ga4Id = settings?.ga4MeasurementId
   const gtmId = settings?.gtmContainerId
+  const ctmId = settings?.ctmId
   let logoUrl: string | undefined
   try {
     if (settings?.logo?.asset?._ref) logoUrl = urlForImage(settings.logo).width(600).url()
@@ -220,8 +223,14 @@ export default async function RootLayout({children}: {children: React.ReactNode}
             </Script>
           </>
         )}
+        {ctmId && (
+          <Script id="ctm" src={`https://${ctmId}.tctm.co/t.js`} strategy="afterInteractive" />
+        )}
       </head>
       <body>
+        <Suspense fallback={null}>
+          <TrackingRouteEvents />
+        </Suspense>
         {gtmId && (
           <noscript>
             <iframe
