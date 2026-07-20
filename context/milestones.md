@@ -134,6 +134,27 @@ KC is the simplest site in the Embark portfolio. Brian confirmed this. The miles
 
 ---
 
+## Milestone 4.5: Data Integrity & Analytics Fixes
+
+**Status:** Complete (merged to main)
+**Branches:** `fix/settings-singleton-remediation`, `feature/gtm-ctm-route-tracking`
+
+### Goals
+- Fix `settingsQuery` fetching an arbitrary `settings` document instead of the canonical singleton
+- Remove leftover cross-brand (Boxers Bed & Biscuits) alt text fallback strings from a shared Hound Around-origin component
+- Add virtual page view tracking for GTM and CallTrackingMetrics (CTM) on client-side route changes
+- Load the CallTrackingMetrics tracking script from Sanity settings instead of leaving it unwired
+
+### What was done
+- `settingsQuery` now filters on `_id == "siteSettings"` so the frontend always reads the canonical settings document rather than whichever `settings` document Sanity returns first (`fix: enforce canonical settings singleton`)
+- `HeroMarquee.tsx` alt-text fallbacks corrected from "Boxers Bed & Biscuits" / "Boxers facility" to "Kingdom Canine" / "Kingdom Canine facility" (`fix: correct cross-brand hero alt text`)
+- Added `TrackingRouteEvents.tsx` (client component, mounted in `layout.tsx`): pushes a `virtual_page_view` event to `dataLayer` on every route change and re-triggers CTM's `window.__ctm.main.runNow()` so CTM's call-tracking swap logic re-runs on client-side navigations, not just full page loads
+- Added `ctmId` field to the `settings` singleton schema (numeric CTM account ID, e.g. `602201`), wired into `settingsQuery`, and added conditional `<Script>` loading of `https://{ctmId}.tctm.co/t.js` in `layout.tsx` — previously the CTM route-tracking listener existed with nothing loading `window.__ctm` in the first place
+- Schema deployed to Sanity cloud; `siteSettings` document patched and published with `ctmId: "602201"`
+- Build passes clean; both branches merged to `main`
+
+---
+
 ## Milestone 5: Polish & Launch Prep
 
 **Status:** Not Started
