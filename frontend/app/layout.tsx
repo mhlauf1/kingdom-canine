@@ -144,6 +144,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   const localBusinessJsonLd = buildLocalBusinessJsonLd(settings)
   const ga4Id = settings?.ga4MeasurementId
   const gtmId = settings?.gtmContainerId
+  const ctmId = settings?.ctmId
   let logoUrl: string | undefined
   try {
     if (settings?.logo?.asset?._ref) logoUrl = urlForImage(settings.logo).width(600).url()
@@ -221,6 +222,9 @@ export default async function RootLayout({children}: {children: React.ReactNode}
               {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${ga4Id}');`}
             </Script>
           </>
+        )}
+        {ctmId && (
+          <Script id="ctm" src={`https://${ctmId}.tctm.co/t.js`} strategy="afterInteractive" />
         )}
       </head>
       <body>

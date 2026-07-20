@@ -355,6 +355,20 @@ export const settings = defineType({
       description: 'Google Search Console verification meta tag content',
     }),
     defineField({
+      name: 'ctmId',
+      title: 'CallTrackingMetrics Tracking ID',
+      type: 'string',
+      description:
+        'CallTrackingMetrics numeric account ID (e.g. 602201), used to load //{id}.tctm.co/t.js',
+      validation: (Rule) =>
+        Rule.warning().custom((value) => {
+          if (value && !/^\d+$/.test(value)) {
+            return 'Should be numeric (e.g. 602201)'
+          }
+          return true
+        }),
+    }),
+    defineField({
       name: 'localBusiness',
       title: 'Local Business (Structured Data)',
       type: 'object',
