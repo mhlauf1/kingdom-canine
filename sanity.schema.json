@@ -9160,6 +9160,13 @@
         },
         "optional": true
       },
+      "ctmId": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "localBusiness": {
         "type": "objectAttribute",
         "value": {

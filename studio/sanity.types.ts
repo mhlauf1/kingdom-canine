@@ -1337,6 +1337,7 @@ export type Settings = {
   ga4MeasurementId?: string
   gtmContainerId?: string
   googleSiteVerification?: string
+  ctmId?: string
   localBusiness?: {
     businessName?: string
     businessType?: string

@@ -1337,6 +1337,7 @@ export type Settings = {
   ga4MeasurementId?: string
   gtmContainerId?: string
   googleSiteVerification?: string
+  ctmId?: string
   localBusiness?: {
     businessName?: string
     businessType?: string
@@ -1991,6 +1992,7 @@ export type SettingsQueryResult = {
   ga4MeasurementId: string | null
   gtmContainerId: string | null
   googleSiteVerification: string | null
+  ctmId: string | null
   localBusiness: {
     businessName?: string
     businessType?: string
@@ -2015,7 +2017,6 @@ export type SettingsQueryResult = {
     priceRange?: string
   } | null
   faviconUrl: string | null
-  ctmId: null
 } | null
 
 // Source: sanity/lib/queries.ts
