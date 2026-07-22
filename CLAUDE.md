@@ -2,8 +2,7 @@
 
 Website for Kingdom Canine, a pet daycare, boarding, grooming, and transportation facility in Pacific, MO. Part of the [Embark Pet Services](https://www.embarkpetservices.com/) portfolio operated by Cadence Private Capital.
 
-**Live domain:** https://kingdomcanine.com/
-**Current site (being replaced):** HighLevel / GoHighLevel platform
+**Live domain:** https://www.kingdomcanine.com/ — **this build is LIVE in production** (Vercel project `kingdom-canine-frontend`; replaced the old HighLevel site). Changes merged to main deploy to the live site.
 **Sister sites (design reference):** https://homeawayfargo.com/ · https://houndaroundresort.com/ · https://www.boxersbedandbiscuits.com/
 
 ## Context Files

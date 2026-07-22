@@ -155,10 +155,16 @@ KC is the simplest site in the Embark portfolio. Brian confirmed this. The miles
 
 ---
 
-## Milestone 5: Polish & Launch Prep
+## Launch
 
-**Status:** Not Started
-**Branch:** `feature/polish`
+**Status:** Complete — the site is live at https://www.kingdomcanine.com/ (Vercel + Cloudflare DNS; HighLevel site retired). It has been in production for months as of July 2026; these docs were updated retroactively in July 2026 to reflect that.
+
+---
+
+## Milestone 5: Post-Launch Polish
+
+**Status:** In Progress
+**Branch:** `feature/thank-you-page` (and others as needed)
 
 ### Goals
 - SEO optimization (meta tags, structured data, sitemap.xml, robots.txt)
