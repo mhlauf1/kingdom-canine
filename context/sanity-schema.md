@@ -108,6 +108,7 @@ The pricing calculator (`pricingCalculator` block type) has a `calculatorType` f
 | Pricing | page | pricing | `bac599e8-11c6-423b-9ce5-a4b557d311e5` |
 | Contact | page | contact | `9b3488e7-b902-416e-87cf-2c1382e785ba` |
 | New Clients | page | new-clients | `5e76c40e-9e73-46f2-9bea-8625f04cbc85` |
+| Thank You | page | thank-you | `9fa81fda-cf4c-49c2-a8ad-86711bae2f27` |
 | Settings | settings | — | `fba58743-9937-4781-b004-ad8ced408efd` |
 
 ## Notes

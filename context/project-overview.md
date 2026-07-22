@@ -1,5 +1,7 @@
 # Project Overview
 
+> **STATUS: LAUNCHED.** This build is live in production at https://www.kingdomcanine.com/ (Vercel, DNS via Cloudflare) and has been for months as of July 2026. It fully replaced the old HighLevel site. Sections below describing HighLevel as "current hosting" or launch as pending are historical.
+
 ## What This Is
 
 This is the website for **Kingdom Canine**, a pet daycare, boarding, grooming, and transportation facility located at 2549 Hogan Rd, Pacific, MO 63069. The site lives at **kingdomcanine.com**.
@@ -65,11 +67,11 @@ Kingdom Canine is the **fourth** website in the Embark portfolio:
 
 ## Infrastructure Status
 
-DNS recon complete. Kingdom Canine is the cleanest infrastructure picture in the portfolio:
+Launched. Kingdom Canine is the cleanest infrastructure picture in the portfolio:
 
 - **Domain:** Registered at Cloudflare, DNS hosted on Cloudflare. No domain transfer needed.
-- **Current hosting:** HighLevel (GoHighLevel). www CNAME → `sites.ludicrous.cloud`. At launch, update A + www CNAME to Vercel.
-- **Email:** Already on M365 (`kingdomcanine-com.mail.protection.outlook.com`). SPF configured. No email migration needed.
+- **Hosting:** Vercel (project `kingdom-canine-frontend`). DNS cutover from HighLevel is complete — the old HighLevel site is retired.
+- **Email:** Already on M365 (`kingdomcanine-com.mail.protection.outlook.com`). SPF configured. No email migration needed. Contact form sends via Gmail SMTP to info@kingdomcanine.com (BCC to Impact Marketing).
 - **POS:** Currently Gingr (`kingdomcanine.portal.gingrapp.com`). Transitioning to Goose — timeline TBD. POS portal lives on gingrapp.com domain, no DNS dependency on our side.
 - **TXT records to preserve at launch:** Facebook domain verification, MS verification. Drop Mailgun SPF include (HighLevel artifact).
 
