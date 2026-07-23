@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 })
 
 const toEmail = process.env.CONTACT_FORM_TO_EMAIL || ''
-const bccEmail = process.env.CONTACT_FORM_BCC_EMAIL || ''
+const bccEmail = process.env.CONTACT_FORM_BCC_EMAIL || 'acockerham@impactmarketing.net'
 const fromEmail = process.env.SMTP_FROM || process.env.SMTP_USER || ''
 const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY || ''
 const RECAPTCHA_MIN_SCORE = 0.5
