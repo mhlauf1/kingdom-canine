@@ -116,9 +116,9 @@ export default function PricingPageTabs({block}: PricingPageTabsProps) {
           <div className="text-center  pt-20 max-w-4xl mx-auto mb-8 lg:mb-10">
             {eyebrow && <Badge className="mb-3">{eyebrow}</Badge>}
             {heading && (
-              <h2 className="text-[36px] md:text-[58px] lg:text-[70px] font-semibold tracking-tight leading-[105%] text-forest mb-4">
+              <h1 className="text-[36px] md:text-[58px] lg:text-[70px] font-semibold tracking-tight leading-[105%] text-forest mb-4">
                 {heading}
-              </h2>
+              </h1>
             )}
             {description && (
               <p className="font-sans text-[16px] md:text-[18px] leading-[150%] text-charcoal/80">

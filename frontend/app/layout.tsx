@@ -33,7 +33,7 @@ import {resolveOpenGraphImage, urlForImage} from '@/sanity/lib/utils'
 import Script from 'next/script'
 import {handleError} from '@/app/client-utils'
 
-const SITE_URL = 'https://kingdomcanine.com'
+const SITE_URL = 'https://www.kingdomcanine.com'
 
 function buildLocalBusinessJsonLd(settings: any) {
   const lb = settings?.localBusiness

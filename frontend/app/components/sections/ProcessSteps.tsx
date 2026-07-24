@@ -44,9 +44,9 @@ export default function ProcessSteps({block}: ProcessStepsProps) {
           <div className="text-center flex flex-col items-center mb-10 lg:mb-14 max-w-2xl mx-auto">
             {eyebrow && <Badge className="mb-3">{eyebrow}</Badge>}
             {heading && (
-              <h2 className="text-[40px] md:text-[52px] lg:text-[64px] max-w-[16ch] font-semibold tracking-tight leading-[105%] mb-4">
+              <h1 className="text-[40px] md:text-[52px] lg:text-[64px] max-w-[16ch] font-semibold tracking-tight leading-[105%] mb-4">
                 {heading}
-              </h2>
+              </h1>
             )}
             {description && (
               <p

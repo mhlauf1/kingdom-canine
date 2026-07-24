@@ -126,9 +126,9 @@ export default function ContactForm({block}: ContactFormProps) {
               </FadeIn>
             )}
             {heading && (
-              <h2 className="text-[36px] md:text-[48px] lg:text-[56px] font-semibold tracking-tight leading-[105%] text-forest mb-4">
+              <h1 className="text-[36px] md:text-[48px] lg:text-[56px] font-semibold tracking-tight leading-[105%] text-forest mb-4">
                 {heading}
-              </h2>
+              </h1>
             )}
             {description && (
               <div className="font-sans text-[16px] md:text-[18px] leading-[150%] text-charcoal/80 max-w-2xl prose prose-p:mb-3">

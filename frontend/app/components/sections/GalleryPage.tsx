@@ -55,9 +55,9 @@ export default function GalleryPage({block}: GalleryPageProps) {
           <FadeIn>
             <div className="mb-10 lg:mb-14 max-w-3xl">
               {heading && (
-                <h2 className="text-[36px] md:text-[48px] lg:text-[56px] font-semibold tracking-tight leading-[105%] text-forest">
+                <h1 className="text-[36px] md:text-[48px] lg:text-[56px] font-semibold tracking-tight leading-[105%] text-forest">
                   {heading}
-                </h2>
+                </h1>
               )}
               {subtext && (
                 <p className="mt-4 text-[16px] md:text-[18px] leading-[160%] text-forest/70">
