@@ -186,3 +186,33 @@ KC is the simplest site in the Embark portfolio. Brian confirmed this. The miles
 - DNS cutover plan documented
 - Brian notified 24 hours before go-live
 - POS prices match site prices exactly on launch day
+
+---
+
+## Milestone 5.1: Contact Form Hardening
+
+**Status:** Complete (merged to `main`)
+**Branch:** `fix/contact-form-hardening`
+**PR:** #6
+**Merge commit:** `59c375c`
+
+### What was done
+
+- Preserved required `name`, `email`, and `message`; optional `phone` and `service`; Kingdom's four service choices; facility recipient; IMPACT BCC; `(314) 631-6738` fallback; and `/thank-you`
+- Added a strict Zod schema, supported-field allowlist, server-side field limits, JSON-only parsing, and a 32 KiB streaming request limit
+- Added a hidden honeypot that returns the ordinary success response without sending email
+- Added exact reCAPTCHA action and Production/Preview hostname validation
+- Added two bounded 3-second verification attempts, Production secret fail-closed behavior, and visibly flagged delivery only for a genuine Google outage
+- Added progressive US phone formatting with paste-safe `+1` handling
+- Added ten focused non-delivery tests and the contact-test script
+
+### Verification
+
+- Ten focused tests, focused ESLint, TypeScript, Production build, and `git diff --check` pass
+- Repository-wide lint remains blocked by 106 pre-existing errors and 9 warnings outside this patch
+- Vercel Preview and Production deployments completed successfully
+- Read-only Preview and Production QA confirmed the hardened form contract and correct `/thank-you` behavior
+- Production reCAPTCHA is healthy and browser logs are clean
+- Preview retains the known external Google-key domain-registration and Sanity CORS dependencies
+- No form was submitted and no email was sent
+- Live recipient delivery, IMPACT BCC receipt, and successful-submission navigation remain deferred to the coordinated portfolio acceptance window
