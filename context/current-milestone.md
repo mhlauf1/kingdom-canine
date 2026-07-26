@@ -1,5 +1,38 @@
 # Current Milestone
 
+## Milestone 5.1: Contact Form Hardening
+
+### Status
+
+Implementation complete and locally verified on `fix/contact-form-hardening`; ready for the review and delivery workflow.
+
+### Scope
+
+- Preserve the published contact contract: required `name`, `email`, and `message`; optional `phone` and `service`
+- Restrict `service` to Daycare, Boarding, Grooming, or Transportation
+- Add strict server-side validation, field limits, JSON-only parsing, and a 32 KiB request limit
+- Add a hidden honeypot without changing the visible form
+- Restrict client and email rendering to the supported fields
+- Format US phone input while accepting pasted `+1` country codes
+- Validate the reCAPTCHA v3 action and exact Production/Preview hostname
+- Fail closed when reCAPTCHA is missing in Production; retry bounded verification failures and preserve legitimate leads when Google is temporarily unavailable
+- Preserve `info@kingdomcanine.com`, the configured IMPACT BCC, and `/thank-you`
+- Add focused non-delivery tests and run lint, type-check, and build before any commit
+
+### Safety constraint
+
+Do not submit the form or send email during implementation and verification. Live facility delivery, IMPACT BCC, and thank-you navigation remain deferred to the coordinated portfolio acceptance window.
+
+### Local verification
+
+- 10 focused non-delivery contact tests pass
+- Focused ESLint passes
+- TypeScript passes
+- Production build passes
+- `git diff --check` passes
+- Repository-wide lint remains blocked by 106 pre-existing errors and 9 warnings outside this patch
+- No form was submitted and no email was sent
+
 ## Milestone 5: Post-Launch Polish
 
 ### Status
