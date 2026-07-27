@@ -1,5 +1,7 @@
 # Kingdom Canine — Sanity Schema & Content Architecture Audit
 
+> **SNAPSHOT — captured July 2026.** This audit reflects the codebase and dataset at the time it was written and is NOT kept up to date. Verify any finding against the current code before acting on it.
+
 Audit date: 2026-07-10  
 Model: `gpt-5`  
 Evidence scope: repository source plus read-only production dataset snapshot. The requested `cms-audit/reference/*` files were NOT FOUND; completed references resolved at `../home-away-fargo/cms-audit/schema-inventory.json` and `../houndaround/main-3/cms-audit/schema-inventory.json`.
