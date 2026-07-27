@@ -28,6 +28,7 @@ type GalleryPageProps = {
   index: number
   pageId: string
   pageType: string
+  isFirstContent?: boolean
 }
 
 const bgClasses: Record<string, string> = {
@@ -35,7 +36,8 @@ const bgClasses: Record<string, string> = {
   sand: 'bg-sand',
 }
 
-export default function GalleryPage({block}: GalleryPageProps) {
+export default function GalleryPage({block, isFirstContent}: GalleryPageProps) {
+  const HeadingTag = isFirstContent ? 'h1' : 'h2'
   const {heading, subtext, images, layout, backgroundColor} = block
   const {isOpen, currentIndex, openLightbox, closeLightbox} = useLightbox()
 
@@ -55,9 +57,9 @@ export default function GalleryPage({block}: GalleryPageProps) {
           <FadeIn>
             <div className="mb-10 lg:mb-14 max-w-3xl">
               {heading && (
-                <h1 className="text-[36px] md:text-[48px] lg:text-[56px] font-semibold tracking-tight leading-[105%] text-forest">
+                <HeadingTag className="text-[36px] md:text-[48px] lg:text-[56px] font-semibold tracking-tight leading-[105%] text-forest">
                   {heading}
-                </h1>
+                </HeadingTag>
               )}
               {subtext && (
                 <p className="mt-4 text-[16px] md:text-[18px] leading-[160%] text-forest/70">
