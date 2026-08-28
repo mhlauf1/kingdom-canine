@@ -72,7 +72,7 @@ Launched. Kingdom Canine is the cleanest infrastructure picture in the portfolio
 - **Domain:** Registered at Cloudflare, DNS hosted on Cloudflare. No domain transfer needed.
 - **Hosting:** Vercel (project `kingdom-canine-frontend`). DNS cutover from HighLevel is complete — the old HighLevel site is retired.
 - **Email:** Already on M365 (`kingdomcanine-com.mail.protection.outlook.com`). SPF configured. No email migration needed. Contact form sends via Gmail SMTP to info@kingdomcanine.com (BCC to Impact Marketing).
-- **POS:** Currently Gingr (`kingdomcanine.portal.gingrapp.com`). Transitioning to Goose — timeline TBD. POS portal lives on gingrapp.com domain, no DNS dependency on our side.
+- **POS:** Goose (`booking.goose.pet/kingdom-canine`) as of August 2026 — the Gingr → Goose transition is complete and all site URLs were swapped on 2026-08-28. POS portal lives on goose.pet domain, no DNS dependency on our side.
 - **TXT records to preserve at launch:** Facebook domain verification, MS verification. Drop Mailgun SPF include (HighLevel artifact).
 
 ## Site Structure
@@ -109,7 +109,7 @@ kingdomcanine.com/
 - **Grooming pricing overhaul** — Current site hides prices behind "Contact us." New build has a full pricing matrix: baths (size × hair length), full grooms by size, à la carte services (ear cleaning, gland expression, nail trim, pad trim, teeth brushing), plus doodle/specialty surcharge. This is the biggest content shift.
 - **VIP Luxury Suite** — New boarding tier at $150/night for 1–4 dogs. Needs a visual moment, not just another row in a table.
 - **Daycare packages** — New structured packages (10/20/30 day) replacing the old flat-rate-only model.
-- **POS transition** — Gingr → Goose is in progress. All POS URLs stored in a single Sanity site-settings doc so the swap is one update, not a code change.
+- **POS transition** — Gingr → Goose completed August 2026. POS URLs live in the Sanity site-settings doc (`posUrls`), but Gingr URLs had also been entered directly on CTA/link blocks across pages — the 2026-08-28 swap patched all 24 occurrences across 8 documents to `https://booking.goose.pet/kingdom-canine`.
 
 ### Page pattern (inherited from Embark design system)
 
@@ -130,7 +130,7 @@ Homepage: hero, services overview cards, stats counter, testimonials, CTA band.
 - Facility info (name, address, phone)
 - Service descriptions (boarding "Pack Mentality" narrative, daycare, grooming packages, transportation)
 - Facility stats (11,000 sqft turfed outdoor, 4,200 sqft indoor)
-- Booking flow (Gingr portal — 3-step: create account → trial day → schedule)
+- Booking flow (customer portal — 3-step: create account → trial day → schedule)
 - Brand language ("Pack Mentality", "Enjoy your vacay while your dog has a staycay")
 
 ### Waiting on
@@ -141,7 +141,7 @@ Homepage: hero, services overview cards, stats counter, testimonials, CTA band.
 - FAQ content (none provided beyond what's implied by current site)
 - Vaccination / requirements info
 - Email address for the facility (need to confirm what mailboxes exist under M365)
-- Goose POS go-live date for KC
+- ~~Goose POS go-live date for KC~~ — done: Goose live as of August 2026
 
 ## Facility Quick Reference
 
@@ -152,6 +152,6 @@ Homepage: hero, services overview cards, stats counter, testimonials, CTA band.
 - **Service area:** St. Louis area and Franklin County, MO
 - **Hours:** Mon–Fri 6am–11am & 1pm–7pm | Sat–Sun 11am–4pm
 - **Play areas:** 11,000 sqft turfed outdoor, 4,200 sqft indoor
-- **Booking:** Gingr Pet Parent App (portal: kingdomcanine.portal.gingrapp.com)
+- **Booking:** Goose customer portal (https://booking.goose.pet/kingdom-canine)
 - **Services:** Dog daycare, dog boarding (Standard + VIP Luxury Suite), grooming, transportation
-- **POS:** Gingr (transitioning to Goose — date TBD)
+- **POS:** Goose (live as of August 2026; formerly Gingr)

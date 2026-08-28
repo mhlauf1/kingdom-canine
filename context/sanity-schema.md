@@ -24,7 +24,7 @@ The only standalone reference document is `testimonial`.
 ### `settings` (singleton)
 Global site config: title, tagline, logo, nav items, CTA button, footer columns, contact info, social links, **POS/booking URLs** (portalUrl, registrationUrl, per-service booking URLs), business hours, SEO (OG image, favicon, GA4, GTM, GSC), local business structured data.
 
-**KC-specific:** POS portal URLs stored here (Gingr now, Goose later) for single-point swap. The `posUrls` object field was added in M2.
+**KC-specific:** POS portal URLs stored here for single-point swap. The `posUrls` object field was added in M2. As of 2026-08-28 both `posUrls` fields point to the Goose portal (`https://booking.goose.pet/kingdom-canine`). Note: Gingr URLs had also been entered directly on CTA/link `href` fields across pages and services — the Goose swap patched all 24 occurrences across 8 documents (settings, homepage, pricing, new-clients, and all 4 services), plus one "Gingr portal" text mention on the transportation page (now "customer portal").
 
 ### `page`
 Generic pages (homepage, pricing, gallery, new-clients, contact). Fields: name, slug, seo, pageBuilder (42 block types).
