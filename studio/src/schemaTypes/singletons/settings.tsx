@@ -369,6 +369,14 @@ export const settings = defineType({
         }),
     }),
     defineField({
+      name: 'embedReachScriptUrl',
+      title: 'EmbedReach Analytics Script URL',
+      type: 'url',
+      description:
+        'EmbedReach tracking pixel script src (e.g. https://public.embedreach.com/scripts/.../analytics.js). Loaded on every page.',
+      validation: (Rule) => Rule.uri({scheme: ['https']}),
+    }),
+    defineField({
       name: 'localBusiness',
       title: 'Local Business (Structured Data)',
       type: 'object',
