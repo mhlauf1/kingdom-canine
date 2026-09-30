@@ -52,6 +52,7 @@ export const settingsQuery = defineQuery(`*[_type == "settings" && _id == "siteS
   gtmContainerId,
   googleSiteVerification,
   ctmId,
+  embedReachScriptUrl,
   localBusiness
 }`)
 
